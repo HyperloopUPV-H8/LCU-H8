@@ -1,0 +1,6 @@
+/home/stefancostea/Documents/LCU FINAL/LCU_MASTER/build/CMakeFiles/LCU_MASTER.elf.dir
+/home/stefancostea/Documents/LCU FINAL/LCU_MASTER/build/CMakeFiles/edit_cache.dir
+/home/stefancostea/Documents/LCU FINAL/LCU_MASTER/build/CMakeFiles/rebuild_cache.dir
+/opt/malva/ST-LIB/build/CMakeFiles/st-lib.dir
+/opt/malva/ST-LIB/build/CMakeFiles/edit_cache.dir
+/opt/malva/ST-LIB/build/CMakeFiles/rebuild_cache.dir
