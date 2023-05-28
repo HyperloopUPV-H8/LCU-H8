@@ -1,0 +1,10 @@
+#pragma once
+#include "LinearSensor.hpp"
+#include "Control/Blocks/MovingAverage.hpp"
+
+template<size_t N>
+class FilteredLinearSensor : public LinearSensor{
+	MovingAverage<N>& filter;
+
+	FilteredLinearSensor()
+};

@@ -1,0 +1,7 @@
+#pragma once
+#include "LinearSensor.hpp"
+#include "Control/Blocks/MovingAverage.hpp"
+
+class FilteredLinearSensor : public LinearSensor{
+
+};

@@ -1,0 +1,113 @@
+#pragma once
+#include <LCU_Control/DistanceControl.hpp>
+#include "LCU_Actuators/LCU_Actuators.hpp"
+#include "DistanceControl.hpp"
+#include "LCU_Mode/LCU_Mode.hpp"
+#include "LCU_Data/LCU_Data.hpp"
+#include "CurrentControl.hpp"
+
+namespace LCU {
+    template<LCU::MASTER_MODE> class Control;
+
+    template<> class Control<LCU::MASTER_MODE::LPU_VALIDATION>{
+        public:
+            CurrentControl current_control;
+            Control(LCU::Actuators<LPU_VALIDATION>& actuators, HEMS_ID hems_id){
+                switch (hems_id){
+                    case HEMS_ID::HEMS_1:
+                        current_control = {actuators.HEMS1};
+                        break;
+                    case HEMS_ID::HEMS_3:
+                        current_control = {actuators.HEMS3};
+                        break;
+                    case HEMS_ID::EMS_1:
+                        current_control = {actuators.EMS1};
+                        break;
+                    case HEMS_ID::EMS_3:
+                        current_control = {actuators.EMS3};
+                        break;
+                    default:
+                        ErrorHandler("Invalid HEMS_ID, given id: %d", hems_id);
+                        break;
+                }
+                current_control.half_bridge.turn_on();
+            }
+
+            void execute(float real_current){
+                current_control.control(real_current);
+            }
+
+            void set_reference(float reference){
+                current_control.set_reference(reference);
+            }
+
+            void stop(){
+                current_control.half_bridge.turn_off();
+            }
+
+            void reset(){
+            	current_control.current_pi.reset();
+            	current_control.half_bridge.turn_on();
+            }
+    }; 
+
+    template<> class Control<LCU::MASTER_MODE::TESTBENCH_1DOF>{
+    public:
+    	CurrentControl current_control;
+    	DistanceControl<TESTBENCH_1DOF> distance_control;
+        Control(LCU::Actuators<LPU_VALIDATION>& actuators, HEMS_ID hems_id){
+            switch (hems_id){
+                case HEMS_ID::HEMS_1:
+                    current_control = CurrentControl(actuators.HEMS1);
+                    break;
+                case HEMS_ID::HEMS_3:
+                    current_control = CurrentControl(actuators.HEMS3);
+                    break;
+                case HEMS_ID::EMS_1:
+                    current_control = CurrentControl(actuators.EMS1);
+                    break;
+                case HEMS_ID::EMS_3:
+                    current_control = CurrentControl(actuators.EMS3);
+                    break;
+                default:
+                    ErrorHandler("Invalid HEMS_ID, given id: %d", hems_id);
+                    break;
+            }
+            current_control.half_bridge.turn_on();
+        }
+
+        void execute_distance_control(float real_distance){
+        	distance_control.control(real_distance);
+        }
+
+        void execute_current_control(float real_current){
+        	current_control.set_reference_current(distance_control.pid.output_value);
+        	current_control.control(real_current);
+        }
+
+        void set_distance_reference(float new_distance){
+        	distance_control.set_reference_distance(new_distance/1000);
+        }
+
+        void stop(){
+            current_control.half_bridge.turn_off();
+        }
+
+        void reset(){
+        	distance_control.pid.reset();
+        	current_control.current_pi.reset();
+        	current_control.half_bridge.turn_on();
+        }
+    };
+
+    template<> class Control<LCU::MASTER_MODE::VEHICLE_5DOF>{
+    	CurrentControl hems_1_current_control, hems_3_current_control, ems_1_current_control, ems_3_current_control;
+    	DistanceControl<VEHICLE_5DOF> position_control;
+
+    	Control(LCU::Actuators<VEHICLE_5DOF>& actuators, LCU::Data<VEHICLE_5DOF>& data): hems_1_current_control(actuators.HEMS_1), hems_3_current_control(actuators.HEMS_3),
+    			ems_1_current_control(actuators.EMS_1)
+    	{}
+    };
+}
+
+
