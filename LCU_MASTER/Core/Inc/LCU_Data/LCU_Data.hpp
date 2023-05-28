@@ -23,10 +23,7 @@ namespace LCU{
 	float batt_voltage_1 = 0;
 	float batt_voltage_2 = 0;
 
-	float airgap_1 = 0;
-	float airgap_3 = 0;
-	float airgap_5 = 0;
-	float airgap_7 = 0;;
+	float airgaps[8] = {0.0};
 
 	double reference_current_hems_1 = 0;
 	double reference_current_hems_3 = 0;

@@ -85,11 +85,11 @@ all: main-build
 main-build: LCU_MASTER.elf secondary-outputs
 
 dependents:
-	-cd /home/stefancostea/Documents/ST-LIB/Debug && $(MAKE) all
+	-cd /home/stefancostea/Documents/ST-LIB/Debug && $(MAKE) clean all
 
 # Tool invocations
-LCU_MASTER.elf LCU_MASTER.map: $(OBJS) $(USER_OBJS) /home/stefancostea/Documents/ST-LIB/Debug/libST-LIB.a /home/stefancostea/Documents/LCU\ FINAL/LCU_MASTER/STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "LCU_MASTER.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/home/stefancostea/Documents/LCU FINAL/LCU_MASTER/STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCU_MASTER.map" -Wl,--gc-sections -static -L"/home/stefancostea/Documents/ST-LIB/Debug" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+LCU_MASTER.elf LCU_MASTER.map: $(OBJS) $(USER_OBJS) /home/stefancostea/Documents/ST-LIB/Debug/libST-LIB.a /home/stefancostea/Documents/LCU-H8/LCU_MASTER/STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "LCU_MASTER.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/home/stefancostea/Documents/LCU-H8/LCU_MASTER/STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCU_MASTER.map" -Wl,--gc-sections -static -L"/home/stefancostea/Documents/ST-LIB/Debug" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

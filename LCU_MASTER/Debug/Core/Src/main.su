@@ -29,6 +29,7 @@
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:128:14:constexpr std::_Vector_base<TimerPeripheral::PWMData, std::allocator<TimerPeripheral::PWMData> >::_Vector_impl::~_Vector_impl()	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:128:14:constexpr std::_Vector_base<std::pair<long unsigned int, long unsigned int>, std::allocator<std::pair<long unsigned int, long unsigned int> > >::_Vector_impl::~_Vector_impl()	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/std_function.h:303:11:std::function<void()>::~function()	16	static
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:55:6:void set_time(uint32_t, uint32_t)	80	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_queue.h:96:11:std::queue<FDCAN::Packet>::~queue()	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:128:14:constexpr std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_Vector_impl::~_Vector_impl()	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:288:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = unsigned char; _Alloc = std::allocator<unsigned char>]	16	static
@@ -71,10 +72,10 @@
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/IPV4/IPV4.hpp:21:7:IPV4::~IPV4()	16	static
 ../Core/Inc/LCU_Actuators/LPU_HalfBridge.hpp:10:2:LPU_HalfBridge::LPU_HalfBridge(PWM*, PWM*)	24	static
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/PWM/PWM/PWM.hpp:26:2:constexpr PWM::PWM()	16	static
-../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:113:5:LCU::Actuators<LCU::TESTBENCH_1DOF>::Actuators(HEMS_ID)	216	static
-../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:139:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::init()	16	static
-../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:148:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::turn_off()	16	static
-../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:153:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::set_duty_cycle(float)	16	static
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:108:5:LCU::Actuators<LCU::TESTBENCH_1DOF>::Actuators(LCU::COIL_ID)	216	static
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:134:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::init()	16	static
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:143:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::turn_off()	16	static
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:148:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::set_duty_cycle(float)	16	static
 ../Core/Src/main.cpp:8:5:int main()	96	static
 ../Core/Src/main.cpp:17:6:void Error_Handler()	40	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:254:5:constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = unsigned int]	16	static

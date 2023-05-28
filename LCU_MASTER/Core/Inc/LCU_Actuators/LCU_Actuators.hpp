@@ -4,12 +4,6 @@
 #include "LPU_HalfBridge.hpp"
 #include "PWM/PWM/PWM.hpp"
 
-enum HEMS_ID{
-    HEMS_1,
-    HEMS_3,
-    EMS_1,
-    EMS_3,
-};
 
 namespace LCU{
     template<LCU::MASTER_MODE> class Actuators;
@@ -46,18 +40,18 @@ namespace LCU{
             EMS3.turn_off();
         }
 
-        void set_duty_cycle(HEMS_ID id, float duty){
+        void set_duty_cycle(COIL_ID id, float duty){
             switch (id){
-                case HEMS_ID::HEMS_1:
+                case COIL_ID::HEMS_1:
                     HEMS1.set_duty_cycle(duty);
                     break;
-                case HEMS_ID::HEMS_3:
+                case COIL_ID::HEMS_3:
                     HEMS3.set_duty_cycle(duty);
                     break;
-                case HEMS_ID::EMS_1:
+                case COIL_ID::EMS_1:
                     EMS1.set_duty_cycle(duty);
                     break;
-                case HEMS_ID::EMS_3:
+                case COIL_ID::EMS_3:
                     EMS3.set_duty_cycle(duty);
                     break;
                 default:
@@ -99,36 +93,37 @@ namespace LCU{
     template<>
     class Actuators<TESTBENCH_1DOF> {
     public:
-        Actuators(HEMS_ID id);
+
+        Actuators(COIL_ID id);
         LPU_HalfBridge HEMS;
         void init();
         void turn_off();
         void set_duty_cycle(float duty);
     private:
         static constexpr float pwm_frequency = 20000;
-        HEMS_ID hems_id;
+        COIL_ID hems_id;
         PWM HEMS_H1, HEMS_H2;
     };
 
-    Actuators<TESTBENCH_1DOF>::Actuators(HEMS_ID id){
+    Actuators<TESTBENCH_1DOF>::Actuators(COIL_ID id){
         hems_id = id;
         switch(id){
-            case HEMS_1:
+            case COIL_ID::HEMS_1:
                 HEMS_H1 = PWM(LCU::Pinout::HEMS1_H1_PIN);
                 HEMS_H2 = PWM(LCU::Pinout::HEMS1_H2_PIN);
                 HEMS = LPU_HalfBridge(&HEMS_H1, &HEMS_H2);
                 break;
-            case HEMS_3:
+            case COIL_ID::HEMS_3:
                 HEMS_H1 = PWM(LCU::Pinout::HEMS3_H1_PIN);
                 HEMS_H2 = PWM(LCU::Pinout::HEMS3_H2_PIN);
                 HEMS = LPU_HalfBridge(&HEMS_H1, &HEMS_H2);
                 break;
-            case EMS_1:
+            case COIL_ID::EMS_1:
                 HEMS_H1 = PWM(LCU::Pinout::EMS1_H1_PIN);
                 HEMS_H2 = PWM(LCU::Pinout::EMS1_H2_PIN);
                 HEMS = LPU_HalfBridge(&HEMS_H1, &HEMS_H2);
                 break;
-            case EMS_3:
+            case COIL_ID::EMS_3:
                 HEMS_H1 = PWM(LCU::Pinout::EMS3_H1_PIN);
                 HEMS_H2 = PWM(LCU::Pinout::EMS3_H2_PIN);
                 HEMS = LPU_HalfBridge(&HEMS_H1, &HEMS_H2);

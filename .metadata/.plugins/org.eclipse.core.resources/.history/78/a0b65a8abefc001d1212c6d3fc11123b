@@ -1,0 +1,14 @@
+#pragma once
+#include "../ControlBlock.hpp"
+
+template<size_t U, size_t V, size_t W>
+class MatrixMultiplier : ControlBlock<double(&)[N][M], double(&)[N][U]>{
+	double(&A)[M][N], (&B)[N][U], (&result)[N][U];
+	MatrixMultiplier(double(&A)[M][N], double(&B)[N][U], double(&result)[N][U]) : A(A), B(B), result(result){
+
+	}
+
+	void execute() override{
+
+	}
+};

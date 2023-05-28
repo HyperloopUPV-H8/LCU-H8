@@ -1,0 +1,62 @@
+#pragma once
+#include "LCU_Mode/LCU_Mode.hpp"
+#include "Control/Blocks/PID.hpp"
+#include "Control/Blocks/Saturator.hpp"
+#include "LevitationPositionCalculator.hpp"
+
+
+template<>
+class DistanceControl<LCU::MASTER_MODE::LPU_VALIDATION>{
+};
+
+template<>
+class DistanceControl<LCU::MASTER_MODE::TESTBENCH_1DOF>{
+public:
+	PID<IntegratorType::Trapezoidal,FilterDerivatorType::Moving_Average,22> pid = {ki,kp,kp,period};
+	Saturator<float> target_current_saturator = Saturator((float)0.0,(float)-50.0,(float)50.0);
+	static const float reference_distance = 0.0199;
+	float target_current = 0.0;
+	static const float ki = -7000, kp = -1400, kd = -475, period = 0.001;
+	DistanceControl() = default;
+	void set_reference_distance(float new_distance){
+		reference_distance = new_distance;
+	}
+	void control(float real_distance){
+		pid.input(reference_distance - real_distance/1000.0);
+		pid.execute();
+		target_current_saturator.input(pid.output_value);
+		target_current_saturator.execute();
+		target_current = target_current_saturator.output_value;
+	}
+};
+
+template<>
+class DistanceControl<LCU::MASTER_MODE::VEHICLE_5DOF>{
+public:
+	SimpleDerivator y_derivator, z_derivator, theta_derivator, psi_derivator, phi_derivator;
+	Integrator<IntegratorType::Trapezoidal> y_integrator, z_integrator, theta_integrator, psi_integrator, phi_integrator;
+	MovingAverage<20> y_filter_derivative, z_filter_derivative, theta_filter_derivative, psi_filter_derivative, phi_filter_derivative;
+	LevitationPosition error;
+	LevitationPositionCalculator airgap2pos;
+	LevitationPosition& levitation_position = airgap2pos.output_value;
+
+	double z_reference = 0.61448;
+
+	static const float period = 0.001;
+
+
+
+	DistanceControl(double(&distaces)[8]) : airgap2pos(distaces) {}
+private:
+	void calculate_error(){
+		airgap2pos.execute();
+		error = levitation_position;
+		error.z = z_reference - levitation_position.z;
+	}
+
+	void control(){
+		y_derivator.input(error.y);
+		z_derivator.input(error.z);
+		theta_derivator.input(error)
+	}
+}

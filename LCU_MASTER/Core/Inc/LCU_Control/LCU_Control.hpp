@@ -1,7 +1,7 @@
 #pragma once
+#include <LCU_Control/DistanceControl.hpp>
 #include "LCU_Actuators/LCU_Actuators.hpp"
 #include "DistanceControl.hpp"
-#include "1DOF_Testbench.hpp"
 #include "1DOF_Vehicle.hpp"
 #include "5DOF.hpp"
 #include "LCU_Mode/LCU_Mode.hpp"

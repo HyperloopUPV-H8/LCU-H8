@@ -29,6 +29,7 @@ LowPowerTimer.hpp:30:2:LowPowerTimer::LowPowerTimer(LPTIM_TypeDef&, LPTIM_Handle
 stl_vector.h:128:14:constexpr std::_Vector_base<TimerPeripheral::PWMData, std::allocator<TimerPeripheral::PWMData> >::_Vector_impl::~_Vector_impl()	1
 stl_vector.h:128:14:constexpr std::_Vector_base<std::pair<long unsigned int, long unsigned int>, std::allocator<std::pair<long unsigned int, long unsigned int> > >::_Vector_impl::~_Vector_impl()	1
 std_function.h:303:11:std::function<void()>::~function()	1
+sntp_opts.h:55:6:void set_time(uint32_t, uint32_t)	1
 stl_queue.h:96:11:std::queue<FDCAN::Packet>::~queue()	1
 stl_vector.h:128:14:constexpr std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_Vector_impl::~_Vector_impl()	1
 stl_vector.h:288:7:std::_Vector_base<_Tp, _Alloc>::_Vector_base() [with _Tp = unsigned char; _Alloc = std::allocator<unsigned char>]	1
@@ -71,10 +72,10 @@ unordered_map.h:102:11:std::unordered_map<long unsigned int, long unsigned int>:
 IPV4.hpp:21:7:IPV4::~IPV4()	1
 LPU_HalfBridge.hpp:10:2:LPU_HalfBridge::LPU_HalfBridge(PWM*, PWM*)	1
 PWM.hpp:26:2:constexpr PWM::PWM()	1
-LCU_Actuators.hpp:113:5:LCU::Actuators<LCU::TESTBENCH_1DOF>::Actuators(HEMS_ID)	5
-LCU_Actuators.hpp:139:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::init()	1
-LCU_Actuators.hpp:148:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::turn_off()	1
-LCU_Actuators.hpp:153:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::set_duty_cycle(float)	1
+LCU_Actuators.hpp:108:5:LCU::Actuators<LCU::TESTBENCH_1DOF>::Actuators(LCU::COIL_ID)	5
+LCU_Actuators.hpp:134:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::init()	1
+LCU_Actuators.hpp:143:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::turn_off()	1
+LCU_Actuators.hpp:148:10:void LCU::Actuators<LCU::TESTBENCH_1DOF>::set_duty_cycle(float)	1
 main.cpp:8:5:int main()	1
 main.cpp:17:6:void Error_Handler()	1
 stl_algobase.h:254:5:constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = unsigned int]	2

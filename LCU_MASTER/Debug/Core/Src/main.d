@@ -129,6 +129,9 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/Ethernet.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/FDCAN/FDCAN.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/iana.h \
  /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/CORDIC/CORDIC.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp \
@@ -156,12 +159,13 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Adder.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Derivator.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Integrator.hpp \
- /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/LevitationPositionCalculator.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlSystem.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PI.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PID.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Saturator.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashStorer.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashVariable.hpp \
  ../Core/Src/Runes/Runes.hpp ../Core/Src/Runes/Pins.hpp \
  ../Core/Inc/LCU_MASTER.hpp ../Core/Inc/LCU_Actuators/LCU_Actuators.hpp \
  ../Core/Inc/LCU_Pinout/Pinout.hpp ../Core/Inc/LCU_Mode/LCU_Mode.hpp \
@@ -298,6 +302,9 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/Ethernet.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/FDCAN/FDCAN.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/prot/iana.h:
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/CORDIC/CORDIC.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp:
@@ -325,12 +332,13 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Adder.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Derivator.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Integrator.hpp:
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/LevitationPositionCalculator.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlSystem.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PI.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PID.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Saturator.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashStorer.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashVariable.hpp:
 ../Core/Src/Runes/Runes.hpp:
 ../Core/Src/Runes/Pins.hpp:
 ../Core/Inc/LCU_MASTER.hpp:
