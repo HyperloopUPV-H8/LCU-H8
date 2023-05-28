@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;LCU_MASTER/Core/Inc/LCU_Protections&apos;" deleteContents="false" description="Delete resource &apos;LCU_MASTER/Core/Inc/LCU_Protections&apos;" element1="/LCU_MASTER/Core/Inc/LCU_Protections" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1685303095476"/>
+</session>
