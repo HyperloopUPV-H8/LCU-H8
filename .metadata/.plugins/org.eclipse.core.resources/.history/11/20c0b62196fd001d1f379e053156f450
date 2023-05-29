@@ -1,0 +1,55 @@
+#pragma once
+#include "LCU_Mode/LCU_Mode.hpp"
+#include "LCU_Data/LCU_Data.hpp"
+#include "LCU_Pinout/Pinout.hpp"
+#include "Control/Blocks/MovingAverage.hpp"
+#include "Sensors/LinearSensor/FilteredLinearSensor.hpp"
+#include "Protections/Boundary.hpp"
+namespace LCU{
+    template<LCU::MASTER_MODE> class Sensors;
+
+    template<MASTER_MODE::LPU_VALIDATION> class Sensors{
+        public:
+            Data<LPU_VALIDATION>& data;
+            // Airgaps
+            static constexpr float airgap_slope;
+            static constexpr float airgap_offset;
+            static constexpr float offset_mecanico;
+            static constexpr size_t aigarp_filter_order = 10;
+            MovingAverage<aigarp_filter_order> airgap_1_filter;
+            MovingAverage<aigarp_filter_order> airgap_3_filter;
+            MovingAverage<aigarp_filter_order> airgap_5_filter;
+            MovingAverage<aigarp_filter_order> airgap_7_filter;
+            FilteredLinearSensor<aigarp_filter_order> airgap_1_sensor {Pinout::AIRGAP_1_PIN, airgap_slope, airgap_offset, airgap_1_filter};
+            FilteredLinearSensor<aigarp_filter_order> airgap_3_sensor {Pinout::AIRGAP_3_PIN, airgap_slope, airgap_offset, airgap_3_filter};
+            FilteredLinearSensor<aigarp_filter_order> airgap_5_sensor {Pinout::AIRGAP_5_PIN, airgap_slope, airgap_offset, airgap_5_filter};
+            FilteredLinearSensor<aigarp_filter_order> airgap_7_sensor {Pinout::AIRGAP_7_PIN, airgap_slope, airgap_offset, airgap_7_filter};
+
+            // Curents
+            static constexpr float current_slope;
+            static constexpr float current_offset;
+
+            static constexpr size_t current_filter_order = 20;
+            MovingAverage<current_filter_order> current_hems_1_filter;
+            MovingAverage<current_filter_order> current_hems_3_filter;
+            MovingAverage<current_filter_order> current_ems_1_filter;
+            MovingAverage<current_filter_order> current_ems_3_filter;
+            FilteredLinearSensor<current_filter_order> current_hems_1_sensor {Pinout::HEMS1_CURRENT_PIN, current_slope, current_offset};
+            FilteredLinearSensor<current_filter_order> current_hems_3_sensor {Pinout::HEMS3_CURRENT_PIN, current_slope, current_offset};
+            FilteredLinearSensor<current_filter_order> current_ems_1_sensor {Pinout::EMS1_CURRENT_PIN, current_slope, current_offset};
+            FilteredLinearSensor<current_filter_order> current_ems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset};
+
+            Sensors(Data<LPU_VALIDATION>& data) : data(data) {};
+            ~Sensors();
+
+            void read_currents(){
+            	current_hems_1_sensor.read();
+            	current_hems_3_sensor.read();
+            	current_ems_1_sensor.read();
+            	current_ems_3_sensor.read();
+            }
+
+            void read_airgaps();
+            void read_temps();
+    };
+} 
