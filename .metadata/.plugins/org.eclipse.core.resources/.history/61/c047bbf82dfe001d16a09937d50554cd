@@ -1,0 +1,66 @@
+#pragma once
+#include "LCU_Mode/LCU_Mode.hpp"
+#include "StateMachine/StateMachine.hpp"
+#include "Protections/ProtectionManager.hpp"
+#include "BoardID/BoardID.hpp"
+#include "LCU_Communications/LCU_TCP/LCU_TCP.hpp"
+
+namespace LCU{
+	template<LCU::MASTER_MODE> class SpecificStateMachine;
+
+	template<> class SpecificStateMachine<LPU_VALIDATION>{
+
+	};
+
+	template<> class SpecificStateMachine<TESTBENCH_1DOF>{
+
+	};
+
+	template<> class SpecificStateMachine<VEHICLE_5DOF>{
+		StateMachine specific_state_machine;
+
+	};
+}
+
+namespace LCU{
+	template<LCU::MASTER_MODE> class GeneralStateMachine;
+
+	template<> class GeneralStateMachine<LPU_VALIDATION>{
+
+	};
+
+	template<> class GeneralStateMachine<TESTBENCH_1DOF>{
+
+	};
+
+	template<> class GeneralStateMachine<VEHICLE_5DOF>{
+		StateMachine general_state_machine;
+		TCP<VEHICLE_5DOF>& tcp_handler;
+
+		enum States{
+			INITIAL,
+			OPERATIONAL,
+			FAULT
+		};
+
+		GeneralStateMachine(TCP<VEHICLE_5DOF>& tcp_handler) : tcp_handler(tcp_handler){}
+
+		void init(){
+			general_state_machine = {INITIAL};
+			general_state_machine.add_state(OPERATIONAL);
+			general_state_machine.add_state(FAULT);
+			ProtectionManager::link_state_machine(general_state_machine, FAULT);
+			ProtectionManager::set_id(Boards::ID::LCU_MASTER);
+		}
+
+		void add_transitions(){
+			general_state_machine.add_transition(INITIAL, OPERATIONAL, [](){
+				return tcp_handler.BACKEND_CONNECTION.state == ServerSocket::ServerState::ACCEPTED &&
+					   tcp_handler.SLAVE_CONNECTION.state == Socket::SocketState::CONNECTED;
+			});
+			general_state_machine.add_transition(OPERATIONAL, FAULT, transition)
+		}
+	};
+}
+
+

@@ -1,0 +1,8 @@
+#pragma once
+#include "Time/Time.hpp"
+#include "Protections/ProtectionManager.hpp"
+#include "LCU_Mode/LCU_Mode.hpp"
+
+namespace LCU{
+	template<>
+}
