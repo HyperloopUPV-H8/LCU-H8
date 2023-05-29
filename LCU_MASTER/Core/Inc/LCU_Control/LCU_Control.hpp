@@ -102,6 +102,7 @@ namespace LCU {
     };
 
     template<> class Control<LCU::MASTER_MODE::VEHICLE_5DOF>{
+    public:
     	CurrentControl hems_1_current_control, hems_3_current_control, ems_1_current_control, ems_3_current_control;
     	DistanceControl<VEHICLE_5DOF> position_control;
     	float& hems_1_current, &hems_3_current, &ems_1_current, &ems_3_current;
@@ -117,6 +118,10 @@ namespace LCU {
 				ems_1_current(data.coil_current_ems_1),
 				ems_3_current(data.coil_current_ems_3)
     	{}
+
+    	void set_z_reference(float new_reference){
+    		position_control.set_z_reference(new_reference);
+    	}
 
     	void execute_current_control(){
     		hems_1_current_control.control(hems_1_current);

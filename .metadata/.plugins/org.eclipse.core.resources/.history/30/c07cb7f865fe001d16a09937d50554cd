@@ -1,0 +1,6 @@
+#pragma once
+#include "../LCU_MASTER.hpp"
+
+namespace LCU{
+	template
+}

@@ -1,6 +1,7 @@
 #pragma once
-#include "ST-LIB.hpp"
+#include "DatagramSocket.hpp"
 #include "LCU_Mode/LCU_Mode.hpp"
+#include "LCU_Pinout/Pinout.hpp"
 
 namespace LCU{
     template<LCU::MASTER_MODE> class UDP;

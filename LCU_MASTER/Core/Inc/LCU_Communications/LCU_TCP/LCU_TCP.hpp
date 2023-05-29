@@ -1,5 +1,8 @@
 #pragma once
 #include "LCU_Mode/LCU_Mode.hpp"
+#include "LCU_Pinout/Pinout.hpp"
+#include "Socket.hpp"
+#include "ServerSocket.hpp"
 
 namespace LCU{
     template<MASTER_MODE> class TCP;

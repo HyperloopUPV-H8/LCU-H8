@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../ControlBlock.hpp"
+#include "Control/ControlBlock.hpp"
 #include "math.h"
 #include "LevitationPosition.hpp"
 

@@ -48,7 +48,8 @@ public:
 	LevitationPositionCalculator airgap2pos;
 	LevitationPosition& levitation_position = airgap2pos.output_value;
 
-	double z_reference = 0.61448;
+	const double default_z_reference = 0.61448;
+	double z_reference = default_z_reference;
 
 	static const float period = 0.001;
 
@@ -161,6 +162,10 @@ public:
 		matrix_multiplier.execute();
 	}
 
+	void set_z_reference(float new_reference){
+		z_reference = new_reference;
+	}
+
 	void reset(){
 		y_integrator.reset();
 		z_integrator.reset();
@@ -201,5 +206,7 @@ public:
 		for(float& e : current_references){
 			e = 0.0;
 		}
+
+		set_z_reference(default_z_reference);
 	}
 };
