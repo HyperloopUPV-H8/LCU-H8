@@ -75,6 +75,14 @@ namespace LCU{
 				if(tcp_timeout) ErrorHandler("TCP connections could not be established in time and timed out");
 				return tcp_timeout;
 			});
+			general_state_machine.add_transition(OPERATIONAL, FAULT, [&](){
+				if(tcp_handler.BACKEND_CONNECTION.state != ServerSocket::ServerState::ACCEPTED ||
+						   tcp_handler.SLAVE_CONNECTION.state != Socket::SocketState::CONNECTED){
+					ErrorHandler("TCP connections fell");
+					return true;
+				}
+				return false;
+			});
 		}
 
 		void add_on_enter_actions(){
@@ -87,17 +95,11 @@ namespace LCU{
 				});
 			}, INITIAL);
 
-			TimedAction* tcp_timeout_action = general_state_machine.add_low_precision_cyclic_action([&](){
-				Time::set_timeout(max_tcp_connection_timeout, [&](){
-					if(not (tcp_handler.BACKEND_CONNECTION.state == ServerSocket::ServerState::ACCEPTED &&
-						    tcp_handler.SLAVE_CONNECTION.state == Socket::SocketState::CONNECTED)){
-								tcp_timeout = true;
-					}
-				});
-			}, 0, INITIAL);
-
-			Time::set_timeout(1, [&](){
-				general_state_machine.remove_cyclic_action(tcp_timeout_action, INITIAL);
+			Time::set_timeout(max_tcp_connection_timeout, [&](){
+				if(not (tcp_handler.BACKEND_CONNECTION.state == ServerSocket::ServerState::ACCEPTED &&
+						tcp_handler.SLAVE_CONNECTION.state == Socket::SocketState::CONNECTED)){
+							tcp_timeout = true;
+				}
 			});
 
 			general_state_machine.add_enter_action([&](){
