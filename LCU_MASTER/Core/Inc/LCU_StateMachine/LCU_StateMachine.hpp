@@ -6,6 +6,7 @@
 #include "LCU_Communications/LCU_TCP/LCU_TCP.hpp"
 #include "LCU_Actuators/LCU_Actuators.hpp"
 #include "LCU_Control/LCU_Control.hpp"
+#include "LCU_Communications/LCU_TCP/OutgoingOrders.hpp"
 
 using namespace std::chrono_literals;
 
@@ -36,6 +37,8 @@ namespace LCU{
 		MovingAverage<40> z_position_filter;
 
 		Control<VEHICLE_5DOF>& control;
+		TCP<VEHICLE_5DOF>& tcp_handler;
+		OutgoingOrders<VEHICLE_5DOF>& outgoing_orders;
 
 		enum SpecificStates{
 			IDLE,
@@ -46,7 +49,8 @@ namespace LCU{
 			LANDING,
 		};
 
-		SpecificStateMachine(Control<VEHICLE_5DOF>& control) : control(control){}
+		SpecificStateMachine(Control<VEHICLE_5DOF>& control, TCP<VEHICLE_5DOF>& tcp_handler, OutgoingOrders<VEHICLE_5DOF>& outgoing_orders) : control(control),
+				tcp_handler(tcp_handler), outgoing_orders(outgoing_orders){}
 
 		void init(){
 			specific_state_machine = {IDLE};
@@ -79,17 +83,27 @@ namespace LCU{
 			specific_state_machine.add_exit_action([&](){
 				control.stop();
 				control.reset();
+				tcp_handler.send_to_slave(outgoing_orders.stop_slave_levitation_order);
 			}, LANDING);
 
 			specific_state_machine.add_exit_action([&](){
 				control.stop();
 				control.reset();
+				tcp_handler.send_to_slave(outgoing_orders.stop_slave_levitation_order);
+
 			}, STICK_DOWN);
 
 			specific_state_machine.add_exit_action([&](){
 				control.stop();
 				control.reset();
+				tcp_handler.send_to_slave(outgoing_orders.stop_slave_levitation_order);
 			}, STICK_UP);
+		}
+
+		void add_on_enter_actions(){
+			specific_state_machine.add_enter_action([&](){
+				tcp_handler.send_to_slave(outgoing_orders.start_slave_levitation_order);
+			}, TAKING_OFF);
 		}
 
 		void add_cyclic_actions(){
@@ -167,8 +181,8 @@ namespace LCU{
 			FAULT
 		};
 
-		GeneralStateMachine(Data<VEHICLE_5DOF>& data, Actuators<VEHICLE_5DOF>& actuators, Control<VEHICLE_5DOF>& control, TCP<VEHICLE_5DOF>& tcp_handler) : actuators(actuators),
-				control(control), tcp_handler(tcp_handler), specific_state_machine_handler(control)
+		GeneralStateMachine(Data<VEHICLE_5DOF>& data, Actuators<VEHICLE_5DOF>& actuators, Control<VEHICLE_5DOF>& control, TCP<VEHICLE_5DOF>& tcp_handler, OutgoingOrders<VEHICLE_5DOF>& outgoing_orders) : actuators(actuators),
+				control(control), tcp_handler(tcp_handler), specific_state_machine_handler(control, tcp_handler, outgoing_orders)
 		{}
 
 		void init(){

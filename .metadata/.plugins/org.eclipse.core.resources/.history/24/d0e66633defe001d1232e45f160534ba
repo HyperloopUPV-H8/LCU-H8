@@ -1,0 +1,11 @@
+#pragma once
+#include "LCU_MASTER.hpp"
+
+namespace LCU{
+	template<MASTER_MODE> class IncomingOrders;
+
+	template<> class IncomingOrders<VEHICLE_5DOF>{
+	public:
+		StackOrder
+	};
+}

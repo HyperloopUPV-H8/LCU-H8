@@ -77,22 +77,37 @@ namespace LCU{
 	template<> class Data<VEHICLE_5DOF>{
 	public:
 	float coil_current_hems_1 = 0;
+	float slave_coil_current_hems_2 = 0;
 	float coil_current_hems_3 = 0;
+	float slave_coil_current_hems_4 = 0;
 	float coil_current_ems_1 = 0;
+	float slave_coil_current_ems_2 = 0;
 	float coil_current_ems_3  = 0;
+	float slave_coil_current_ems_4 = 0;
 
 	float hems_1_temperature = 0;
+	float slave_hems_2_temperature = 0;
 	float hems_3_temperature = 0;
+	float slave_hems_4_temperature = 0;
 	float ems_1_temperature = 0;
+	float slave_ems_2_temperature = 0;
 	float ems_3_temperature = 0;
+	float slave_ems_4_temperature = 0;
+
 
 	float lpu_temp_1 = 0;
 	float lpu_temp_2 = 0;
 	float lpu_temp_3 = 0;
 	float lpu_temp_4 = 0;
+	float slave_lpu_temp_1 = 0;
+	float slave_lpu_temp_2 = 0;
+	float slave_lpu_temp_3 = 0;
+	float slave_lpu_temp_4 = 0;
 
 	float batt_voltage_1 = 0;
 	float batt_voltage_2 = 0;
+	float slave_batt_voltage_1 = 0;
+	float slave_batt_voltage_2 = 0;
 
 	float airgaps[8] = {0.0};
 

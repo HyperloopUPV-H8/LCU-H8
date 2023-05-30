@@ -1,0 +1,8 @@
+#pragma once
+#include "LCU_MASTER.hpp"
+
+namespace LCU{
+	template<MASTER_MODE> class OutgoingOrder{
+
+	};
+}

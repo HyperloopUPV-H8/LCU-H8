@@ -159,6 +159,7 @@ namespace LCU{
     	void init();
     	void turn_off();
     	void turn_on();
+    	void toggle_led();
     private:
         static constexpr float default_pwm_frequency = 20000;
         DigitalOutput buffer_enable {Pinout::BUFFER_EN_PIN};
@@ -204,5 +205,10 @@ namespace LCU{
         EMS_3.turn_on();
         buffer_enable.turn_off();
     }
+
+    void Actuators<VEHICLE_5DOF>::toggle_led(){
+    	led_can.toggle();
+    }
+
 }
 

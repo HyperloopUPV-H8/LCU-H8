@@ -1,10 +1,348 @@
-13:16:47 **** Incremental Build of configuration Debug for project ST-LIB ****
+14:10:02 **** Incremental Build of configuration Debug for project ST-LIB ****
 make -j8 all 
-make: Nothing to be done for 'all'.
-13:16:48 **** Incremental Build of configuration Debug for project ST-LIB ****
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/StateMachine/StateMachine.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/StateMachine/StateMachine.d" -MT"Src/ST-LIB_LOW/StateMachine/StateMachine.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/StateMachine/StateMachine.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.d" -MT"Src/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.d" -MT"Src/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.d" -MT"Src/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.d" -MT"Src/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.d" -MT"Src/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Math/Math.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Math/Math.d" -MT"Src/ST-LIB_LOW/Math/Math.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Math/Math.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/ST-LIB_LOW.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/ST-LIB_LOW.d" -MT"Src/ST-LIB_LOW/ST-LIB_LOW.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/ST-LIB_LOW.o"
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:9,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp:11,
+                 from ../Src/ST-LIB_LOW/ST-LIB_LOW.cpp:8:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual int Boundary<double, TIME_ACCUMULATION>::get_string_size()':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:216:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  216 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                             ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual char* Boundary<double, TIME_ACCUMULATION>::serialize(char*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:219:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  219 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                ^~~~~~
+arm-none-eabi-g++ "../Src/ST-LIB_HIGH/Protections/ProtectionManager.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_HIGH/Protections/ProtectionManager.d" -MT"Src/ST-LIB_HIGH/Protections/ProtectionManager.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_HIGH/Protections/ProtectionManager.o"
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:7,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:11,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:9,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp:11,
+                 from ../Src/ST-LIB_LOW/ST-LIB_LOW.cpp:8:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~^~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   94 |      return *(uint16_t*)(buffer + sizeof(id));
+      |                          ~~~~~~~^~~~~~~~~~~~
+arm-none-eabi-g++ "../Src/HALAL/Services/Communication/SNTP/SNTP.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/HALAL/Services/Communication/SNTP/SNTP.d" -MT"Src/HALAL/Services/Communication/SNTP/SNTP.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/HALAL/Services/Communication/SNTP/SNTP.o"
+arm-none-eabi-g++ "../Src/ST-LIB.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB.d" -MT"Src/ST-LIB.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB.o"
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:3,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:21,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:9,
+                 from ../Src/ST-LIB_LOW/Math/Math.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In member function 'virtual void HeapPacket::parse(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:174:14: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  174 |         data += sizeof(id);
+      |         ~~~~~^~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:177:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  177 |             data += value.get()->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:9,
+                 from ../Src/ST-LIB_LOW/Math/Math.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual int Boundary<double, TIME_ACCUMULATION>::get_string_size()':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:216:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  216 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                             ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual char* Boundary<double, TIME_ACCUMULATION>::serialize(char*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:219:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  219 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                ^~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:7,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:11,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:9,
+                 from ../Src/ST-LIB_LOW/Math/Math.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~^~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   94 |      return *(uint16_t*)(buffer + sizeof(id));
+      |                          ~~~~~~~^~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:3,
+                 from ../Src/ST-LIB_HIGH/Protections/ProtectionManager.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual int Boundary<double, TIME_ACCUMULATION>::get_string_size()':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:216:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  216 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                             ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual char* Boundary<double, TIME_ACCUMULATION>::serialize(char*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:219:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  219 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                ^~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Order.hpp:9,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:5,
+                 from ../Src/ST-LIB_HIGH/Protections/ProtectionManager.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In member function 'virtual void HeapPacket::parse(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:174:14: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  174 |         data += sizeof(id);
+      |         ~~~~~^~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:177:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  177 |             data += value.get()->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:7,
+                 from ../Src/ST-LIB_HIGH/Protections/ProtectionManager.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~^~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   94 |      return *(uint16_t*)(buffer + sizeof(id));
+      |                          ~~~~~~~^~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:3,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:21,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Src/ST-LIB.cpp:11:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In member function 'virtual void HeapPacket::parse(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:174:14: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  174 |         data += sizeof(id);
+      |         ~~~~~^~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:177:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  177 |             data += value.get()->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/ip_addr.h:43,
+                 from /home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:42,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
+                 from ../Src/HALAL/Services/Communication/SNTP/SNTP.cpp:8:
+/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/ip4_addr.h: In static member function 'static void SNTP::sntp_update(uint8_t, uint8_t, uint8_t, uint8_t)':
+/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/ip4_addr.h:104:51: warning: 'address' is used uninitialized in this function [-Wuninitialized]
+  104 | #define IP4_ADDR(ipaddr, a,b,c,d)  (ipaddr)->addr = PP_HTONL(LWIP_MAKEU32(a,b,c,d))
+      |                                                   ^
+../Src/HALAL/Services/Communication/SNTP/SNTP.cpp:16:14: note: 'address' was declared here
+   16 |  ip4_addr_t* address;
+      |              ^~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Src/ST-LIB.cpp:11:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual int Boundary<double, TIME_ACCUMULATION>::get_string_size()':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:216:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  216 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                             ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual char* Boundary<double, TIME_ACCUMULATION>::serialize(char*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:219:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  219 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                ^~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:7,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:11,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Src/ST-LIB.cpp:11:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~^~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   94 |      return *(uint16_t*)(buffer + sizeof(id));
+      |                          ~~~~~~~^~~~~~~~~~~~
+arm-none-eabi-ar -r  "libST-LIB.a" @"objects.list"  
+arm-none-eabi-ar: creating libST-LIB.a
+Finished building target: libST-LIB.a
+ 
+14:10:07 **** Incremental Build of configuration Debug for project ST-LIB ****
 make -j8 all 
-make: Nothing to be done for 'all'.
-13:16:48 **** Incremental Build of configuration Debug for project LCU_SLAVE ****
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/StateMachine/StateMachine.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/StateMachine/StateMachine.d" -MT"Src/ST-LIB_LOW/StateMachine/StateMachine.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/StateMachine/StateMachine.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.d" -MT"Src/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.d" -MT"Src/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.d" -MT"Src/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.d" -MT"Src/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.d" -MT"Src/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/Math/Math.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/Math/Math.d" -MT"Src/ST-LIB_LOW/Math/Math.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/Math/Math.o"
+arm-none-eabi-g++ "../Src/ST-LIB_LOW/ST-LIB_LOW.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_LOW/ST-LIB_LOW.d" -MT"Src/ST-LIB_LOW/ST-LIB_LOW.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_LOW/ST-LIB_LOW.o"
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:9,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp:11,
+                 from ../Src/ST-LIB_LOW/ST-LIB_LOW.cpp:8:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual int Boundary<double, TIME_ACCUMULATION>::get_string_size()':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:216:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  216 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                             ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual char* Boundary<double, TIME_ACCUMULATION>::serialize(char*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:219:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  219 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                ^~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:3,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:21,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:9,
+                 from ../Src/ST-LIB_LOW/Math/Math.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In member function 'virtual void HeapPacket::parse(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:174:14: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  174 |         data += sizeof(id);
+      |         ~~~~~^~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:177:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  177 |             data += value.get()->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:7,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:11,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:9,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp:11,
+                 from ../Src/ST-LIB_LOW/ST-LIB_LOW.cpp:8:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~^~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   94 |      return *(uint16_t*)(buffer + sizeof(id));
+      |                          ~~~~~~~^~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:9,
+                 from ../Src/ST-LIB_LOW/Math/Math.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual int Boundary<double, TIME_ACCUMULATION>::get_string_size()':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:216:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  216 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                             ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual char* Boundary<double, TIME_ACCUMULATION>::serialize(char*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:219:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  219 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                ^~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:7,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:11,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:9,
+                 from ../Src/ST-LIB_LOW/Math/Math.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~^~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   94 |      return *(uint16_t*)(buffer + sizeof(id));
+      |                          ~~~~~~~^~~~~~~~~~~~
+arm-none-eabi-g++ "../Src/ST-LIB_HIGH/Protections/ProtectionManager.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB_HIGH/Protections/ProtectionManager.d" -MT"Src/ST-LIB_HIGH/Protections/ProtectionManager.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB_HIGH/Protections/ProtectionManager.o"
+arm-none-eabi-g++ "../Src/HALAL/Services/Communication/SNTP/SNTP.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/HALAL/Services/Communication/SNTP/SNTP.d" -MT"Src/HALAL/Services/Communication/SNTP/SNTP.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/HALAL/Services/Communication/SNTP/SNTP.o"
+arm-none-eabi-g++ "../Src/ST-LIB.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/ST-LIB.d" -MT"Src/ST-LIB.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/ST-LIB.o"
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:3,
+                 from ../Src/ST-LIB_HIGH/Protections/ProtectionManager.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual int Boundary<double, TIME_ACCUMULATION>::get_string_size()':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:216:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  216 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                             ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual char* Boundary<double, TIME_ACCUMULATION>::serialize(char*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:219:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  219 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                ^~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/ip_addr.h:43,
+                 from /home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:42,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
+                 from ../Src/HALAL/Services/Communication/SNTP/SNTP.cpp:8:
+/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/ip4_addr.h: In static member function 'static void SNTP::sntp_update(uint8_t, uint8_t, uint8_t, uint8_t)':
+/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/ip4_addr.h:104:51: warning: 'address' is used uninitialized in this function [-Wuninitialized]
+  104 | #define IP4_ADDR(ipaddr, a,b,c,d)  (ipaddr)->addr = PP_HTONL(LWIP_MAKEU32(a,b,c,d))
+      |                                                   ^
+../Src/HALAL/Services/Communication/SNTP/SNTP.cpp:16:14: note: 'address' was declared here
+   16 |  ip4_addr_t* address;
+      |              ^~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Order.hpp:9,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:5,
+                 from ../Src/ST-LIB_HIGH/Protections/ProtectionManager.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In member function 'virtual void HeapPacket::parse(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:174:14: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  174 |         data += sizeof(id);
+      |         ~~~~~^~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:177:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  177 |             data += value.get()->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:7,
+                 from ../Src/ST-LIB_HIGH/Protections/ProtectionManager.cpp:1:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~^~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   94 |      return *(uint16_t*)(buffer + sizeof(id));
+      |                          ~~~~~~~^~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:3,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:21,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Src/ST-LIB.cpp:11:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In member function 'virtual void HeapPacket::parse(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:174:14: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  174 |         data += sizeof(id);
+      |         ~~~~~^~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:177:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  177 |             data += value.get()->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Src/ST-LIB.cpp:11:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual int Boundary<double, TIME_ACCUMULATION>::get_string_size()':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:216:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  216 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                             ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual char* Boundary<double, TIME_ACCUMULATION>::serialize(char*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:219:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  219 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                ^~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:7,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:11,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Src/ST-LIB.cpp:11:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~^~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   94 |      return *(uint16_t*)(buffer + sizeof(id));
+      |                          ~~~~~~~^~~~~~~~~~~~
+arm-none-eabi-ar -r  "libST-LIB.a" @"objects.list"  
+arm-none-eabi-ar: creating libST-LIB.a
+Finished building target: libST-LIB.a
+ 
+14:10:12 **** Incremental Build of configuration Debug for project LCU_MASTER ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DDATA_IN_D2_SRAM -c -I"/home/stefancostea/Documents/ST-LIB" -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Drivers/BSP/Components/lan8742 -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 In file included from ../Drivers/CMSIS/Include/core_cm7.h:2178,
@@ -310,38 +648,148 @@ In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protec
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
    94 |      return *(uint16_t*)(buffer + sizeof(id));
       |                          ~~~~~~~^~~~~~~~~~~~
-In file included from ../Core/Inc/LCU_SLAVE.hpp:7,
+In file included from ../Core/Inc/LCU_MASTER.hpp:2,
                  from ../Core/Src/main.cpp:6:
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp: In lambda function:
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:109:49: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
-  109 |      if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |                                                 ^~
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:109:9: note: add parentheses around left hand side expression to silence this warning
-  109 |      if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |         (                                      )
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:109:49: warning: comparison of constant 'ServerSocket::ACCEPTED' with boolean expression is always false [-Wbool-compare]
-  109 |      if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp: In lambda function:
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:116:48: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
-  116 |     if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |                                                ^~
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:116:8: note: add parentheses around left hand side expression to silence this warning
-  116 |     if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |        (                                      )
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:116:48: warning: comparison of constant 'ServerSocket::ACCEPTED' with boolean expression is always false [-Wbool-compare]
-  116 |     if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-arm-none-eabi-g++ -o "LCU_SLAVE.elf" @"objects.list"  -lST-LIB -mcpu=cortex-m7 -T"/home/stefancostea/Documents/LCU-H8/LCU_SLAVE/STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCU_SLAVE.map" -Wl,--gc-sections -static -L"/home/stefancostea/Documents/ST-LIB/Debug" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: LCU_SLAVE.elf
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp: In constructor 'LCU::Actuators<LCU::TESTBENCH_1DOF>::Actuators(LCU::COIL_ID)':
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:111:15: warning: enumeration value 'HEMS_2' not handled in switch [-Wswitch]
+  111 |         switch(id){
+      |               ^
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:111:15: warning: enumeration value 'HEMS_4' not handled in switch [-Wswitch]
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:111:15: warning: enumeration value 'EMS_2' not handled in switch [-Wswitch]
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:111:15: warning: enumeration value 'EMS_4' not handled in switch [-Wswitch]
+In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
+                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Src/main.cpp:6:
+../Core/Inc/LCU_Control/DistanceControl.hpp: In constructor 'DistanceControl<LCU::VEHICLE_5DOF>::DistanceControl(float (&)[8], float (&)[8])':
+../Core/Inc/LCU_Control/DistanceControl.hpp:45:106: warning: 'DistanceControl<LCU::VEHICLE_5DOF>::rot_x_integrator' will be initialized after [-Wreorder]
+   45 |  Integrator<IntegratorType::Trapezoidal> y_integrator, z_integrator, rot_y_integrator, rot_z_integrator, rot_x_integrator;
+      |                                                                                                          ^~~~~~~~~~~~~~~~
+../Core/Inc/LCU_Control/DistanceControl.hpp:45:70: warning:   'Integrator<IntegratorType::Trapezoidal> DistanceControl<LCU::VEHICLE_5DOF>::rot_y_integrator' [-Wreorder]
+   45 |  Integrator<IntegratorType::Trapezoidal> y_integrator, z_integrator, rot_y_integrator, rot_z_integrator, rot_x_integrator;
+      |                                                                      ^~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
+                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Src/main.cpp:6:
+../Core/Inc/LCU_Control/DistanceControl.hpp:74:2: warning:   when initialized here [-Wreorder]
+   74 |  DistanceControl(float(&distaces)[8], float(&current_references)[8]) : y_integrator(period,1), z_integrator(period,1),
+      |  ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
+                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Src/main.cpp:6:
+../Core/Inc/LCU_Control/DistanceControl.hpp:45:88: warning: 'DistanceControl<LCU::VEHICLE_5DOF>::rot_z_integrator' will be initialized after [-Wreorder]
+   45 |  Integrator<IntegratorType::Trapezoidal> y_integrator, z_integrator, rot_y_integrator, rot_z_integrator, rot_x_integrator;
+      |                                                                                        ^~~~~~~~~~~~~~~~
+../Core/Inc/LCU_Control/DistanceControl.hpp:44:18: warning:   'SimpleDerivator DistanceControl<LCU::VEHICLE_5DOF>::y_derivator' [-Wreorder]
+   44 |  SimpleDerivator y_derivator, z_derivator, rot_y_derivator, rot_z_derivator, rot_x_derivator;
+      |                  ^~~~~~~~~~~
+In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
+                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Src/main.cpp:6:
+../Core/Inc/LCU_Control/DistanceControl.hpp:74:2: warning:   when initialized here [-Wreorder]
+   74 |  DistanceControl(float(&distaces)[8], float(&current_references)[8]) : y_integrator(period,1), z_integrator(period,1),
+      |  ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
+                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Src/main.cpp:6:
+../Core/Inc/LCU_Control/DistanceControl.hpp:44:78: warning: 'DistanceControl<LCU::VEHICLE_5DOF>::rot_x_derivator' will be initialized after [-Wreorder]
+   44 |  SimpleDerivator y_derivator, z_derivator, rot_y_derivator, rot_z_derivator, rot_x_derivator;
+      |                                                                              ^~~~~~~~~~~~~~~
+../Core/Inc/LCU_Control/DistanceControl.hpp:44:44: warning:   'SimpleDerivator DistanceControl<LCU::VEHICLE_5DOF>::rot_y_derivator' [-Wreorder]
+   44 |  SimpleDerivator y_derivator, z_derivator, rot_y_derivator, rot_z_derivator, rot_x_derivator;
+      |                                            ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
+                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Src/main.cpp:6:
+../Core/Inc/LCU_Control/DistanceControl.hpp:74:2: warning:   when initialized here [-Wreorder]
+   74 |  DistanceControl(float(&distaces)[8], float(&current_references)[8]) : y_integrator(period,1), z_integrator(period,1),
+      |  ^~~~~~~~~~~~~~~
+../Core/Inc/LCU_Control/DistanceControl.hpp:72:27: warning: 'DistanceControl<LCU::VEHICLE_5DOF>::matrix_multiplier' will be initialized after [-Wreorder]
+   72 |  MatrixMultiplier<8,15,1> matrix_multiplier;
+      |                           ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
+                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Src/main.cpp:6:
+../Core/Inc/LCU_Control/DistanceControl.hpp:48:31: warning:   'LevitationPositionCalculator DistanceControl<LCU::VEHICLE_5DOF>::airgap2pos' [-Wreorder]
+   48 |  LevitationPositionCalculator airgap2pos;
+      |                               ^~~~~~~~~~
+In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
+                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Src/main.cpp:6:
+../Core/Inc/LCU_Control/DistanceControl.hpp:74:2: warning:   when initialized here [-Wreorder]
+   74 |  DistanceControl(float(&distaces)[8], float(&current_references)[8]) : y_integrator(period,1), z_integrator(period,1),
+      |  ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/LCU_MASTER.hpp:9,
+                 from ../Core/Src/main.cpp:6:
+../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp: In constructor 'LCU::IncomingOrders<LCU::VEHICLE_5DOF>::IncomingOrders(LCU::Data<LCU::VEHICLE_5DOF>&)':
+../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:26:23: warning: 'LCU::IncomingOrders<LCU::VEHICLE_5DOF>::data' will be initialized after [-Wreorder]
+   26 |   Data<VEHICLE_5DOF>& data;
+      |                       ^~~~
+../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:20:17: warning:   'StackOrder<0> LCU::IncomingOrders<LCU::VEHICLE_5DOF>::test_toggle_led_order' [-Wreorder]
+   20 |   StackOrder<0> test_toggle_led_order;
+      |                 ^~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:28:3: warning:   when initialized here [-Wreorder]
+   28 |   IncomingOrders(Data<VEHICLE_5DOF>& data) : data(data),
+      |   ^~~~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:22,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp: In instantiation of 'void MatrixMultiplier<U, V, 1>::execute() [with unsigned int U = 8; unsigned int V = 15]':
+../Core/Inc/LCU_Control/DistanceControl.hpp:162:29:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp:49:27: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+   49 |         for (int i = 0; i < U; i++) {
+      |                         ~~^~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp:51:31: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+   51 |             for (int k = 0; k < V; k++)
+      |                             ~~^~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp: In instantiation of 'void MatrixMultiplier<U, V, 1>::reset() [with unsigned int U = 8; unsigned int V = 15]':
+../Core/Inc/LCU_Control/DistanceControl.hpp:188:27:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp:57:23: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+   57 |      for(int i = 0; i < U; i++){
+      |                     ~~^~~
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:40,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:26,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h: At global scope:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:44:13: warning: 'void set_rtc(uint16_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t)' declared 'static' but never defined [-Wunused-function]
+   44 | static void set_rtc(uint16_t counter, uint8_t second, uint8_t minute, uint8_t hour, uint8_t day, uint8_t month, uint16_t year);
+      |             ^~~~~~~
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:40,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:26,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:45:14: warning: 'u32_t get_rtc_s()' declared 'static' but never defined [-Wunused-function]
+   45 | static u32_t get_rtc_s();
+      |              ^~~~~~~~~
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:46:14: warning: 'u32_t get_rtc_us()' declared 'static' but never defined [-Wunused-function]
+   46 | static u32_t get_rtc_us();
+      |              ^~~~~~~~~~
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:40,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:26,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:44:13: warning: 'void set_rtc(uint16_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t)' used but never defined
+   44 | static void set_rtc(uint16_t counter, uint8_t second, uint8_t minute, uint8_t hour, uint8_t day, uint8_t month, uint16_t year);
+      |             ^~~~~~~
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:40,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:26,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:55:6: warning: 'void set_time(uint32_t, uint32_t)' defined but not used [-Wunused-function]
+   55 | void set_time(uint32_t sec, uint32_t us){
+      |      ^~~~~~~~
+arm-none-eabi-g++ -o "LCU_MASTER.elf" @"objects.list"  -lST-LIB -mcpu=cortex-m7 -T"/home/stefancostea/Documents/LCU-H8/LCU_MASTER/STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCU_MASTER.map" -Wl,--gc-sections -static -L"/home/stefancostea/Documents/ST-LIB/Debug" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: LCU_MASTER.elf
  
-arm-none-eabi-size   LCU_SLAVE.elf 
-arm-none-eabi-objdump -h -S  LCU_SLAVE.elf  > "LCU_SLAVE.list"
+arm-none-eabi-size   LCU_MASTER.elf 
+arm-none-eabi-objdump -h -S  LCU_MASTER.elf  > "LCU_MASTER.list"
    text	   data	    bss	    dec	    hex	filename
- 565076	   1360	  62960	 629396	  99a94	LCU_SLAVE.elf
+ 597548	   1368	  65584	 664500	  a23b4	LCU_MASTER.elf
 Finished building: default.size.stdout
  
-Finished building: LCU_SLAVE.list
+Finished building: LCU_MASTER.list
  

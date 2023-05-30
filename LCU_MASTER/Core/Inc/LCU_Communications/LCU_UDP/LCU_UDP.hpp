@@ -11,8 +11,8 @@ namespace LCU{
     public:
     	DatagramSocket BACKEND_CONNECTION{MASTER_IP, UDP_PORT, BACKEND_IP, UDP_PORT};
         UDP() {}
-        void send_to_backend(Packet& order){
-            BACKEND_CONNECTION.send(order);
+        void send_to_backend(Packet& packet){
+            BACKEND_CONNECTION.send(packet);
         }
     };
 
@@ -21,8 +21,8 @@ namespace LCU{
     public:
     	DatagramSocket BACKEND_CONNECTION{MASTER_IP, UDP_PORT, BACKEND_IP, UDP_PORT};
         UDP() {}
-        void send_to_backend(Packet& order){
-            BACKEND_CONNECTION.send(order);
+        void send_to_backend(Packet& packet){
+            BACKEND_CONNECTION.send(packet);
         }
     };
 
@@ -32,11 +32,11 @@ namespace LCU{
         DatagramSocket BACKEND_CONNECTION{MASTER_IP, UDP_PORT, BACKEND_IP, UDP_PORT};
         DatagramSocket SLAVE_CONNECTION{MASTER_IP, UDP_PORT, SLAVE_IP, UDP_PORT};
         UDP() {}
-        void send_to_backend(Packet& order){
-            BACKEND_CONNECTION.send(order);
+        void send_to_backend(Packet& packet){
+            BACKEND_CONNECTION.send(packet);
         }
-        void send_to_slave(Packet& order){
-            SLAVE_CONNECTION.send(order);
+        void send_to_slave(Packet& packet){
+            SLAVE_CONNECTION.send(packet);
         }
     };
 
@@ -46,11 +46,11 @@ namespace LCU{
     	DatagramSocket BACKEND_CONNECTION{MASTER_IP, UDP_PORT, BACKEND_IP, UDP_PORT};
         DatagramSocket SLAVE_CONNECTION{MASTER_IP, UDP_PORT, SLAVE_IP, UDP_PORT};
         UDP() {}
-        void send_to_backend(Packet& order){
-            BACKEND_CONNECTION.send(order);
+        void send_to_backend(Packet& packet){
+            BACKEND_CONNECTION.send(packet);
         }
-        void send_to_slave(Packet& order){
-            SLAVE_CONNECTION.send(order);
+        void send_to_slave(Packet& packet){
+            SLAVE_CONNECTION.send(packet);
         }
     };
 }

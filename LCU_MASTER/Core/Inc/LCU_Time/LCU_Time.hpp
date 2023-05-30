@@ -6,12 +6,13 @@ namespace LCU{
 
 	template<> class CyclicActions<MASTER_MODE::VEHICLE_5DOF>{
 	public:
-		Sensors<VEHICLE_5DOF>& sensors;
-		CyclicActions(Sensors<VEHICLE_5DOF>& sensors) : sensors(sensors){}
+		CyclicActions(){}
 
 		static void register_cyclic_actions(){
 			Time::register_high_precision_alarm(100, LCU::LCU_MASTER<MASTER_MODE::VEHICLE_5DOF>::read_currents);
 			Time::register_high_precision_alarm(133, LCU::LCU_MASTER<MASTER_MODE::VEHICLE_5DOF>::read_airgaps);
+			Time::register_low_precision_alarm(16, LCU::LCU_MASTER<MASTER_MODE::VEHICLE_5DOF>::send_vcu_data);
+			Time::register_mid_precision_alarm(500, LCU::LCU_MASTER<MASTER_MODE::VEHICLE_5DOF>::send_slave_data);
 		}
 	};
 }

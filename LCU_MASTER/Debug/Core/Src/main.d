@@ -181,7 +181,9 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Core/Inc/LCU_Data/LCU_Data.hpp \
  ../Core/Inc/LCU_Control/CurrentControl.hpp \
  ../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp \
- ../Core/Inc/LCU_Sensors/LCU_Sensors.hpp
+ ../Core/Inc/LCU_Sensors/LCU_Sensors.hpp \
+ ../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp \
+ ../Core/Inc/LCU_Time/LCU_Time.hpp
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -369,3 +371,5 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Core/Inc/LCU_Control/CurrentControl.hpp:
 ../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:
 ../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:
+../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:
+../Core/Inc/LCU_Time/LCU_Time.hpp:
