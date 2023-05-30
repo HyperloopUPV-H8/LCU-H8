@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;LCU_SLAVE/Core/Inc/LCU_MASTER.hpp&apos; to &apos;LCU_SLAVE.hpp&apos;" description="Rename resource &apos;LCU_MASTER.hpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/LCU_MASTER.hpp" name="LCU_SLAVE.hpp" stamp="1685443329304" updateReferences="true"/>
+</session>

@@ -1,6 +1,5 @@
 #pragma once
 #include "DatagramSocket.hpp"
-#include "LCU_Mode/LCU_Mode.hpp"
 #include "LCU_Pinout/Pinout.hpp"
 
 namespace LCU{

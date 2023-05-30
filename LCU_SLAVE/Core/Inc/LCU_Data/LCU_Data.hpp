@@ -1,5 +1,4 @@
 #pragma once
-#include "LCU_Mode/LCU_Mode.hpp"
 #include "Protections/ProtectionManager.hpp"
 namespace LCU{
 
@@ -16,7 +15,7 @@ namespace LCU{
 	Boundary<float,TIME_ACCUMULATION>* hems_2_time_protection = nullptr;
 	Boundary<float,TIME_ACCUMULATION>* hems_4_time_protection = nullptr;
 
-	template<> class Data{
+	class Data{
 	public:
 	float coil_current_hems_2 = 0;
 	float coil_current_hems_4 = 0;
