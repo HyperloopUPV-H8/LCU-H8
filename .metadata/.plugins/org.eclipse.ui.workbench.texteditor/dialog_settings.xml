@@ -6,8 +6,12 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="float"/>
+		<item key="selection" value="EMS_4"/>
 		<list key="findhistory">
+			<item value="EMS_3"/>
+			<item value="HEMS_3"/>
+			<item value="EMS_1"/>
+			<item value="HEMS_1"/>
 			<item value="double"/>
 			<item value="M"/>
 			<item value="phi"/>
@@ -15,6 +19,10 @@
 			<item value="theta"/>
 		</list>
 		<list key="replacehistory">
+			<item value="EMS_4"/>
+			<item value="HEMS_4"/>
+			<item value="EMS_2"/>
+			<item value="HEMS_2"/>
 			<item value="float"/>
 			<item value="U"/>
 			<item value="rot_x"/>

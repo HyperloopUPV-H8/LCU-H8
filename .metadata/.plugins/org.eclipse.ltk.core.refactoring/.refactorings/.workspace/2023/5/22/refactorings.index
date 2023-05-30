@@ -1,2 +1,6 @@
 1685303095476	Delete resource 'LCU_MASTER/Core/Inc/LCU_Protections'
 1685305373771	Delete resource 'LCU_MASTER/Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp'
+1685409363590	Delete resource 'LCU_SLAVE/Core/Inc/LCU_Control/DistanceControl.hpp'
+1685409366593	Delete resource 'LCU_SLAVE/Core/Inc/LCU_Control/LevitationPosition.hpp'
+1685409369788	Delete resource 'LCU_SLAVE/Core/Inc/LCU_Control/LevitationPositionCalculator.hpp'
+1685409466132	Delete resource 'LCU_SLAVE/Core/Inc/LCU_Mode'
