@@ -54,7 +54,6 @@ namespace LCU{
 //            FilteredLinearSensor<temperature_filter_order> ems_3_temperature_sensor {Pinout::EMS3_TEMP_PIN, temperature_slope, temperature_offset, data.ems_3_temperature};
 
             Sensors(Data<LPU_VALIDATION>& data) : data(data) {};
-            ~Sensors();
 
             void read_currents(){
             	current_hems_1_sensor.read();
@@ -170,7 +169,6 @@ namespace LCU{
 //            FilteredLinearSensor<temperature_filter_order> ems_3_temperature_sensor {Pinout::EMS3_TEMP_PIN, temperature_slope, temperature_offset, data.ems_3_temperature};
 
             Sensors(Data<VEHICLE_5DOF>& data) : data(data) {};
-            ~Sensors();
 
             void read_currents(){
             	current_hems_1_sensor.read();

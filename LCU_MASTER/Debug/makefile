@@ -85,7 +85,7 @@ all: main-build
 main-build: LCU_MASTER.elf secondary-outputs
 
 dependents:
-	-cd /home/stefancostea/Documents/ST-LIB/Debug && $(MAKE) all
+	-cd /home/stefancostea/Documents/ST-LIB/Debug && $(MAKE) clean all
 
 # Tool invocations
 LCU_MASTER.elf LCU_MASTER.map: $(OBJS) $(USER_OBJS) /home/stefancostea/Documents/ST-LIB/Debug/libST-LIB.a /home/stefancostea/Documents/LCU-H8/LCU_MASTER/STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)

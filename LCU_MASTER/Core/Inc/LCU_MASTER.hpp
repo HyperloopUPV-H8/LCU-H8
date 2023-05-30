@@ -6,7 +6,6 @@
 #include "LCU_Data/LCU_Data.hpp"
 #include "LCU_StateMachine/LCU_StateMachine.hpp"
 #include "LCU_Sensors/LCU_Sensors.hpp"
-#include "LCU_Time/LCU_Time.hpp"
 
 namespace LCU{
 	template<LCU::MASTER_MODE> class LCU_MASTER;
