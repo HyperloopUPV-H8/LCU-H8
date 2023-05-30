@@ -8,7 +8,7 @@ namespace LCU{
 	constexpr float current_frequency = 10000;
 	constexpr float time_limit = 5;
 	constexpr float min_hems_current = -40, max_hems_current = 40;
-	constexpr float min_ems_current = -25, max_ems_current = 25;ç
+	constexpr float min_ems_current = -25, max_ems_current = 25;
 	constexpr float max_coil_temperature = 40;
 	constexpr float min_battery_voltage = 190, max_battery_voltage = 260;
 	constexpr float max_lpu_temperature = 65;
@@ -41,10 +41,10 @@ namespace LCU{
 
 	float airgaps[8] = {0.0};
 
-	double reference_current_hems_1 = 0;
-	double reference_current_hems_3 = 0;
-	double reference_current_ems_1 = 0;
-	double reference_current_ems_3 = 0;
+	float reference_current_hems_1 = 0;
+	float reference_current_hems_3 = 0;
+	float reference_current_ems_1 = 0;
+	float reference_current_ems_3 = 0;
 	};
 
 	template<> class Data<TESTBENCH_1DOF>{
@@ -59,10 +59,10 @@ namespace LCU{
 
 	float airgap = 0.0;
 
-	double reference_current = 0;
+	float reference_current = 0;
 
 	void add_protections(){
-		add_protection(&coil_current, Boundary<float, TIME_ACCUMULATION>(max_persistent_current,time_limit,frequeny, hems_1_time_protection),
+		add_protection(&coil_current, Boundary<float, TIME_ACCUMULATION>(max_persistent_current,time_limit,current_frequency, hems_1_time_protection),
 											 Boundary<float, OUT_OF_RANGE>(min_hems_current,max_hems_current));
 
 		add_protection(&coil_temp, Boundary<float, ABOVE>(max_coil_temperature));
@@ -99,10 +99,10 @@ namespace LCU{
 	float reference_currents[8] = {0.0};
 
 	void add_protections(){
-		add_protection(&coil_current_hems_1, Boundary<float, TIME_ACCUMULATION>(max_persistent_current,time_limit,frequeny, hems_1_time_protection),
+		add_protection(&coil_current_hems_1, Boundary<float, TIME_ACCUMULATION>(max_persistent_current,time_limit,current_frequency, hems_1_time_protection),
 											 Boundary<float, OUT_OF_RANGE>(min_hems_current,max_hems_current));
 
-		add_protection(&coil_current_hems_3, Boundary<float, TIME_ACCUMULATION>(max_persistent_current, time_limit, frequency, hems_3_time_protection),
+		add_protection(&coil_current_hems_3, Boundary<float, TIME_ACCUMULATION>(max_persistent_current, time_limit, current_frequency, hems_3_time_protection),
 											 Boundary<float, OUT_OF_RANGE>(min_hems_current,max_hems_current));
 
 		add_protection(&coil_current_ems_1, Boundary<float,OUT_OF_RANGE>(min_ems_current,max_ems_current));

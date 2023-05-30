@@ -25,14 +25,9 @@ namespace LCU{
 
 		static LCU_MASTER<VEHICLE_5DOF>& lcu_master;
 
-		LCU_MASTER(){
-			actuators = {};
-			data = {};
-			sensors = {data};
-			control = {actuators, data};
-			tcp_handler = {};
-			udp_handler = {};
-			state_machine_handler = {data, actuators, control, tcp_handler};
+		LCU_MASTER(): actuators(), data(), sensors(data), control(actuators,data), tcp_handler(), udp_handler(),
+				state_machine_handler(data, actuators, control, tcp_handler){
+
 		}
 
 
@@ -43,9 +38,18 @@ namespace LCU{
 		static void read_airgaps(){
 			lcu_master.sensors.read_airgaps();
 		}
-		static void read_temperatures(){
-			lcu_master.sensors.read_temperatures();
+//		static void read_temperatures(){
+//			lcu_master.sensors.read_temperatures();
+//		}
+
+		void init(){
+			STLIB::start();
+			actuators.init();
+			state_machine_handler.init();
 		}
 
 	};
+
+	LCU_MASTER<VEHICLE_5DOF> lcu;
+	LCU_MASTER<VEHICLE_5DOF>& LCU_MASTER<VEHICLE_5DOF>::lcu_master = lcu;
 }

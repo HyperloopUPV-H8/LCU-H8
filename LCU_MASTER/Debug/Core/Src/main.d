@@ -137,6 +137,10 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Clocks/Stopwatch.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/FilteredLinearSensor.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlSystem.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/DigitalOutput/DigitalOutput.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/HalfBridge/HalfBridge.hpp \
@@ -150,7 +154,6 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp \
- /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/BoardID/BoardID.hpp \
@@ -159,18 +162,27 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Adder.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Derivator.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Integrator.hpp \
- /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp \
- /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlSystem.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PI.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PID.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Saturator.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashStorer.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashVariable.hpp \
  ../Core/Src/Runes/Runes.hpp ../Core/Src/Runes/Pins.hpp \
  ../Core/Inc/LCU_MASTER.hpp ../Core/Inc/LCU_Actuators/LCU_Actuators.hpp \
  ../Core/Inc/LCU_Pinout/Pinout.hpp ../Core/Inc/LCU_Mode/LCU_Mode.hpp \
  ../Core/Inc/LCU_Actuators/LPU_HalfBridge.hpp \
- ../Core/Inc/LCU_Communications/LCU_TCP/LCU_TCP.hpp
+ ../Core/Inc/LCU_Communications/LCU_TCP/LCU_TCP.hpp \
+ ../Core/Inc/LCU_Communications/LCU_UDP/LCU_UDP.hpp \
+ ../Core/Inc/LCU_Control/LCU_Control.hpp \
+ ../Core/Inc/LCU_Control/DistanceControl.hpp \
+ ../Core/Inc/LCU_Control/LevitationPositionCalculator.hpp \
+ ../Core/Inc/LCU_Control/LevitationPosition.hpp \
+ ../Core/Inc/LCU_Data/LCU_Data.hpp \
+ ../Core/Inc/LCU_Control/CurrentControl.hpp \
+ ../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp \
+ ../Core/Inc/LCU_Sensors/LCU_Sensors.hpp \
+ ../Core/Inc/LCU_Time/LCU_Time.hpp
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -310,6 +322,10 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Clocks/Stopwatch.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/FilteredLinearSensor.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlSystem.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/DigitalOutput/DigitalOutput.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/HalfBridge/HalfBridge.hpp:
@@ -323,7 +339,6 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/BoardID/BoardID.hpp:
@@ -332,11 +347,10 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Adder.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Derivator.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Integrator.hpp:
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlSystem.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PI.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PID.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Saturator.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashStorer.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashVariable.hpp:
 ../Core/Src/Runes/Runes.hpp:
@@ -347,3 +361,13 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Core/Inc/LCU_Mode/LCU_Mode.hpp:
 ../Core/Inc/LCU_Actuators/LPU_HalfBridge.hpp:
 ../Core/Inc/LCU_Communications/LCU_TCP/LCU_TCP.hpp:
+../Core/Inc/LCU_Communications/LCU_UDP/LCU_UDP.hpp:
+../Core/Inc/LCU_Control/LCU_Control.hpp:
+../Core/Inc/LCU_Control/DistanceControl.hpp:
+../Core/Inc/LCU_Control/LevitationPositionCalculator.hpp:
+../Core/Inc/LCU_Control/LevitationPosition.hpp:
+../Core/Inc/LCU_Data/LCU_Data.hpp:
+../Core/Inc/LCU_Control/CurrentControl.hpp:
+../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:
+../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:
+../Core/Inc/LCU_Time/LCU_Time.hpp:

@@ -5,10 +5,11 @@
 #include "Runes/Runes.hpp"
 #include "LCU_MASTER.hpp"
 
+LCU::LCU_MASTER<LCU::MASTER_MODE::VEHICLE_5DOF>& lcu = LCU::LCU_MASTER<LCU::MASTER_MODE::VEHICLE_5DOF>::lcu_master;
+
 int main(void)
 {
-	STLIB::start();
-
+	lcu.init();
 	while(1) {
 		STLIB::update();
 	}

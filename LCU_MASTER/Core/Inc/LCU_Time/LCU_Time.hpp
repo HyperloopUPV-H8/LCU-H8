@@ -8,7 +8,7 @@
 namespace LCU{
 	template<LCU::MASTER_MODE> class CyclicActions;
 
-	template<MASTER_MODE::VEHICLE_5DOF> class CyclicActions{
+	template<> class CyclicActions<MASTER_MODE::VEHICLE_5DOF>{
 		Sensors<VEHICLE_5DOF>& sensors;
 		CyclicActions(Sensors<VEHICLE_5DOF>& sensors) : sensors(sensors){}
 

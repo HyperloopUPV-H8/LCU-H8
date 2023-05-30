@@ -15,16 +15,16 @@ namespace LCU {
             Control(LCU::Actuators<LPU_VALIDATION>& actuators, LCU::Data<LPU_VALIDATION>& data, COIL_ID hems_id){
                 switch (hems_id){
                     case COIL_ID::HEMS_1:
-                        current_control = {actuators.HEMS1, data.reference_current_hems_1};
+                        current_control = {actuators.HEMS_1, data.reference_current_hems_1};
                         break;
                     case COIL_ID::HEMS_3:
-                        current_control = {actuators.HEMS3, data.reference_current_hems_3};
+                        current_control = {actuators.HEMS_3, data.reference_current_hems_3};
                         break;
                     case COIL_ID::EMS_1:
-                        current_control = {actuators.EMS1, data.reference_current_ems_1};
+                        current_control = {actuators.EMS_1, data.reference_current_ems_1};
                         break;
                     case COIL_ID::EMS_3:
-                        current_control = {actuators.EMS3, data.reference_current_ems_3};
+                        current_control = {actuators.EMS_3, data.reference_current_ems_3};
                         break;
                     default:
                         ErrorHandler("Invalid HEMS_ID, given id: %d", hems_id);
@@ -38,7 +38,7 @@ namespace LCU {
             }
 
             void set_reference(float reference){
-                current_control.set_reference(reference);
+                current_control.set_reference_current(reference);
             }
 
             void stop(){
@@ -58,16 +58,16 @@ namespace LCU {
         Control(LCU::Actuators<LPU_VALIDATION>& actuators, LCU::Data<TESTBENCH_1DOF>& data, COIL_ID hems_id){
             switch (hems_id){
                 case COIL_ID::HEMS_1:
-                    current_control = {actuators.HEMS1,data.reference_current};
+                    current_control = {actuators.HEMS_1,data.reference_current};
                     break;
                 case COIL_ID::HEMS_3:
-                    current_control = {actuators.HEMS3, data.reference_current};
+                    current_control = {actuators.HEMS_3, data.reference_current};
                     break;
                 case COIL_ID::EMS_1:
-                    current_control = {actuators.EMS1, data.reference_current};
+                    current_control = {actuators.EMS_1, data.reference_current};
                     break;
                 case COIL_ID::EMS_3:
-                    current_control = {actuators.EMS3, data.reference_current};
+                    current_control = {actuators.EMS_3, data.reference_current};
                     break;
                 default:
                     ErrorHandler("Invalid HEMS_ID, given id: %d", hems_id);

@@ -6,14 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="U"/>
+		<item key="selection" value="float"/>
 		<list key="findhistory">
+			<item value="double"/>
 			<item value="M"/>
 			<item value="phi"/>
 			<item value="psi"/>
 			<item value="theta"/>
 		</list>
 		<list key="replacehistory">
+			<item value="float"/>
 			<item value="U"/>
 			<item value="rot_x"/>
 			<item value="rot_z"/>
@@ -26,5 +28,9 @@
 		<item key="DIALOG_WIDTH" value="363"/>
 		<item key="DIALOG_HEIGHT" value="437"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="686"/>
+		<item key="DIALOG_Y_ORIGIN" value="375"/>
 	</section>
 </section>

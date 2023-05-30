@@ -154,7 +154,6 @@ namespace LCU{
     template<>
     class Actuators<VEHICLE_5DOF>{
     public:
-    	Actuators();
     	LPU_HalfBridge HEMS_1, HEMS_3, EMS_1, EMS_3;
     	DigitalOutput led_sleep, led_flash, led_fault, led_operational, led_can;
     	void init();
@@ -164,9 +163,10 @@ namespace LCU{
         static constexpr float default_pwm_frequency = 20000;
         DigitalOutput buffer_enable {Pinout::BUFFER_EN_PIN};
         PWM HEMS1_H1 = {Pinout::HEMS1_H1_PIN}, HEMS1_H2 = {Pinout::HEMS1_H2_PIN}, HEMS3_H1 = {Pinout::HEMS3_H1_PIN}, HEMS3_H2 = {Pinout::HEMS3_H2_PIN}, EMS1_H1 = {Pinout::EMS1_H1_PIN}, EMS1_H2 = {Pinout::EMS1_H2_PIN}, EMS3_H1 = {Pinout::EMS3_H1_PIN}, EMS3_H2 = {Pinout::EMS3_H2_PIN};
+    public:
         Actuators() : HEMS_1(&HEMS1_H1, &HEMS1_H2), HEMS_3(&HEMS3_H1, &HEMS3_H2), EMS_1(&EMS1_H1, &EMS1_H2), EMS_3(&EMS3_H1, &EMS3_H2),
-        		led_can(Pinout::CAN_LED_PIN), led_fault(Pinout::FAULT_LED_PIN), led_flash(Pinout::FLASH_LED_PIN), led_operational(Pinout::OPERATIONAL_LED_PIN),
-				led_sleep(Pinout::SLEEP_LED_PIN)
+				led_sleep(Pinout::SLEEP_LED_PIN), led_flash(Pinout::FLASH_LED_PIN), led_fault(Pinout::FAULT_LED_PIN),
+				led_operational(Pinout::OPERATIONAL_LED_PIN), led_can(Pinout::CAN_LED_PIN)
         		{}
     };
 
