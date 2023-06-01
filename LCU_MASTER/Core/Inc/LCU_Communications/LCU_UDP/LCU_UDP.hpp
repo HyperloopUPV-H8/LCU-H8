@@ -43,9 +43,16 @@ namespace LCU{
     template<>
     class UDP<VEHICLE_5DOF> {
     public:
-    	DatagramSocket BACKEND_CONNECTION{MASTER_IP, UDP_PORT, BACKEND_IP, UDP_PORT};
-        DatagramSocket SLAVE_CONNECTION{MASTER_IP, UDP_PORT, SLAVE_IP, UDP_PORT};
-        UDP() {}
+    	DatagramSocket BACKEND_CONNECTION;
+        DatagramSocket SLAVE_CONNECTION;
+        UDP(){}
+
+        void init(){
+        	BACKEND_CONNECTION = DatagramSocket(MASTER_IP,UDP_PORT,BACKEND_IP,UDP_PORT);
+        	BACKEND_CONNECTION.reconnect();
+        	//SLAVE_CONNECTION = DatagramSocket(MASTER_IP, UDP_PORT, SLAVE_IP, UDP_PORT);
+        }
+
         void send_to_backend(Packet& packet){
             BACKEND_CONNECTION.send(packet);
         }

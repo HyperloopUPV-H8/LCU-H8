@@ -11,12 +11,12 @@ namespace LCU{
 
     namespace Pinout{
         // PWMs
-        constexpr Pin& HEMS1_H1_PIN = PE9;
+        constexpr Pin& HEMS1_H1_PIN = PE9; // <-
         constexpr Pin& HEMS1_H2_PIN = PE6;
-        constexpr Pin& EMS1_H1_PIN = PE13;
+        constexpr Pin& EMS1_H1_PIN = PE13; // <-
         constexpr Pin& EMS1_H2_PIN = PE14;
 
-        constexpr Pin& HEMS3_H1_PIN = PE11;
+        constexpr Pin& HEMS3_H1_PIN = PE11; // <-
         constexpr Pin& HEMS3_H2_PIN = PE5;
         constexpr Pin& EMS3_H1_PIN = PB4;
         constexpr Pin& EMS3_H2_PIN = PB5;

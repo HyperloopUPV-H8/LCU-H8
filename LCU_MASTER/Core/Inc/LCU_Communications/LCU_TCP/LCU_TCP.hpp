@@ -35,9 +35,13 @@ namespace LCU{
     template<>
     class TCP<VEHICLE_5DOF> {
     public:
-        ServerSocket BACKEND_CONNECTION{MASTER_IP, SERVER_PORT};
-        Socket SLAVE_CONNECTION{MASTER_IP, CLIENT_PORT, SLAVE_IP, SERVER_PORT};
+        ServerSocket BACKEND_CONNECTION;
+        Socket SLAVE_CONNECTION;
         TCP() {}
+        void init(){
+        	BACKEND_CONNECTION = ServerSocket(MASTER_IP, SERVER_PORT);
+        	SLAVE_CONNECTION = Socket(MASTER_IP, CLIENT_PORT, SLAVE_IP, SERVER_PORT);
+        }
         void send_to_slave(Order& order){
             SLAVE_CONNECTION.send_order(order);
         }

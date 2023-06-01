@@ -39,7 +39,7 @@ namespace LCU{
             FilteredLinearSensor<current_filter_order> current_ems_1_sensor {Pinout::EMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_1, current_ems_1_filter};
             FilteredLinearSensor<current_filter_order> current_ems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_3, current_ems_3_filter};
 
-            //Temparatures
+//			  Temparatures
 //            static constexpr float temperature_slope;
 //            static constexpr float temperature_offset;
 //
