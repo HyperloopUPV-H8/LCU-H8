@@ -9,8 +9,12 @@ namespace LCU{
     template<>
     class UDP<LPU_VALIDATION> {
     public:
-    	DatagramSocket BACKEND_CONNECTION{MASTER_IP, UDP_PORT, BACKEND_IP, UDP_PORT};
+    	DatagramSocket BACKEND_CONNECTION;
         UDP() {}
+        void init(){
+        	BACKEND_CONNECTION = DatagramSocket(MASTER_IP,UDP_PORT,BACKEND_IP,UDP_PORT);
+        	BACKEND_CONNECTION.reconnect();
+        }
         void send_to_backend(Packet& packet){
             BACKEND_CONNECTION.send(packet);
         }
@@ -19,8 +23,12 @@ namespace LCU{
     template<>
     class UDP<TESTBENCH_1DOF> {
     public:
-    	DatagramSocket BACKEND_CONNECTION{MASTER_IP, UDP_PORT, BACKEND_IP, UDP_PORT};
+    	DatagramSocket BACKEND_CONNECTION;
         UDP() {}
+        void init(){
+        	BACKEND_CONNECTION = DatagramSocket(MASTER_IP,UDP_PORT,BACKEND_IP,UDP_PORT);
+        	BACKEND_CONNECTION.reconnect();
+        }
         void send_to_backend(Packet& packet){
             BACKEND_CONNECTION.send(packet);
         }
@@ -29,9 +37,15 @@ namespace LCU{
     template<>
     class UDP<VEHICLE_1DOF> {
     public:
-        DatagramSocket BACKEND_CONNECTION{MASTER_IP, UDP_PORT, BACKEND_IP, UDP_PORT};
-        DatagramSocket SLAVE_CONNECTION{MASTER_IP, UDP_PORT, SLAVE_IP, UDP_PORT};
+        DatagramSocket BACKEND_CONNECTION;
+        DatagramSocket SLAVE_CONNECTION;
         UDP() {}
+        void init(){
+        	BACKEND_CONNECTION = DatagramSocket(MASTER_IP,UDP_PORT,BACKEND_IP,UDP_PORT);
+        	BACKEND_CONNECTION.reconnect();
+        	SLAVE_CONNECTION = DatagramSocket(MASTER_IP, UDP_PORT, SLAVE_IP, UDP_PORT);
+        	SLAVE_CONNECTION.reconnect();
+        }
         void send_to_backend(Packet& packet){
             BACKEND_CONNECTION.send(packet);
         }
@@ -50,7 +64,8 @@ namespace LCU{
         void init(){
         	BACKEND_CONNECTION = DatagramSocket(MASTER_IP,UDP_PORT,BACKEND_IP,UDP_PORT);
         	BACKEND_CONNECTION.reconnect();
-        	//SLAVE_CONNECTION = DatagramSocket(MASTER_IP, UDP_PORT, SLAVE_IP, UDP_PORT);
+        	SLAVE_CONNECTION = DatagramSocket(MASTER_IP, UDP_PORT, SLAVE_IP, UDP_PORT);
+        	SLAVE_CONNECTION.reconnect();
         }
 
         void send_to_backend(Packet& packet){
