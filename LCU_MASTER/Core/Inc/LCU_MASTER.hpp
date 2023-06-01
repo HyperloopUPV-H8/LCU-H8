@@ -57,6 +57,10 @@ namespace LCU{
 			lcu_master->udp_handler.send_to_slave(lcu_master->packets.slave_reference_currents);
 		}
 
+		static void update_state_machine(){
+			lcu_master->state_machine_handler.general_state_machine.check_transitions();
+		}
+
 //		static void read_temperatures(){
 //			lcu_master->sensors.read_temperatures();
 //		}
