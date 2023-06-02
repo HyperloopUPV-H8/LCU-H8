@@ -1,4 +1,4 @@
-14:10:12 **** Incremental Build of configuration Debug for project LCU_MASTER ****
+19:35:03 **** Incremental Build of configuration Debug for project LCU_MASTER ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DDATA_IN_D2_SRAM -c -I"/home/stefancostea/Documents/ST-LIB" -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Drivers/BSP/Components/lan8742 -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 In file included from ../Drivers/CMSIS/Include/core_cm7.h:2178,
@@ -266,7 +266,7 @@ In file included from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:29
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:8087:3: note: in expansion of macro 'CLEAR_BIT'
  8087 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_AWD3);
       |   ^~~~~~~~~
-In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:3,
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:4,
                  from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:21,
                  from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
                  from ../Core/Src/main.cpp:4:
@@ -294,17 +294,24 @@ In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protec
                  from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
                  from ../Core/Src/main.cpp:4:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
-   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:77:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   77 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
       |                   ~~~~^~~~~~~~~~~
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
-   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:77:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   77 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
       |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
-   94 |      return *(uint16_t*)(buffer + sizeof(id));
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:99:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   99 |      return *(uint16_t*)(buffer + sizeof(id));
       |                          ~~~~~~~^~~~~~~~~~~~
-In file included from ../Core/Inc/LCU_MASTER.hpp:2,
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:22,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp: At global scope:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp:101:28: warning: unnecessary parentheses in declaration of 'result' [-Wparentheses]
+  101 |     float(&A)[U], (&B)[U], (&result);
+      |                            ^
+In file included from ../Core/Inc/LCU_MASTER.hpp:3,
                  from ../Core/Src/main.cpp:6:
 ../Core/Inc/LCU_Actuators/LCU_Actuators.hpp: In constructor 'LCU::Actuators<LCU::TESTBENCH_1DOF>::Actuators(LCU::COIL_ID)':
 ../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:111:15: warning: enumeration value 'HEMS_2' not handled in switch [-Wswitch]
@@ -314,7 +321,7 @@ In file included from ../Core/Inc/LCU_MASTER.hpp:2,
 ../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:111:15: warning: enumeration value 'EMS_2' not handled in switch [-Wswitch]
 ../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:111:15: warning: enumeration value 'EMS_4' not handled in switch [-Wswitch]
 In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
-                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Inc/LCU_MASTER.hpp:6,
                  from ../Core/Src/main.cpp:6:
 ../Core/Inc/LCU_Control/DistanceControl.hpp: In constructor 'DistanceControl<LCU::VEHICLE_5DOF>::DistanceControl(float (&)[8], float (&)[8])':
 ../Core/Inc/LCU_Control/DistanceControl.hpp:45:106: warning: 'DistanceControl<LCU::VEHICLE_5DOF>::rot_x_integrator' will be initialized after [-Wreorder]
@@ -324,13 +331,13 @@ In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
    45 |  Integrator<IntegratorType::Trapezoidal> y_integrator, z_integrator, rot_y_integrator, rot_z_integrator, rot_x_integrator;
       |                                                                      ^~~~~~~~~~~~~~~~
 In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
-                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Inc/LCU_MASTER.hpp:6,
                  from ../Core/Src/main.cpp:6:
 ../Core/Inc/LCU_Control/DistanceControl.hpp:74:2: warning:   when initialized here [-Wreorder]
    74 |  DistanceControl(float(&distaces)[8], float(&current_references)[8]) : y_integrator(period,1), z_integrator(period,1),
       |  ^~~~~~~~~~~~~~~
 In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
-                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Inc/LCU_MASTER.hpp:6,
                  from ../Core/Src/main.cpp:6:
 ../Core/Inc/LCU_Control/DistanceControl.hpp:45:88: warning: 'DistanceControl<LCU::VEHICLE_5DOF>::rot_z_integrator' will be initialized after [-Wreorder]
    45 |  Integrator<IntegratorType::Trapezoidal> y_integrator, z_integrator, rot_y_integrator, rot_z_integrator, rot_x_integrator;
@@ -339,13 +346,13 @@ In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
    44 |  SimpleDerivator y_derivator, z_derivator, rot_y_derivator, rot_z_derivator, rot_x_derivator;
       |                  ^~~~~~~~~~~
 In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
-                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Inc/LCU_MASTER.hpp:6,
                  from ../Core/Src/main.cpp:6:
 ../Core/Inc/LCU_Control/DistanceControl.hpp:74:2: warning:   when initialized here [-Wreorder]
    74 |  DistanceControl(float(&distaces)[8], float(&current_references)[8]) : y_integrator(period,1), z_integrator(period,1),
       |  ^~~~~~~~~~~~~~~
 In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
-                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Inc/LCU_MASTER.hpp:6,
                  from ../Core/Src/main.cpp:6:
 ../Core/Inc/LCU_Control/DistanceControl.hpp:44:78: warning: 'DistanceControl<LCU::VEHICLE_5DOF>::rot_x_derivator' will be initialized after [-Wreorder]
    44 |  SimpleDerivator y_derivator, z_derivator, rot_y_derivator, rot_z_derivator, rot_x_derivator;
@@ -354,7 +361,7 @@ In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
    44 |  SimpleDerivator y_derivator, z_derivator, rot_y_derivator, rot_z_derivator, rot_x_derivator;
       |                                            ^~~~~~~~~~~~~~~
 In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
-                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Inc/LCU_MASTER.hpp:6,
                  from ../Core/Src/main.cpp:6:
 ../Core/Inc/LCU_Control/DistanceControl.hpp:74:2: warning:   when initialized here [-Wreorder]
    74 |  DistanceControl(float(&distaces)[8], float(&current_references)[8]) : y_integrator(period,1), z_integrator(period,1),
@@ -363,29 +370,17 @@ In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
    72 |  MatrixMultiplier<8,15,1> matrix_multiplier;
       |                           ^~~~~~~~~~~~~~~~~
 In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
-                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Inc/LCU_MASTER.hpp:6,
                  from ../Core/Src/main.cpp:6:
 ../Core/Inc/LCU_Control/DistanceControl.hpp:48:31: warning:   'LevitationPositionCalculator DistanceControl<LCU::VEHICLE_5DOF>::airgap2pos' [-Wreorder]
    48 |  LevitationPositionCalculator airgap2pos;
       |                               ^~~~~~~~~~
 In file included from ../Core/Inc/LCU_Control/LCU_Control.hpp:2,
-                 from ../Core/Inc/LCU_MASTER.hpp:5,
+                 from ../Core/Inc/LCU_MASTER.hpp:6,
                  from ../Core/Src/main.cpp:6:
 ../Core/Inc/LCU_Control/DistanceControl.hpp:74:2: warning:   when initialized here [-Wreorder]
    74 |  DistanceControl(float(&distaces)[8], float(&current_references)[8]) : y_integrator(period,1), z_integrator(period,1),
       |  ^~~~~~~~~~~~~~~
-In file included from ../Core/Inc/LCU_MASTER.hpp:9,
-                 from ../Core/Src/main.cpp:6:
-../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp: In constructor 'LCU::IncomingOrders<LCU::VEHICLE_5DOF>::IncomingOrders(LCU::Data<LCU::VEHICLE_5DOF>&)':
-../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:26:23: warning: 'LCU::IncomingOrders<LCU::VEHICLE_5DOF>::data' will be initialized after [-Wreorder]
-   26 |   Data<VEHICLE_5DOF>& data;
-      |                       ^~~~
-../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:20:17: warning:   'StackOrder<0> LCU::IncomingOrders<LCU::VEHICLE_5DOF>::test_toggle_led_order' [-Wreorder]
-   20 |   StackOrder<0> test_toggle_led_order;
-      |                 ^~~~~~~~~~~~~~~~~~~~~
-../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:28:3: warning:   when initialized here [-Wreorder]
-   28 |   IncomingOrders(Data<VEHICLE_5DOF>& data) : data(data),
-      |   ^~~~~~~~~~~~~~
 In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:22,
                  from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
                  from ../Core/Src/main.cpp:4:
@@ -422,6 +417,26 @@ In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp
 ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:46:14: warning: 'u32_t get_rtc_us()' declared 'static' but never defined [-Wunused-function]
    46 | static u32_t get_rtc_us();
       |              ^~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:4,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:21,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 16; Types = {float, float, float, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 32; Types = {float, float, float, float, float, float, float, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
 In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:40,
                  from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
                  from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:26,
@@ -444,11 +459,11 @@ Finished building target: LCU_MASTER.elf
 arm-none-eabi-size   LCU_MASTER.elf 
 arm-none-eabi-objdump -h -S  LCU_MASTER.elf  > "LCU_MASTER.list"
    text	   data	    bss	    dec	    hex	filename
- 597548	   1368	  65584	 664500	  a23b4	LCU_MASTER.elf
+ 606324	   1368	  59280	 666972	  a2d5c	LCU_MASTER.elf
 Finished building: default.size.stdout
  
 Finished building: LCU_MASTER.list
  
 
-14:10:21 Build Finished. 0 errors, 71 warnings. (took 8s.549ms)
+19:35:16 Build Finished. 0 errors, 73 warnings. (took 12s.955ms)
 

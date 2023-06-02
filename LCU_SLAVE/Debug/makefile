@@ -87,11 +87,11 @@ all: main-build
 main-build: LCU_SLAVE.elf secondary-outputs
 
 dependents:
-	-cd /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Debug && $(MAKE) clean all
+	-cd /home/stefancostea/Documents/ST-LIB/Debug && $(MAKE) clean all
 
 # Tool invocations
-LCU_SLAVE.elf LCU_SLAVE.map: $(OBJS) $(USER_OBJS) /home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Debug/libST-LIB.a /home/dgoncas/Desktop/Firmware_workspace/LCU_SLAVE/STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "LCU_SLAVE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/home/dgoncas/Desktop/Firmware_workspace/LCU_SLAVE/STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCU_SLAVE.map" -Wl,--gc-sections -static -L"/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Debug" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+LCU_SLAVE.elf LCU_SLAVE.map: $(OBJS) $(USER_OBJS) /home/stefancostea/Documents/ST-LIB/Debug/libST-LIB.a /home/stefancostea/Documents/LCU-H8/LCU_SLAVE/STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "LCU_SLAVE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/home/stefancostea/Documents/LCU-H8/LCU_SLAVE/STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCU_SLAVE.map" -Wl,--gc-sections -static -L"/home/stefancostea/Documents/ST-LIB/Debug" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -120,6 +120,6 @@ warn-no-linker-script-specified:
 	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
 
 .PHONY: all clean dependents main-build fail-specified-linker-script-missing warn-no-linker-script-specified
-/home/dgoncas/Desktop/Firmware_workspace/ST-LIB/Debug/libST-LIB.a:
+/home/stefancostea/Documents/ST-LIB/Debug/libST-LIB.a:
 
 -include ../makefile.targets

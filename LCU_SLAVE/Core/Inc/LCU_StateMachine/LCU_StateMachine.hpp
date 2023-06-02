@@ -106,14 +106,14 @@ namespace LCU{
 		void add_on_enter_actions(){
 			general_state_machine.add_enter_action([&](){
 				Time::set_timeout(max_tcp_connection_timeout, [&](){
-					if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
+					if(not (tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED)){
 								tcp_timeout = true;
 					}
 				});
 			}, INITIAL);
 
 			Time::set_timeout(max_tcp_connection_timeout, [&](){
-				if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
+				if(not (tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED)){
 							tcp_timeout = true;
 				}
 			});

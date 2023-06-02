@@ -6,10 +6,14 @@ namespace LCU{
 
     class UDP {
     public:
-        DatagramSocket MASTER_CONNECTION{SLAVE_IP, UDP_PORT, MASTER_IP, UDP_PORT};
+        DatagramSocket MASTER_CONNECTION;
         UDP() {}
-        void send_to_master(Packet& order){
-        	MASTER_CONNECTION.send(order);
+        void init(){
+        	MASTER_CONNECTION = DatagramSocket(SLAVE_IP, UDP_PORT, MASTER_IP, UDP_PORT);
+        	MASTER_CONNECTION.reconnect();
+        }
+        void send_to_master(Packet& packet){
+        	MASTER_CONNECTION.send(packet);
         }
     };
 }

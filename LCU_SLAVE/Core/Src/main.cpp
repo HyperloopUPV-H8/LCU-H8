@@ -6,11 +6,11 @@
 #include "LCU_SLAVE.hpp"
 #include "LCU_Time/LCU_Time.hpp"
 
-LCU::LCU_SLAVE& lcu = LCU::LCU_SLAVE::lcu_slave;
-
 int main(void)
 {
-	lcu.init();
+	LCU::LCU_SLAVE lcu_slave;
+	LCU::LCU_SLAVE::lcu_slave = &lcu_slave;
+	lcu_slave.init();
 	LCU::CyclicActions::register_cyclic_actions();
 	while(1) {
 		STLIB::update();

@@ -1,24 +1,13 @@
 #pragma once
-#include "../LCU_MASTER.hpp"
-
+#include "LCU_SLAVE.hpp"
 namespace LCU{
-	template<MASTER_MODE> class Packets;
-
-	template<>
-	class Packets<VEHICLE_5DOF>{
+	class Packets{
 	public:
-		//TO VCU
+		StackPacket<16,float,float,float,float> slave_reference_currents;
 
-		StackPacket<32,float,float,float,float,float,float,float,float> airgaps_data;
+		StackPacket<16,float,float,float,float> slave_airgaps;
 
-		StackPacket<32,float,float,float,float,float,float,float,float> coil_currents;
-
-		StackPacket<32,float,float,float,float,float,float,float,float> coil_temperatures;
-
-		StackPacket<32,float,float,float,float,float,float,float,float> lpu_temperatures;
-
-		StackPacket<32,float,float,float,float,float,float,float,float> battery_data;
-
-		StackPacket<>
+		Packets(Data& data): slave_reference_currents(309, &data.reference_currents[COIL_ID::HEMS_2], &data.reference_currents[COIL_ID::HEMS_4],&data.reference_currents[COIL_ID::EMS_2],&data.reference_currents[COIL_ID::EMS_4]),
+			slave_airgaps(308, &data.airgaps[2-1], &data.airgaps[4-1],&data.airgaps[6-1],&data.airgaps[8-1]){}
 	};
 }
