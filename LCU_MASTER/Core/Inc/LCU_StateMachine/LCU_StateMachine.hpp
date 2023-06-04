@@ -260,6 +260,102 @@ namespace LCU{
 			general_state_machine.add_low_precision_cyclic_action(ProtectionManager::check_protections, 1ms, OPERATIONAL);
 		}
 	};
+
+	template<> class GeneralStateMachine<VEHICLE_TESTING>{
+	public:
+		Actuators<VEHICLE_TESTING>& actuators;
+		Control<VEHICLE_TESTING>& control;
+		TCP<VEHICLE_TESTING>& tcp_handler;
+		StateMachine general_state_machine;
+		bool tcp_timeout = false;
+
+		static constexpr uint16_t max_tcp_connection_timeout = 10000; //ms
+
+		enum States{
+			INITIAL,
+			OPERATIONAL,
+			FAULT
+		};
+
+		GeneralStateMachine(Data<VEHICLE_TESTING>& data, Actuators<VEHICLE_TESTING>& actuators, Control<VEHICLE_TESTING>& control, TCP<VEHICLE_TESTING>& tcp_handler, OutgoingOrders<VEHICLE_TESTING>& outgoing_orders) : actuators(actuators),
+				control(control), tcp_handler(tcp_handler)
+		{}
+
+		void init(){
+			general_state_machine = {INITIAL};
+			general_state_machine.add_state(OPERATIONAL);
+			general_state_machine.add_state(FAULT);
+			ProtectionManager::link_state_machine(general_state_machine, FAULT);
+			ProtectionManager::set_id(Boards::ID::LCU_MASTER);
+			add_on_enter_actions();
+			add_on_exit_actions();
+			add_transitions();
+			register_timed_actions();
+			add_transitions();
+		}
+
+		void add_transitions(){
+			general_state_machine.add_transition(INITIAL, OPERATIONAL, [&](){
+				return tcp_handler.BACKEND_CONNECTION.state == ServerSocket::ServerState::ACCEPTED &&
+					   tcp_handler.SLAVE_CONNECTION.state == Socket::SocketState::CONNECTED;
+			});
+			general_state_machine.add_transition(INITIAL, FAULT, [&](){
+				if(tcp_timeout) ErrorHandler("TCP connections could not be established in time and timed out");
+				return tcp_timeout;
+			});
+			general_state_machine.add_transition(OPERATIONAL, FAULT, [&](){
+				if(tcp_handler.BACKEND_CONNECTION.state != ServerSocket::ServerState::ACCEPTED ||
+						   tcp_handler.SLAVE_CONNECTION.state != Socket::SocketState::CONNECTED){
+					ErrorHandler("TCP connections fell");
+					return true;
+				}
+				return false;
+			});
+		}
+
+		void add_on_enter_actions(){
+			general_state_machine.add_enter_action([&](){
+				Time::set_timeout(max_tcp_connection_timeout, [&](){
+					if(not (tcp_handler.BACKEND_CONNECTION.state == ServerSocket::ServerState::ACCEPTED &&
+							tcp_handler.SLAVE_CONNECTION.state == Socket::SocketState::CONNECTED)){
+								tcp_timeout = true;
+					}
+				});
+			}, INITIAL);
+
+			Time::set_timeout(max_tcp_connection_timeout, [&](){
+				if(not (tcp_handler.BACKEND_CONNECTION.state == ServerSocket::ServerState::ACCEPTED &&
+						tcp_handler.SLAVE_CONNECTION.state == Socket::SocketState::CONNECTED)){
+							tcp_timeout = true;
+				}
+			});
+
+			general_state_machine.add_enter_action([&](){
+				 control.stop();
+				 actuators.turn_off();
+				 actuators.led_fault.turn_on();
+			}, FAULT);
+
+			general_state_machine.add_enter_action([&](){
+				actuators.led_operational.turn_on();
+			}, OPERATIONAL);
+		}
+
+		void add_on_exit_actions(){
+			general_state_machine.add_exit_action([&](){
+				actuators.led_fault.turn_off();
+			}, FAULT);
+			general_state_machine.add_exit_action([&](){
+				actuators.led_operational.turn_off();
+			}, OPERATIONAL);
+		}
+
+		void register_timed_actions(){
+			general_state_machine.add_low_precision_cyclic_action(ProtectionManager::check_protections, 1ms, OPERATIONAL);
+		}
+	};
 }
+
+
 
 

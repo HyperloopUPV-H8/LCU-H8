@@ -9,7 +9,7 @@ namespace LCU{
     constexpr uint16_t CLIENT_PORT = 50501;
     constexpr uint16_t UDP_PORT = 50400;
 
-	enum COIL_ID{
+	enum COIL_ID {
 		HEMS_1,
 		HEMS_2,
 		HEMS_3,
@@ -19,6 +19,12 @@ namespace LCU{
 		EMS_3,
 		EMS_4
 	};
+
+	inline COIL_ID operator++ (COIL_ID& id, int) {
+	    id = static_cast<COIL_ID>(static_cast<int>(id) + 1);
+	    return id;
+	}
+
 
     namespace Pinout{
         // PWMs

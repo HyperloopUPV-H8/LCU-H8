@@ -41,9 +41,9 @@ public:
 template<>
 class DistanceControl<LCU::MASTER_MODE::VEHICLE_5DOF>{
 public:
-	SimpleDerivator y_derivator, z_derivator, rot_y_derivator, rot_z_derivator, rot_x_derivator;
-	Integrator<IntegratorType::Trapezoidal> y_integrator, z_integrator, rot_y_integrator, rot_z_integrator, rot_x_integrator;
-	MovingAverage<20> y_filter_derivative, z_filter_derivative, rot_y_filter_derivative, rot_z_filter_derivative, rot_x_filter_derivative;
+	SimpleDerivator y_derivator, z_derivator,rot_x_derivator,  rot_y_derivator, rot_z_derivator;
+	Integrator<IntegratorType::Trapezoidal> y_integrator, z_integrator, rot_x_integrator, rot_y_integrator, rot_z_integrator;
+	MovingAverage<20> y_filter_derivative, z_filter_derivative, rot_x_filter_derivative, rot_y_filter_derivative, rot_z_filter_derivative;
 	LevitationPosition error;
 	LevitationPositionCalculator airgap2pos;
 	LevitationPosition& levitation_position = airgap2pos.output_value;
@@ -71,10 +71,11 @@ public:
 
 	MatrixMultiplier<8,15,1> matrix_multiplier;
 
-	DistanceControl(float(&distaces)[8], float(&current_references)[8]) : y_integrator(period,1), z_integrator(period,1),
-		rot_x_integrator(period,1), rot_y_integrator(period,1), rot_z_integrator(period,1),
+	DistanceControl(float(&distaces)[8], float(&current_references)[8]) :
 		y_derivator(period), z_derivator(period), rot_x_derivator(period), rot_y_derivator(period), rot_z_derivator(period),
-		matrix_multiplier(K,U,current_references), airgap2pos(distaces), current_references(current_references)
+		y_integrator(period,1), z_integrator(period,1),
+		rot_x_integrator(period,1), rot_y_integrator(period,1), rot_z_integrator(period,1),
+		 airgap2pos(distaces), current_references(current_references), matrix_multiplier(K,U,current_references)
 	{}
 private:
 

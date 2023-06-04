@@ -13,6 +13,10 @@ namespace LCU{
     	void init();
     	void turn_off();
     	void turn_on();
+    	void test_all_pwm();
+    	void set_duty_cycle(COIL_ID id, float duty_cycle);
+    	void set_frequency(COIL_ID id, float frequency);
+    	static bool is_coil_from_slave(COIL_ID id);
     private:
         static constexpr float default_pwm_frequency = 20000;
         DigitalOutput buffer_enable {Pinout::BUFFER_EN_PIN};
@@ -58,5 +62,62 @@ namespace LCU{
         EMS_4.turn_on();
         buffer_enable.turn_off();
     }
+
+    void Actuators::test_all_pwm(){
+		HEMS_2.H1->set_duty_cycle(50);
+		HEMS_2.H2->set_duty_cycle(50);
+		HEMS_4.H1->set_duty_cycle(50);
+		HEMS_4.H2->set_duty_cycle(50);
+		EMS_2.H1->set_duty_cycle(50);
+		EMS_2.H2->set_duty_cycle(50);
+		EMS_4.H1->set_duty_cycle(50);
+		EMS_4.H2->set_duty_cycle(50);
+    }
+
+    void Actuators::set_duty_cycle(COIL_ID id, float duty){
+        switch (id){
+            case COIL_ID::HEMS_2:
+                HEMS_2.set_duty_cycle(duty);
+                break;
+            case COIL_ID::HEMS_4:
+                HEMS_4.set_duty_cycle(duty);
+                break;
+            case COIL_ID::EMS_2:
+                EMS_2.set_duty_cycle(duty);
+                break;
+            case COIL_ID::EMS_4:
+                EMS_4.set_duty_cycle(duty);
+                break;
+            default:
+                ErrorHandler("Invalid COIL_ID, given id: %d", id);
+                break;
+        }
+    }
+
+    void Actuators::set_frequency(COIL_ID id, float frequency){
+        switch (id){
+            case COIL_ID::HEMS_2:
+                HEMS_2.set_frequency(frequency);
+                break;
+            case COIL_ID::HEMS_4:
+                HEMS_4.set_frequency(frequency);
+                break;
+            case COIL_ID::EMS_2:
+                EMS_2.set_frequency(frequency);
+                break;
+            case COIL_ID::EMS_4:
+                EMS_4.set_frequency(frequency);
+                break;
+            default:
+                ErrorHandler("Invalid COIL_ID, given id: %d", id);
+                break;
+        }
+    }
+
+	bool Actuators::is_coil_from_slave(COIL_ID id){
+    	if(id == COIL_ID::HEMS_2 || id == COIL_ID::HEMS_4 || id == COIL_ID::EMS_2 || id == COIL_ID::EMS_4) return true;
+    	return false;
+	}
+
 }
 

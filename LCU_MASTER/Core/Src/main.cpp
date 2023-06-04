@@ -8,12 +8,14 @@
 
 using namespace LCU;
 
+constexpr LCU::MASTER_MODE MODE_OF_OPERATION = VEHICLE_TESTING;
+
 int main(void)
 {
-	LCU_MASTER<VEHICLE_5DOF> lcu_master_singleton;
-	LCU_MASTER<VEHICLE_5DOF>::lcu_master = &lcu_master_singleton;
-	LCU_MASTER<VEHICLE_5DOF>::lcu_master->init();
-	CyclicActions<MASTER_MODE::VEHICLE_5DOF>::register_cyclic_actions();
+	LCU_MASTER<MODE_OF_OPERATION> lcu_master_singleton;
+	LCU_MASTER<MODE_OF_OPERATION>::lcu_master = &lcu_master_singleton;
+	LCU_MASTER<MODE_OF_OPERATION>::lcu_master->init();
+	CyclicActions<MODE_OF_OPERATION>::register_cyclic_actions();
 	while(1) {
 		STLIB::update();
 	}

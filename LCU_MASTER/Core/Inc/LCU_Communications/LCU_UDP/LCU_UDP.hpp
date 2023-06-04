@@ -35,15 +35,15 @@ namespace LCU{
     };
 
     template<>
-    class UDP<VEHICLE_1DOF> {
+    class UDP<VEHICLE_TESTING> {
     public:
         DatagramSocket BACKEND_CONNECTION;
         DatagramSocket SLAVE_CONNECTION;
         UDP() {}
         void init(){
         	BACKEND_CONNECTION = DatagramSocket(MASTER_IP,UDP_PORT,BACKEND_IP,UDP_PORT);
-        	SLAVE_CONNECTION = DatagramSocket(MASTER_IP, UDP_PORT, SLAVE_IP, UDP_PORT);
         	BACKEND_CONNECTION.reconnect();
+        	SLAVE_CONNECTION = DatagramSocket(MASTER_IP, UDP_PORT, SLAVE_IP, UDP_PORT);
         	SLAVE_CONNECTION.reconnect();
         }
         void send_to_backend(Packet& packet){
