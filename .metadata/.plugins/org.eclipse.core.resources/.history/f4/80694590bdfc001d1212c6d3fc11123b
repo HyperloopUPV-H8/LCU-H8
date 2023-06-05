@@ -1,5 +1,0 @@
-#pragma once
-#include "../ControlBlock.hpp"
-
-template<size_t N, size_t M>
-class MatrixMultiplier : ControlBlock<double(&)[N][M]>

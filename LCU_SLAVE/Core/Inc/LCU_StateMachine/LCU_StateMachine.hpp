@@ -76,7 +76,7 @@ namespace LCU{
 			general_state_machine.add_state(OPERATIONAL);
 			general_state_machine.add_state(FAULT);
 			ProtectionManager::link_state_machine(general_state_machine, FAULT);
-			ProtectionManager::set_id(Boards::ID::LCU_MASTER);
+			ProtectionManager::set_id(Boards::ID::LCU_SLAVE);
 			add_on_enter_actions();
 			add_on_exit_actions();
 			add_transitions();
@@ -121,6 +121,7 @@ namespace LCU{
 			general_state_machine.add_enter_action([&](){
 				 control.stop();
 				 actuators.turn_off();
+			     actuators.led_operational.turn_off();
 				 actuators.led_fault.turn_on();
 			}, FAULT);
 
@@ -139,7 +140,10 @@ namespace LCU{
 		}
 
 		void register_timed_actions(){
-			general_state_machine.add_low_precision_cyclic_action(ProtectionManager::check_protections, 1ms, OPERATIONAL);
+			general_state_machine.add_low_precision_cyclic_action([&](){
+				actuators.led_operational.toggle();
+			}, 150ms);
+			//general_state_machine.add_low_precision_cyclic_action(ProtectionManager::check_protections, 1ms, OPERATIONAL);
 		}
 	};
 }

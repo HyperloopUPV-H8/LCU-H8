@@ -51,12 +51,16 @@ namespace LCU {
        		switch(coil_id){
        		case COIL_ID::HEMS_2:
            		hems_2_current_control.set_reference_current(new_reference);
+           		break;
        		case COIL_ID::HEMS_4:
            		hems_4_current_control.set_reference_current(new_reference);
+           		break;
        		case COIL_ID::EMS_2:
            		ems_2_current_control.set_reference_current(new_reference);
+           		break;
        		case COIL_ID::EMS_4:
            		ems_4_current_control.set_reference_current(new_reference);
+           		break;
        		default:
        			ErrorHandler("Coil current control not supported %d", coil_id);
        		}
@@ -67,15 +71,19 @@ namespace LCU {
        		case COIL_ID::HEMS_2:
            		hems_2_current_control.control(hems_2_current);
        			hems_2_current_control.apply_control();
+           		break;
        		case COIL_ID::HEMS_4:
            		hems_4_current_control.control(hems_4_current);
        			hems_4_current_control.apply_control();
+           		break;
        		case COIL_ID::EMS_2:
            		ems_2_current_control.control(ems_2_current);
        			ems_2_current_control.apply_control();
+           		break;
        		case COIL_ID::EMS_4:
            		ems_4_current_control.control(ems_4_current);
        			ems_4_current_control.apply_control();
+           		break;
        		default:
        			ErrorHandler("Coil current control not supported %d", coil_id);
        		}

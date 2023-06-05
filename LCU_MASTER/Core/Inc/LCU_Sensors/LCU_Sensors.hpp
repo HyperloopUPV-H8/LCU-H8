@@ -175,8 +175,8 @@ namespace LCU{
             	current_hems_3_sensor.read();
             	current_ems_1_sensor.read();
             	current_ems_3_sensor.read();
-            	hems_1_time_protection->check_accumulation(data.coil_current_hems_1);
-            	hems_3_time_protection->check_accumulation(data.coil_current_hems_3);
+            	//hems_1_time_protection->check_accumulation(data.coil_current_hems_1);
+            	//hems_3_time_protection->check_accumulation(data.coil_current_hems_3);
             }
 
             void read_airgaps(){
@@ -246,8 +246,8 @@ namespace LCU{
                 	current_hems_3_sensor.read();
                 	current_ems_1_sensor.read();
                 	current_ems_3_sensor.read();
-                	hems_1_time_protection->check_accumulation(data.coil_current_hems_1);
-                	hems_3_time_protection->check_accumulation(data.coil_current_hems_3);
+                	//hems_1_time_protection->check_accumulation(data.coil_current_hems_1);
+                	//hems_3_time_protection->check_accumulation(data.coil_current_hems_3);
                 }
 
                 void read_airgaps(){

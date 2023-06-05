@@ -61,6 +61,8 @@ namespace LCU{
 
 	void stop_current_control_vehicle_testing();
 
+	void stop_lpu_vehicle_testing();
+
 	template<MASTER_MODE> class IncomingOrders;
 
 	template<> class IncomingOrders<VEHICLE_5DOF>{
@@ -104,6 +106,7 @@ namespace LCU{
 		StackOrder<4, float> test_all_current_control_order;
 		StackOrder<0> stop_current_control_order;
 		StackOrder<0> reset_all_lcus_order;
+		StackOrder<0> stop_lpu_order;
 
 		float reference_current;
 		COIL_ID coil_target;
@@ -114,11 +117,12 @@ namespace LCU{
 				hardware_reset_order((uint16_t)MasterOrdersID::LCU_MASTER_RESET, hardware_reset),
 				test_all_pwms_order((uint16_t)MasterOrdersID::TEST_ALL_PWM_VEHICLE_TESTING, test_all_pwms_vehicle_testing),
 				test_lpu_order((uint16_t)MasterOrdersID::TEST_LPU_VEHICLE_TESTING, test_lpu_vehicle_testing,&coil_target,&duty_cycle),
-				test_current_control_order((uint16_t)MasterOrdersID::TEST_CURRENT_CONTROL, test_current_control_vehicle_testing, &coil_target, &reference_current),
+				test_current_control_order((uint16_t)MasterOrdersID::START_CURRENT_CONTROL_VEHICLE_TESTING, test_current_control_vehicle_testing, &coil_target, &reference_current),
 				change_current_control_reference_order((uint16_t)MasterOrdersID::CHANGE_CURRENT_CONTROL_REFERENCE, change_current_control_reference_vehicle_testing, &reference_current),
 				test_all_current_control_order((uint16_t)MasterOrdersID::TEST_ALL_CURRENT_CONTROL, test_all_current_control_vehicle_testing, &reference_current),
 				stop_current_control_order((uint16_t)MasterOrdersID::STOP_CONTROL, stop_current_control_vehicle_testing),
-				reset_all_lcus_order((uint16_t)MasterOrdersID::RESET_ALL_LCUS, reset_both_lcus_vehicle_testing)
+				reset_all_lcus_order((uint16_t)MasterOrdersID::RESET_ALL_LCUS, reset_both_lcus_vehicle_testing),
+				stop_lpu_order((uint16_t)MasterOrdersID::STOP_LPU_VEHICLE_TESTING, stop_lpu_vehicle_testing)
 		{}
 
 		void init(){}

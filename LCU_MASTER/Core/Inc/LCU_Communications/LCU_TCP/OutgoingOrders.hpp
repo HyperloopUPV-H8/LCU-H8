@@ -12,6 +12,7 @@ enum class SlaveOrdersID : uint16_t{
 	SLAVE_CHANGE_REFERENCE_CURERNT = 411,
 	SLAVE_TEST_ALL_CURRENT_CONTROL = 412,
 	SLAVE_TOGGLE_LED = 414,
+	SLAVE_STOP_LPU = 415
 };
 
 namespace LCU{
@@ -45,6 +46,7 @@ namespace LCU{
 		HeapOrder test_all_current_control_order;
 		HeapOrder stop_slave_control_order;
 		HeapOrder test_toggle_led_order;
+		HeapOrder stop_lpu_order;
 
 		OutgoingOrders() : slave_hardware_reset_order((uint16_t)SlaveOrdersID::SLAVE_HARDWARE_RESET),
 				test_all_slave_pwm_order((uint16_t)SlaveOrdersID::SLAVE_TEST_ALL_PWM),
@@ -53,7 +55,8 @@ namespace LCU{
 				change_slave_current_control_reference_order((uint16_t)SlaveOrdersID::SLAVE_CHANGE_REFERENCE_CURERNT, &reference_current),
 				test_all_current_control_order((uint16_t)SlaveOrdersID::SLAVE_TEST_ALL_CURRENT_CONTROL, &reference_current),
 				stop_slave_control_order((uint16_t)SlaveOrdersID::STOP_SLAVE_LEVITATION),
-				test_toggle_led_order((uint16_t)SlaveOrdersID::SLAVE_TOGGLE_LED)
+				test_toggle_led_order((uint16_t)SlaveOrdersID::SLAVE_TOGGLE_LED),
+				stop_lpu_order((uint16_t)SlaveOrdersID::SLAVE_STOP_LPU)
 				{}
 	};
 }

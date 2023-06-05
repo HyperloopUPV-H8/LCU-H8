@@ -1,8 +1,0 @@
-#pragma once
-#include "Time/Time.hpp"
-
-namespace LCU{
-	void register_cyclic_actions(){
-
-	}
-}

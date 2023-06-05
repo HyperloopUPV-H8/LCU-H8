@@ -72,7 +72,7 @@ namespace LCU{
 			tcp_handler.init();
 			actuators.init();
 			state_machine_handler.init();
-			data.add_protections();
+		    data.add_protections();
 		}
 
 	};
@@ -177,11 +177,6 @@ namespace LCU{
 			lcu_master->udp_handler.send_to_backend(lcu_master->packets.coil_currents);
 		}
 
-		static void send_slave_data(){
-			lcu_master->udp_handler.send_to_slave(lcu_master->packets.slave_airgaps);
-			lcu_master->udp_handler.send_to_slave(lcu_master->packets.slave_reference_currents);
-		}
-
 		static void update_state_machine(){
 			lcu_master->state_machine_handler.general_state_machine.check_transitions();
 		}
@@ -196,7 +191,7 @@ namespace LCU{
 			tcp_handler.init();
 			actuators.init();
 			state_machine_handler.init();
-			data.add_protections();
+			//data.add_protections();
 		}
 
 	};
@@ -234,9 +229,13 @@ namespace LCU{
 		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
 		COIL_ID target_coil = LCU_MASTER<VEHICLE_TESTING>::lcu_master->incoming_orders_handler.coil_target;
 		float reference_current = LCU_MASTER<VEHICLE_TESTING>::lcu_master->incoming_orders_handler.reference_current;
+		if(LCU_MASTER<VEHICLE_TESTING>::lcu_master->data.reference_currents[target_coil] != 0){
+			ErrorHandler("COIL ID %d is already running current_control", target_coil);
+			return;
+		}
 		if(Actuators<VEHICLE_TESTING>::is_coil_from_master(target_coil)){
 			LCU_MASTER<VEHICLE_TESTING>::lcu_master->control.change_current_reference(target_coil, reference_current);
-			TimedAction* control_action = LCU_MASTER<VEHICLE_TESTING>::lcu_master->state_machine_handler.general_state_machine.add_mid_precision_cyclic_action([&](){
+			TimedAction* control_action = LCU_MASTER<VEHICLE_TESTING>::lcu_master->state_machine_handler.general_state_machine.add_mid_precision_cyclic_action([&,target_coil](){
 				LCU_MASTER<VEHICLE_TESTING>::lcu_master->control.execute_current_control(target_coil);
 			}, 500us);
 			LCU_MASTER<VEHICLE_TESTING>::lcu_master->control_current_actions.push_back(control_action);
@@ -298,6 +297,17 @@ namespace LCU{
 		LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.slave_hardware_reset_order);
 		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
 		HAL_NVIC_SystemReset();
+	}
+
+	void stop_lpu_vehicle_testing(){
+		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
+		for(COIL_ID id = HEMS_1; id<=EMS_4; id++){
+			if(Actuators<VEHICLE_TESTING>::is_coil_from_master(id)){
+				LCU_MASTER<VEHICLE_TESTING>::lcu_master->actuators.set_duty_cycle(id, 0);
+			}
+		}
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.stop_slave_control_order);
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
 	}
 
 }

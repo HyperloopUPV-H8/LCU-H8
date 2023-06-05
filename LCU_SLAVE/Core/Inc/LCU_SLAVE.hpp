@@ -61,6 +61,7 @@ namespace LCU{
 			tcp_handler.init();
 			actuators.init();
 			state_machine_handler.init();
+			data.add_protections();
 		}
 
 	};
@@ -113,7 +114,7 @@ namespace LCU{
 		COIL_ID target_coil = LCU_SLAVE::lcu_slave->incoming_orders.coil_target;
 		float reference_current = LCU_SLAVE::lcu_slave->incoming_orders.reference_current;
 		LCU_SLAVE::lcu_slave->control.change_current_reference(target_coil, reference_current);
-		TimedAction* control_action = LCU_SLAVE::lcu_slave->state_machine_handler.general_state_machine.add_mid_precision_cyclic_action([&](){
+		TimedAction* control_action = LCU_SLAVE::lcu_slave->state_machine_handler.general_state_machine.add_mid_precision_cyclic_action([&, target_coil](){
 			LCU_SLAVE::lcu_slave->control.execute_current_control(target_coil);
 		}, 500us);
 		LCU_SLAVE::lcu_slave->control_actions.push_back(control_action);
@@ -131,7 +132,18 @@ namespace LCU{
 		Time::set_timeout(500, LCU_SLAVE::toggle_led);
 	}
 
+	void stop_lpu(){
+		LCU_SLAVE::toggle_led();
+		for(COIL_ID id = HEMS_1; id<=EMS_4; id++){
+			if(Actuators::is_coil_from_slave(id)){
+				LCU_SLAVE::lcu_slave->actuators.set_duty_cycle(id, 0);
+			}
+		}
+		Time::set_timeout(500, LCU_SLAVE::toggle_led);
+	}
+
 	void test_all_current_control(){
+		LCU_SLAVE::toggle_led();
 		float reference_current = LCU_SLAVE::lcu_slave->incoming_orders.reference_current;
 		for(COIL_ID id = HEMS_1; id <= EMS_4; id++){
 			if(Actuators::is_coil_from_slave(id)){
@@ -142,6 +154,7 @@ namespace LCU{
 			LCU_SLAVE::lcu_slave->control.execute_current_control();
 		}, 500us);
 		LCU_SLAVE::lcu_slave->control_actions.push_back(control_action);
+		Time::set_timeout(500, LCU_SLAVE::toggle_led);
 	}
 
 	LCU_SLAVE* LCU_SLAVE::lcu_slave = nullptr;

@@ -195,15 +195,19 @@ namespace LCU {
        		case COIL_ID::HEMS_1:
            		hems_1_current_control.control(hems_1_current);
        			hems_1_current_control.apply_control();
+       			break;
        		case COIL_ID::HEMS_3:
            		hems_3_current_control.control(hems_3_current);
        			hems_3_current_control.apply_control();
+       			break;
        		case COIL_ID::EMS_1:
            		ems_1_current_control.control(ems_1_current);
        			ems_1_current_control.apply_control();
+       			break;
        		case COIL_ID::EMS_3:
            		ems_3_current_control.control(ems_3_current);
        			ems_3_current_control.apply_control();
+       			break;
        		default:
        			ErrorHandler("Coil current control not supported %d", coil_id);
        		}
