@@ -13,22 +13,29 @@ namespace LCU {
     template<> class Control<LCU::MASTER_MODE::LPU_VALIDATION>{
         public:
             CurrentControl current_control;
+            float* current_value;
             Control(LCU::Actuators<LPU_VALIDATION>& actuators, LCU::Data<LPU_VALIDATION>& data, COIL_ID hems_id){
                 switch (hems_id){
                     case COIL_ID::HEMS_1:
                         current_control = {actuators.HEMS_1, data.reference_current_hems_1};
+                        current_value = &data.coil_current_hems_1;
                         break;
                     case COIL_ID::HEMS_3:
                         current_control = {actuators.HEMS_3, data.reference_current_hems_3};
+                        current_value = &data.coil_current_hems_3;
                         break;
                     case COIL_ID::EMS_1:
                         current_control = {actuators.EMS_1, data.reference_current_ems_1};
+                        current_value = &data.coil_current_ems_1;
                         break;
                     case COIL_ID::EMS_3:
                         current_control = {actuators.EMS_3, data.reference_current_ems_3};
+                        current_value = &data.coil_current_ems_3;
                         break;
                     default:
                         ErrorHandler("Invalid HEMS_ID, given id: %d", hems_id);
+                        current_value = nullptr;
+                        return;
                         break;
                 }
                 current_control.half_bridge.turn_on();

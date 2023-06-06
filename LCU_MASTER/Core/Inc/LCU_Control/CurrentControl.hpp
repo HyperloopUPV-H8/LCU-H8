@@ -19,7 +19,7 @@ public:
 	static constexpr float max_voltage = battery_voltage, min_voltage = -battery_voltage;
 	float target_duty_cyle = 0;
 
-	CurrentControl();
+	CurrentControl() = default;
 	CurrentControl(LPU_HalfBridge& half_bridge, float& current_reference) : half_bridge(half_bridge), reference_current(&current_reference) {}
 
 	void operator=(CurrentControl&& other){

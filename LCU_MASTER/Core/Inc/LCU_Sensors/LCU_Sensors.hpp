@@ -39,6 +39,11 @@ namespace LCU{
             FilteredLinearSensor<float,current_filter_order> current_ems_1_sensor {Pinout::EMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_1, current_ems_1_filter};
             FilteredLinearSensor<float,current_filter_order> current_ems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_3, current_ems_3_filter};
 
+            static constexpr float battery_voltage_slope = 1;
+            static constexpr float battery_voltage_offset = 0;
+            LinearSensor<float> battery_sensor_lpu_1 {Pinout::BATT_VOLTAGE_LPU_1_PIN, battery_voltage_slope, battery_voltage_offset, data.batt_voltage_1};
+            LinearSensor<float> battery_sensor_lpu_2 {Pinout::BATT_VOLTAGE_LPU_2_PIN, battery_voltage_slope, battery_voltage_offset, data.batt_voltage_2};
+
 //			  Temparatures
 //            static constexpr float temperature_slope;
 //            static constexpr float temperature_offset;
@@ -67,6 +72,11 @@ namespace LCU{
             	airgap_3_sensor.read();
             	airgap_5_sensor.read();
             	airgap_7_sensor.read();
+            }
+
+            void read_battery_voltages(){
+            	battery_sensor_lpu_1.read();
+            	battery_sensor_lpu_2.read();
             }
 
 //            void read_temps(){

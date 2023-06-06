@@ -45,6 +45,18 @@ namespace LCU{
 	float reference_current_hems_3 = 0;
 	float reference_current_ems_1 = 0;
 	float reference_current_ems_3 = 0;
+
+	void add_protections(){
+		add_protection(&coil_current_hems_1, Boundary<float, TIME_ACCUMULATION>(max_persistent_current,time_limit,current_frequency, hems_1_time_protection),
+											 Boundary<float, OUT_OF_RANGE>(min_hems_current,max_hems_current));
+
+		add_protection(&coil_current_hems_3, Boundary<float, TIME_ACCUMULATION>(max_persistent_current, time_limit, current_frequency, hems_3_time_protection),
+											 Boundary<float, OUT_OF_RANGE>(min_hems_current,max_hems_current));
+
+		add_protection(&coil_current_ems_1, Boundary<float,OUT_OF_RANGE>(min_ems_current,max_ems_current));
+
+		add_protection(&coil_current_ems_3, Boundary<float,OUT_OF_RANGE>(min_ems_current,max_ems_current));
+	}
 	};
 
 	template<> class Data<TESTBENCH_1DOF>{

@@ -1,6 +1,6 @@
-00:52:10 **** Incremental Build of configuration Debug for project ST-LIB ****
+03:26:49 **** Incremental Build of configuration Debug for project ST-LIB ****
 make -j8 all 
 make: Nothing to be done for 'all'.
 
-00:52:10 Build Finished. 0 errors, 0 warnings. (took 291ms)
+03:26:49 Build Finished. 0 errors, 0 warnings. (took 294ms)
 

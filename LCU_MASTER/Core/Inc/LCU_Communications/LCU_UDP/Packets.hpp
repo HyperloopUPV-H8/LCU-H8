@@ -6,6 +6,26 @@ namespace LCU{
 	template<MASTER_MODE> class Packets;
 
 	template<>
+	class Packets<LPU_VALIDATION>{
+	public:
+		//TO VCU
+		StackPacket<16,float,float,float,float> airgaps_data;
+
+		StackPacket<16,float,float,float,float> coil_currents;
+//
+//		StackPacket<32,float,float,float,float,float,float,float,float> coil_temperatures;
+//
+//		StackPacket<32,float,float,float,float,float,float,float,float> lpu_temperatures;
+
+		StackPacket<8,float,float> battery_data;
+
+		Packets(Data<LPU_VALIDATION>& data) : airgaps_data(307, &data.airgaps[0],&data.airgaps[2],&data.airgaps[4],&data.airgaps[6]),
+				coil_currents(313, &data.coil_current_hems_1, &data.coil_current_hems_3, &data.coil_current_ems_1, &data.coil_current_ems_3),
+				battery_data(312, &data.batt_voltage_1, &data.batt_voltage_2){}
+
+	};
+
+	template<>
 	class Packets<VEHICLE_5DOF>{
 	public:
 
@@ -18,7 +38,7 @@ namespace LCU{
 //
 //		StackPacket<32,float,float,float,float,float,float,float,float> lpu_temperatures;
 
-//		StackPacket<16,float,float,float,float> battery_data;
+		//StackPacket<16,float,float,float,float> battery_data;
 
 		//TO SLAVE
 		StackPacket<16,float,float,float,float> slave_reference_currents;

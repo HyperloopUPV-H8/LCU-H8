@@ -157,6 +157,58 @@ namespace LCU{
 	template<LCU::MASTER_MODE> class GeneralStateMachine;
 
 	template<> class GeneralStateMachine<LPU_VALIDATION>{
+	public:
+		Actuators<LPU_VALIDATION>& actuators;
+		Control<LPU_VALIDATION>& control;
+		TCP<LPU_VALIDATION>& tcp_handler;
+		StateMachine general_state_machine;
+
+		GeneralStateMachine(Data<LPU_VALIDATION>& data, Actuators<LPU_VALIDATION>& actuators, Control<LPU_VALIDATION>& control, TCP<LPU_VALIDATION>& tcp_handler) : actuators(actuators),
+				control(control), tcp_handler(tcp_handler)
+		{}
+
+		enum States{
+			INITIAL,
+			OPERATIONAL,
+			FAULT
+		};
+
+
+		void init(){
+			general_state_machine = {INITIAL};
+			general_state_machine.add_state(OPERATIONAL);
+			general_state_machine.add_state(FAULT);
+			ProtectionManager::link_state_machine(general_state_machine, FAULT);
+			ProtectionManager::set_id(Boards::ID::LCU_MASTER);
+			add_on_enter_actions();
+			add_on_exit_actions();
+			register_timed_actions();
+		}
+
+		void add_on_enter_actions(){
+				general_state_machine.add_enter_action([&](){
+					 control.stop();
+					 actuators.turn_off();
+					 actuators.led_fault.turn_on();
+				}, FAULT);
+
+				general_state_machine.add_enter_action([&](){
+					actuators.led_operational.turn_on();
+				}, OPERATIONAL);
+			}
+
+		void add_on_exit_actions(){
+			general_state_machine.add_exit_action([&](){
+				actuators.led_fault.turn_off();
+			}, FAULT);
+			general_state_machine.add_exit_action([&](){
+				actuators.led_operational.turn_off();
+			}, OPERATIONAL);
+		}
+
+		void register_timed_actions(){
+			general_state_machine.add_low_precision_cyclic_action(ProtectionManager::check_protections, 1ms, OPERATIONAL);
+		}
 
 	};
 

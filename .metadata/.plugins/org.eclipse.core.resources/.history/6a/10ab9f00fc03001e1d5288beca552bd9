@@ -1,0 +1,181 @@
+#pragma once
+#include "LCU_Data/LCU_Data.hpp"
+#include "LCU_Pinout/Pinout.hpp"
+
+enum class MasterOrdersID : uint16_t{
+    TAKE_OFF = 300,
+    LANDING = 301,
+    STICK_DOWN = 302,
+    STICK_UP = 303,
+    SET_PARAMETERS = 304,
+    SET_SLAVE_PARAMETERS = 305,
+    STOP_CONTROL = 316,
+    LCU_MASTER_RESET = 317,
+    TOGGLE_LED = 318,
+    TEST_CURRENT_CONTROL = 320,
+    CHANGE_CURRENT_CONTROL_REFERENCE = 321,
+    START_CURRENT_CONTROL_VEHICLE_TESTING = 322,
+    TEST_ALL_PWM_VEHICLE_TESTING = 323,
+    TEST_LPU_VEHICLE_TESTING = 324,
+    STOP_LPU_VEHICLE_TESTING = 325,
+    RESET_ALL_LCUS = 326,
+	TEST_ALL_CURRENT_CONTROL = 327,
+
+	//LPU_VALIDATION
+	TEST_LPU_LPU_VALIDATION,
+	TEST_CURRENT_LOOP_LPU_VALIDATION,
+	STOP_LPU_LPU_VALIDATION,
+	TEST_ALL_PWM_LPU_VALIDATION,
+	TRIGGER_ADC_CONVERSION_LPU_VALIDATION,
+	DISABLE_PROTECTIONS_LPU_VALIDATIONmm
+};
+
+
+namespace LCU{
+
+	void hardware_reset(){
+		HAL_NVIC_SystemReset();
+	}
+
+	//LPU_VALIDATION ORDERS
+
+	void test_toggle_led_vehicle_lpu_validation();
+
+	void test_lpu_lpu_validation();
+
+	void test_current_loop_lpu_validation();
+
+	void stop_lpu_lpu_validation();
+
+	void test_all_pwm_lpu_validation();
+
+	void trigger_conversion_adcs_lpu_validation();
+
+	void disable_protections();
+
+
+	//5DOF ORDERS
+	void test_toggle_led_vehicle_5dof();
+
+	void start_levitating_vehicle_5dof();
+
+	void start_landing_vehicle_5dof();
+
+	void start_stick_up_vehicle_5dof();
+
+	void start_stick_down_vehicle_5dof();
+
+	void stop_levitation_vehicle_5dof();
+
+	void reset_both_lcus_vehicle_5dof();
+
+	// VEHICLE TESTING ORDERS
+	void test_toggle_led_vehicle_testing();
+
+	void test_all_pwms_vehicle_testing();
+
+	void test_lpu_vehicle_testing();
+
+	void test_current_control_vehicle_testing();
+
+	void change_current_control_reference_vehicle_testing();
+
+	void test_all_current_control_vehicle_testing();
+
+	void reset_both_lcus_vehicle_testing();
+
+	void stop_current_control_vehicle_testing();
+
+	void stop_lpu_vehicle_testing();
+
+	template<MASTER_MODE> class IncomingOrders;
+
+	template<> class IncomingOrders<LPU_VALIDATION>{
+	public:
+		Data<LPU_VALIDATION>& data;
+
+		StackOrder<0> test_toggle_led_order;
+		StackOrder<0> hardware_reset_order;
+		StackOrder<0> test_lpu_order;
+		StackOrder<0> test_current_loop_order;
+		StackOrder<0> stop_lpu_order;
+		StackOrder<0> test_all_pwm_order;
+		StackOrder<0> trigger_conversion_adcs_order;
+		StackOrder<0> disable_protections_order;
+
+		IncomingOrders(Data<VEHICLE_5DOF>& data) : data(data),
+				test_toggle_led_order((uint16_t)MasterOrdersID::TOGGLE_LED,test_toggle_led_vehicle_5dof),
+				hardware_reset_order((uint16_t)MasterOrdersID::LCU_MASTER_RESET, hardware_reset),
+				test_lpu_order((uint16_t)MasterOrdersID::TEST_LPU_LPU_VALIDATION, test_lpu_lpu_validation),
+				test_current_loop_order((uint16_t)MasterOrdersID::TEST_CURRENT_LOOP_LPU_VALIDATION, test_current_loop_lpu_validation),
+				stop_lpu_order((uint16_t)MasterOrdersID::STOP_LPU_LPU_VALIDATION, stop_lpu_lpu_validation),
+				test_all_pwm_order((uint16_t)MasterOrdersID::TEST_ALL_PWM_LPU_VALIDATION, test_all_pwm_lpu_validation),
+				trigger_conversion_adcs_order()
+				{}
+
+		void init(){}
+	};
+
+	template<> class IncomingOrders<VEHICLE_5DOF>{
+	public:
+		Data<VEHICLE_5DOF>& data;
+
+		StackOrder<0> test_toggle_led_order;
+		StackOrder<0> start_levitating_order;
+		StackOrder<0> landing_order;
+		StackOrder<0> stick_up_order;
+		StackOrder<0> stick_down_order;
+		StackOrder<0> stop_levitation_order;
+		StackOrder<0> hardware_reset_order;
+		StackOrder<0> reset_all_lcus_order;
+
+		IncomingOrders(Data<VEHICLE_5DOF>& data) : data(data),
+				test_toggle_led_order((uint16_t)MasterOrdersID::TOGGLE_LED,test_toggle_led_vehicle_5dof),
+				start_levitating_order((uint16_t)MasterOrdersID::TAKE_OFF, start_levitating_vehicle_5dof),
+				landing_order((uint16_t)MasterOrdersID::LANDING, start_landing_vehicle_5dof),
+				stick_up_order((uint16_t)MasterOrdersID::STICK_UP, start_stick_up_vehicle_5dof),
+				stick_down_order((uint16_t)MasterOrdersID::STICK_DOWN, start_stick_down_vehicle_5dof),
+				stop_levitation_order((uint16_t)MasterOrdersID::STOP_CONTROL, stop_levitation_vehicle_5dof),
+				hardware_reset_order((uint16_t)MasterOrdersID::LCU_MASTER_RESET, hardware_reset),
+				reset_all_lcus_order((uint16_t)MasterOrdersID::RESET_ALL_LCUS, reset_both_lcus_vehicle_5dof)
+				{
+		}
+
+		void init(){}
+	};
+
+	template<> class IncomingOrders<VEHICLE_TESTING>{
+	public:
+		Data<VEHICLE_TESTING>& data;
+
+		StackOrder<0> test_toggle_led_order;
+		StackOrder<0> hardware_reset_order;
+		StackOrder<0> test_all_pwms_order;
+		StackOrder<5, COIL_ID, float> test_lpu_order;
+		StackOrder<5, COIL_ID, float> test_current_control_order;
+		StackOrder<4, float> change_current_control_reference_order;
+		StackOrder<4, float> test_all_current_control_order;
+		StackOrder<0> stop_current_control_order;
+		StackOrder<0> reset_all_lcus_order;
+		StackOrder<0> stop_lpu_order;
+
+		float reference_current;
+		COIL_ID coil_target;
+		float duty_cycle;
+
+		IncomingOrders(Data<VEHICLE_TESTING>& data) : data(data),
+				test_toggle_led_order((uint16_t)MasterOrdersID::TOGGLE_LED,test_toggle_led_vehicle_testing),
+				hardware_reset_order((uint16_t)MasterOrdersID::LCU_MASTER_RESET, hardware_reset),
+				test_all_pwms_order((uint16_t)MasterOrdersID::TEST_ALL_PWM_VEHICLE_TESTING, test_all_pwms_vehicle_testing),
+				test_lpu_order((uint16_t)MasterOrdersID::TEST_LPU_VEHICLE_TESTING, test_lpu_vehicle_testing,&coil_target,&duty_cycle),
+				test_current_control_order((uint16_t)MasterOrdersID::START_CURRENT_CONTROL_VEHICLE_TESTING, test_current_control_vehicle_testing, &coil_target, &reference_current),
+				change_current_control_reference_order((uint16_t)MasterOrdersID::CHANGE_CURRENT_CONTROL_REFERENCE, change_current_control_reference_vehicle_testing, &reference_current),
+				test_all_current_control_order((uint16_t)MasterOrdersID::TEST_ALL_CURRENT_CONTROL, test_all_current_control_vehicle_testing, &reference_current),
+				stop_current_control_order((uint16_t)MasterOrdersID::STOP_CONTROL, stop_current_control_vehicle_testing),
+				reset_all_lcus_order((uint16_t)MasterOrdersID::RESET_ALL_LCUS, reset_both_lcus_vehicle_testing),
+				stop_lpu_order((uint16_t)MasterOrdersID::STOP_LPU_VEHICLE_TESTING, stop_lpu_vehicle_testing)
+		{}
+
+		void init(){}
+	};
+}

@@ -19,7 +19,15 @@ enum class MasterOrdersID : uint16_t{
     TEST_LPU_VEHICLE_TESTING = 324,
     STOP_LPU_VEHICLE_TESTING = 325,
     RESET_ALL_LCUS = 326,
-	TEST_ALL_CURRENT_CONTROL = 327
+	TEST_ALL_CURRENT_CONTROL = 327,
+
+	//LPU_VALIDATION
+	TEST_LPU_LPU_VALIDATION,
+	TEST_CURRENT_LOOP_LPU_VALIDATION,
+	STOP_LPU_LPU_VALIDATION,
+	TEST_ALL_PWM_LPU_VALIDATION,
+	TRIGGER_ADC_CONVERSION_LPU_VALIDATION,
+	DISABLE_PROTECTIONS_LPU_VALIDATION,
 };
 
 
@@ -28,6 +36,23 @@ namespace LCU{
 	void hardware_reset(){
 		HAL_NVIC_SystemReset();
 	}
+
+	//LPU_VALIDATION ORDERS
+
+	void test_toggle_led_vehicle_lpu_validation();
+
+	void test_lpu_lpu_validation();
+
+	void test_current_loop_lpu_validation();
+
+	void stop_lpu_lpu_validation();
+
+	void test_all_pwm_lpu_validation();
+
+	void trigger_conversion_adcs_lpu_validation(){}
+
+	void disable_protections(){}
+
 
 	//5DOF ORDERS
 	void test_toggle_led_vehicle_5dof();
@@ -64,6 +89,38 @@ namespace LCU{
 	void stop_lpu_vehicle_testing();
 
 	template<MASTER_MODE> class IncomingOrders;
+
+	template<> class IncomingOrders<LPU_VALIDATION>{
+	public:
+		Data<LPU_VALIDATION>& data;
+
+		StackOrder<0> test_toggle_led_order;
+		StackOrder<0> hardware_reset_order;
+		StackOrder<5, COIL_ID, float> test_lpu_order;
+		StackOrder<5, COIL_ID, float> test_current_loop_order;
+		StackOrder<0> stop_lpu_order;
+		StackOrder<0> test_all_pwm_order;
+		StackOrder<0> trigger_conversion_adcs_order;
+		StackOrder<0> disable_protections_order;
+
+		float reference_current;
+		COIL_ID coil_target;
+		float duty_cycle;
+
+
+		IncomingOrders(Data<LPU_VALIDATION>& data) : data(data),
+				test_toggle_led_order((uint16_t)MasterOrdersID::TOGGLE_LED,test_toggle_led_vehicle_5dof),
+				hardware_reset_order((uint16_t)MasterOrdersID::LCU_MASTER_RESET, hardware_reset),
+				test_lpu_order((uint16_t)MasterOrdersID::TEST_LPU_LPU_VALIDATION, test_lpu_lpu_validation, &coil_target, &duty_cycle),
+				test_current_loop_order((uint16_t)MasterOrdersID::TEST_CURRENT_LOOP_LPU_VALIDATION, test_current_loop_lpu_validation, &coil_target, &reference_current),
+				stop_lpu_order((uint16_t)MasterOrdersID::STOP_LPU_LPU_VALIDATION, stop_lpu_lpu_validation),
+				test_all_pwm_order((uint16_t)MasterOrdersID::TEST_ALL_PWM_LPU_VALIDATION, test_all_pwm_lpu_validation),
+				trigger_conversion_adcs_order((uint16_t)MasterOrdersID::TRIGGER_ADC_CONVERSION_LPU_VALIDATION, trigger_conversion_adcs_lpu_validation),
+				disable_protections_order((uint16_t)MasterOrdersID::DISABLE_PROTECTIONS_LPU_VALIDATION, disable_protections)
+				{}
+
+		void init(){}
+	};
 
 	template<> class IncomingOrders<VEHICLE_5DOF>{
 	public:
