@@ -1,3 +1,4 @@
+/home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/std_abs.h:71:3:constexpr double std::abs(double)	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/type_traits:3291:3:constexpr bool std::is_constant_evaluated()	4	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/compare:59:17:constexpr std::__cmp_cat::__unspec::__unspec(std::__cmp_cat::__unspec*)	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/compare:176:5:constexpr bool std::operator==(std::weak_ordering, std::__cmp_cat::__unspec)	16	static
@@ -190,10 +191,11 @@
 ../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:133:8:void LCU::GeneralStateMachine::add_on_exit_actions()	56	static
 ../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:143:58:LCU::GeneralStateMachine::register_timed_actions()::<lambda()>	16	static
 ../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:142:8:void LCU::GeneralStateMachine::register_timed_actions()	48	static
-../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:54:13:LCU::Sensors::Sensors(LCU::Data&)	16	static
-../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:56:18:void LCU::Sensors::read_currents()	16	static
-../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:65:18:void LCU::Sensors::read_airgaps()	16	static
-../Core/Inc/LCU_Communications/LCU_UDP/Packets.hpp:10:3:LCU::Packets::Packets(LCU::Data&)	32	static
+../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:64:13:LCU::Sensors::Sensors(LCU::Data&)	16	static
+../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:66:18:void LCU::Sensors::read_currents()	16	static
+../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:75:18:void LCU::Sensors::read_airgaps()	16	static
+../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:82:18:void LCU::Sensors::current_zeroing()	16	static
+../Core/Inc/LCU_Communications/LCU_UDP/Packets.hpp:12:3:LCU::Packets::Packets(LCU::Data&)	32	static
 ../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:20:7:void LCU::hardware_reset()	8	static
 ../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:59:3:LCU::IncomingOrders::IncomingOrders()	24	static
 ../Core/Inc/LCU_Data/LCU_Data.hpp:18:8:constexpr LCU::Data::Data()	16	static
@@ -203,26 +205,27 @@
 ../Core/Inc/LCU_SLAVE.hpp:35:15:static void LCU::LCU_SLAVE::read_currents()	8	static
 ../Core/Inc/LCU_SLAVE.hpp:39:15:static void LCU::LCU_SLAVE::toggle_led()	8	static
 ../Core/Inc/LCU_SLAVE.hpp:43:15:static void LCU::LCU_SLAVE::read_airgaps()	8	static
-../Core/Inc/LCU_SLAVE.hpp:50:15:static void LCU::LCU_SLAVE::send_to_master()	8	static
-../Core/Inc/LCU_SLAVE.hpp:54:15:static void LCU::LCU_SLAVE::update_state_machine()	8	static
-../Core/Inc/LCU_SLAVE.hpp:58:8:void LCU::LCU_SLAVE::init()	104	static
-../Core/Inc/LCU_SLAVE.hpp:69:7:void LCU::test_toggle_led()	24	static
-../Core/Inc/LCU_SLAVE.hpp:74:7:void LCU::start_levitation()	24	static
+../Core/Inc/LCU_SLAVE.hpp:50:15:static void LCU::LCU_SLAVE::send_airgaps_to_master()	8	static
+../Core/Inc/LCU_SLAVE.hpp:54:15:static void LCU::LCU_SLAVE::send_coil_currents_to_master()	8	static
+../Core/Inc/LCU_SLAVE.hpp:58:15:static void LCU::LCU_SLAVE::update_state_machine()	8	static
+../Core/Inc/LCU_SLAVE.hpp:62:8:void LCU::LCU_SLAVE::init()	104	static
+../Core/Inc/LCU_SLAVE.hpp:74:7:void LCU::test_toggle_led()	24	static
+../Core/Inc/LCU_SLAVE.hpp:79:7:void LCU::start_levitation()	24	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1056:7:constexpr const _Iterator& __gnu_cxx::__normal_iterator<_Iterator, _Container>::base() const [with _Iterator = TimedAction**; _Container = std::vector<TimedAction*>]	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1073:5:constexpr bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&) [with _IteratorL = TimedAction**; _IteratorR = TimedAction**; _Container = std::vector<TimedAction*>]	24	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:1003:7:constexpr __gnu_cxx::__normal_iterator<_Iterator, _Container>& __gnu_cxx::__normal_iterator<_Iterator, _Container>::operator++() [with _Iterator = TimedAction**; _Container = std::vector<TimedAction*>]	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator.h:993:7:constexpr __gnu_cxx::__normal_iterator<_Iterator, _Container>::reference __gnu_cxx::__normal_iterator<_Iterator, _Container>::operator*() const [with _Iterator = TimedAction**; _Container = std::vector<TimedAction*>]	16	static
-../Core/Inc/LCU_SLAVE.hpp:83:7:void LCU::stop_levitation()	56	static
-../Core/Inc/LCU_SLAVE.hpp:98:7:void LCU::test_all_pwm()	24	static
-../Core/Inc/LCU_SLAVE.hpp:104:7:void LCU::test_lpu()	32	static
-../Core/Inc/LCU_SLAVE.hpp:117:131:LCU::test_current_control()::<lambda()>	16	static
-../Core/Inc/LCU_SLAVE.hpp:112:7:void LCU::test_current_control()	72	static
-../Core/Inc/LCU_SLAVE.hpp:124:7:void LCU::change_reference_current()	32	static
-../Core/Inc/LCU_SLAVE.hpp:135:7:void LCU::stop_lpu()	32	static
-../Core/Inc/LCU_SLAVE.hpp:153:131:LCU::test_all_current_control()::<lambda()>	16	static
-../Core/Inc/LCU_SLAVE.hpp:145:7:void LCU::test_all_current_control()	72	static
+../Core/Inc/LCU_SLAVE.hpp:88:7:void LCU::stop_levitation()	56	static
+../Core/Inc/LCU_SLAVE.hpp:103:7:void LCU::test_all_pwm()	24	static
+../Core/Inc/LCU_SLAVE.hpp:109:7:void LCU::test_lpu()	32	static
+../Core/Inc/LCU_SLAVE.hpp:122:131:LCU::test_current_control()::<lambda()>	16	static
+../Core/Inc/LCU_SLAVE.hpp:117:7:void LCU::test_current_control()	72	static
+../Core/Inc/LCU_SLAVE.hpp:129:7:void LCU::change_reference_current()	32	static
+../Core/Inc/LCU_SLAVE.hpp:140:7:void LCU::stop_lpu()	32	static
+../Core/Inc/LCU_SLAVE.hpp:158:131:LCU::test_all_current_control()::<lambda()>	16	static
+../Core/Inc/LCU_SLAVE.hpp:150:7:void LCU::test_all_current_control()	72	static
 ../Core/Inc/LCU_Time/LCU_Time.hpp:10:15:static void LCU::CyclicActions::register_cyclic_actions()	56	static
-../Core/Src/main.cpp:9:5:int main()	4384	static
+../Core/Src/main.cpp:9:5:int main()	4760	static
 ../Core/Src/main.cpp:20:6:void Error_Handler()	40	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:254:5:constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = unsigned int]	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/char_traits.h:106:7:static constexpr bool __gnu_cxx::char_traits<_CharT>::eq(const char_type&, const char_type&) [with _CharT = char]	16	static
@@ -254,13 +257,13 @@
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/allocator.h:182:7:constexpr std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = std::function<void()>]	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:333:7:std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = std::function<void()>; _Alloc = std::allocator<std::function<void()> >]	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:678:7:std::vector<_Tp, _Alloc>::~vector() [with _Tp = std::function<void()>; _Alloc = std::allocator<std::function<void()> >]	24	static
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:10:5:MeanCalculator<N>::MeanCalculator() [with unsigned int N = 100]	16	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:11:5:MeanCalculator<N>::MeanCalculator() [with unsigned int N = 100]	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp:24:6:void ControlBlock<InputType, OutputType>::input(InputType) [with InputType = double; OutputType = double]	24	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:131:2:std::_Vector_base<_Tp, _Alloc>::_Vector_impl::_Vector_impl() [with _Tp = float; _Alloc = std::allocator<float>]	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/allocator.h:182:7:constexpr std::allocator< <template-parameter-1-1> >::~allocator() [with _Tp = float]	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:333:7:std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = float; _Alloc = std::allocator<float>]	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:678:7:std::vector<_Tp, _Alloc>::~vector() [with _Tp = float; _Alloc = std::allocator<float>]	24	static
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:11:10:void MeanCalculator<N>::execute() [with unsigned int N = 100]	16	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:14:10:void MeanCalculator<N>::execute() [with unsigned int N = 100]	48	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:811:7:std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::begin() [with _Tp = std::unique_ptr<BoundaryInterface>; _Alloc = std::allocator<std::unique_ptr<BoundaryInterface> >]	24	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/stl_vector.h:829:7:std::vector<_Tp, _Alloc>::iterator std::vector<_Tp, _Alloc>::end() [with _Tp = std::unique_ptr<BoundaryInterface>; _Alloc = std::allocator<std::unique_ptr<BoundaryInterface> >]	24	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/bits/basic_string.h:439:7:std::__cxx11::basic_string<_CharT, _Traits, _Alloc>::basic_string() [with _CharT = char; _Traits = std::char_traits<char>; _Alloc = std::allocator<char>]	32	static
@@ -354,7 +357,7 @@
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:127:2:Boundary<Type, OUT_OF_RANGE>::Boundary(Type, Type) [with Type = float]	24	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:16:8:constexpr BoundaryInterface::BoundaryInterface(const BoundaryInterface&)	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp:6:7:constexpr ControlBlock<double, double>::ControlBlock(const ControlBlock<double, double>&)	16	static
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:5:7:constexpr MeanCalculator<100>::MeanCalculator(const MeanCalculator<100>&)	16	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:6:7:constexpr MeanCalculator<100>::MeanCalculator(const MeanCalculator<100>&)	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:229:8:Boundary<float, TIME_ACCUMULATION>::Boundary(const Boundary<float, TIME_ACCUMULATION>&)	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:122:8:constexpr Boundary<float, OUT_OF_RANGE>::Boundary(const Boundary<float, OUT_OF_RANGE>&)	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:12:7:Protection::~Protection()	16	static
@@ -406,10 +409,13 @@
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp:182:14:TimedAction* StateMachine::add_low_precision_cyclic_action(std::function<void()>, std::chrono::duration<long long int, TimeUnit>) [with TimeUnit = std::ratio<1, 1000>]	56	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/FilteredLinearSensor.hpp:11:2:FilteredLinearSensor<Type, N>::FilteredLinearSensor(Pin&, Type, Type, Type&, MovingAverage<N>&) [with Type = float; unsigned int N = 10]	32	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/FilteredLinearSensor.hpp:11:2:FilteredLinearSensor<Type, N>::FilteredLinearSensor(Pin&, Type, Type, Type&, MovingAverage<N>&) [with Type = float; unsigned int N = 20]	32	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp:12:9:constexpr ControlBlock<InputType, OutputType>::ControlBlock() [with InputType = float; OutputType = float]	16	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp:13:2:Zeroing<Type, Order>::Zeroing(LinearSensor<Type>&, Type) [with Type = float; unsigned int Order = 10000]	24	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:17:9:MovingAverage<N>::MovingAverage() [with unsigned int N = 10]	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:17:9:MovingAverage<N>::MovingAverage() [with unsigned int N = 20]	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/FilteredLinearSensor.hpp:12:7:void FilteredLinearSensor<Type, N>::read() [with Type = float; unsigned int N = 20]	24	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/FilteredLinearSensor.hpp:12:7:void FilteredLinearSensor<Type, N>::read() [with Type = float; unsigned int N = 10]	24	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp:14:7:void Zeroing<Type, Order>::execute() [with Type = float; unsigned int Order = 10000]	56	static
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:32:5:) [with unsigned int BufferLength = 16; Types = {float, float, float, float}]	88	static
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Order.hpp:38:5:) [with unsigned int BufferLength = 0; Types = {}]	32	static
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Order.hpp:38:5:) [with unsigned int BufferLength = 5; Types = {LCU::COIL_ID, float}]	32	static
@@ -698,9 +704,16 @@
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/chrono:254:7:constexpr std::chrono::__enable_if_is_duration<_ToDur> std::chrono::duration_cast(const std::chrono::duration<_Rep, _Period>&) [with _ToDur = std::chrono::duration<long long int, std::ratio<1, 1000000> >; _Rep = long long int; _Period = std::ratio<1, 1000>]	16	static
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/chrono:223:4:static constexpr _ToDur std::chrono::__duration_cast_impl<_ToDur, _CF, _CR, false, true>::__cast(const std::chrono::duration<_Rep, _Period>&) [with _Rep = long long int; _Period = std::ratio<1, 1000>; _ToDur = std::chrono::duration<long long int, std::ratio<1, 1000000> >; _CF = std::ratio<1000, 1>; _CR = long long int]	48	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp:164:14:TimedAction* StateMachine::add_low_precision_cyclic_action(std::function<void()>, std::chrono::duration<long long int, TimeUnit>, StateMachine::state_id) [with TimeUnit = std::ratio<1, 1000>]	144	static
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:38:1:LinearSensor<Type>::LinearSensor(Pin&, Type, Type, Type&) [with Type = float]	32	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:41:1:LinearSensor<Type>::LinearSensor(Pin&, Type, Type, Type&) [with Type = float]	32	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:11:5:MeanCalculator<N>::MeanCalculator() [with unsigned int N = 10000]	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:36:16:double MovingAverage<N>::compute(double) [with unsigned int N = 20]	24	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:36:16:double MovingAverage<N>::compute(double) [with unsigned int N = 10]	24	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:44:6:void LinearSensor<Type>::read() [with Type = float]	24	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:66:7:Type* LinearSensor<Type>::get_value_pointer() [with Type = float]	16	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:14:10:void MeanCalculator<N>::execute() [with unsigned int N = 10000]	48	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:56:6:Type LinearSensor<Type>::get_offset() [with Type = float]	16	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:61:6:void LinearSensor<Type>::set_offset(Type) [with Type = float]	16	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:22:10:void MeanCalculator<N>::reset() [with unsigned int N = 10000]	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/PacketValue.hpp:28:5:PacketValue<Type>::PacketValue(Type*) [with Type = float]	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/PacketValue.hpp:11:7:constexpr PacketValue<>::PacketValue(const PacketValue<>&)	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/PacketValue.hpp:23:7:constexpr PacketValue<float>::PacketValue(const PacketValue<float>&)	16	static
@@ -1029,7 +1042,7 @@
 /home/stefancostea/st/stm32cubeide_1.12.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.200.202301161003/tools/arm-none-eabi/include/c++/10.3.1/chrono:198:4:static constexpr _ToDur std::chrono::__duration_cast_impl<_ToDur, _CF, _CR, true, true>::__cast(const std::chrono::duration<_Rep, _Period>&) [with _Rep = long long int; _Period = std::ratio<1, 1000>; _ToDur = std::chrono::duration<long long int, std::ratio<1, 1000> >; _CF = std::ratio<1>; _CR = long long int]	24	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp:51:14:TimedAction* State::register_new_timed_action(std::function<void()>, std::chrono::duration<long long int, TimeUnit>, AlarmType) [with TimeUnit = std::ratio<1, 1000>]	160	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp:80:14:TimedAction* State::add_new_timed_action(std::function<void()>, std::chrono::duration<long long int, TimeUnit>, AlarmType) [with TimeUnit = std::ratio<1, 1000>]	112	static
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:30:1:LinearSensor<Type>::LinearSensor(Pin&, Type, Type, Type*) [with Type = float]	32	static
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:33:1:LinearSensor<Type>::LinearSensor(Pin&, Type, Type, Type*) [with Type = float]	32	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:19:14:void MovingAverage<N>::execute() [with unsigned int N = 20]	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:19:14:void MovingAverage<N>::execute() [with unsigned int N = 10]	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/DataStructures/StackTuple.hpp:20:5:) [with Type = PacketValue<float>; Types = {PacketValue<float>, PacketValue<float>}]	48	static

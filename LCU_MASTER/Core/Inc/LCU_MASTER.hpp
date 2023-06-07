@@ -43,6 +43,7 @@ namespace LCU{
 
 				static void toggle_led(){
 					lcu_master->actuators.led_can.toggle();
+					lcu_master->actuators.led_flash.toggle();
 				}
 
 				static void send_vcu_data(){
@@ -89,19 +90,31 @@ namespace LCU{
 
 	void test_lpu_lpu_validation(){
 		LCU_MASTER<LPU_VALIDATION>::toggle_led();
-		COIL_ID target_coil = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.coil_target;
+		IncomingOrders<LPU_VALIDATION>::LPU_NR target_lpu = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.lpu_number;
+		IncomingOrders<LPU_VALIDATION>::COIL_TYPE target_coil = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.coil_type;
 		float target_cuty_cycle = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.duty_cycle;
-		LCU_MASTER<LPU_VALIDATION>::lcu_master->actuators.set_duty_cycle(target_coil, target_cuty_cycle);
+		int calculated_id = 0;
+		if(target_lpu == IncomingOrders<LPU_VALIDATION>::LPU_1)
+			calculated_id = 0;
+		else calculated_id = 2;
+		if(target_coil == IncomingOrders<LPU_VALIDATION>::EMS) calculated_id+=4;
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->actuators.set_duty_cycle(static_cast<COIL_ID>(calculated_id), target_cuty_cycle);
 		Time::set_timeout(500, LCU_MASTER<LPU_VALIDATION>::toggle_led);
 	}
 
 	void test_current_loop_lpu_validation(){
 		LCU_MASTER<LPU_VALIDATION>::toggle_led();
-		COIL_ID target_coil = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.coil_target;
+		IncomingOrders<LPU_VALIDATION>::LPU_NR target_lpu = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.lpu_number;
+		IncomingOrders<LPU_VALIDATION>::COIL_TYPE target_coil = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.coil_type;
 		float reference_current = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.reference_current;
-
+		int calculated_id = 0;
+		if(target_lpu == IncomingOrders<LPU_VALIDATION>::LPU_1)
+			calculated_id = 0;
+		else calculated_id = 2;
+		if(target_coil == IncomingOrders<LPU_VALIDATION>::EMS) calculated_id+=4;
+		if(LCU_MASTER<LPU_VALIDATION>::lcu_master->control.coil_id != static_cast<COIL_ID>(calculated_id)) LCU_MASTER<LPU_VALIDATION>::lcu_master->control.change_coil_id(static_cast<COIL_ID>(calculated_id));
 		LCU_MASTER<LPU_VALIDATION>::lcu_master->control.set_reference(reference_current);
-		TimedAction* control_action = LCU_MASTER<LPU_VALIDATION>::lcu_master->state_machine_handler.general_state_machine.add_mid_precision_cyclic_action([&,target_coil](){
+		TimedAction* control_action = LCU_MASTER<LPU_VALIDATION>::lcu_master->state_machine_handler.general_state_machine.add_mid_precision_cyclic_action([&](){
 			LCU_MASTER<LPU_VALIDATION>::lcu_master->control.execute(*LCU_MASTER<LPU_VALIDATION>::lcu_master->control.current_value);
 		}, 500us);
 		LCU_MASTER<LPU_VALIDATION>::lcu_master->control_current_actions.push_back(control_action);
@@ -167,7 +180,6 @@ namespace LCU{
 		}
 
 		static void send_slave_data(){
-			lcu_master->udp_handler.send_to_slave(lcu_master->packets.slave_airgaps);
 			lcu_master->udp_handler.send_to_slave(lcu_master->packets.slave_reference_currents);
 		}
 
@@ -186,6 +198,7 @@ namespace LCU{
 			actuators.init();
 			state_machine_handler.init();
 		    data.add_protections();
+			sensors.current_zeroing();
 		}
 
 	};
@@ -290,6 +303,10 @@ namespace LCU{
 			lcu_master->udp_handler.send_to_backend(lcu_master->packets.coil_currents);
 		}
 
+		static void send_slave_data(){
+			lcu_master->udp_handler.send_to_slave(lcu_master->packets.slave_reference_currents);
+		}
+
 		static void update_state_machine(){
 			lcu_master->state_machine_handler.general_state_machine.check_transitions();
 		}
@@ -304,7 +321,8 @@ namespace LCU{
 			tcp_handler.init();
 			actuators.init();
 			state_machine_handler.init();
-			//data.add_protections();
+			data.add_protections();
+			sensors.current_zeroing();
 		}
 
 	};
@@ -358,6 +376,7 @@ namespace LCU{
 			LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.reference_current = reference_current;
 			LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.test_slave_current_control_order);
 		}
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->data.reference_currents[target_coil] = reference_current;
 		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
 	}
 

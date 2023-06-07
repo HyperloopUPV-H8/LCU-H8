@@ -1,6 +1,6 @@
-13:16:48 **** Incremental Build of configuration Debug for project LCU_SLAVE ****
+06:21:19 **** Incremental Build of configuration Debug for project LCU_SLAVE ****
 make -j8 all 
-arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DDATA_IN_D2_SRAM -c -I"/home/stefancostea/Documents/ST-LIB" -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Drivers/BSP/Components/lan8742 -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DDATA_IN_D2_SRAM -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB" -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Drivers/BSP/Components/lan8742 -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 In file included from ../Drivers/CMSIS/Include/core_cm7.h:2178,
                  from ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h723xx.h:221,
                  from ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:167,
@@ -266,7 +266,7 @@ In file included from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:29
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:8087:3: note: in expansion of macro 'CLEAR_BIT'
  8087 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_AWD3);
       |   ^~~~~~~~~
-In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:3,
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:4,
                  from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:21,
                  from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
                  from ../Core/Src/main.cpp:4:
@@ -281,64 +281,142 @@ In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protec
                  from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
                  from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
                  from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<double, TIME_ACCUMULATION>::Boundary(double, float, float, Boundary<double, TIME_ACCUMULATION>*&)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:183:11: warning: 'Boundary<double, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  183 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:170:31: warning:   'Boundary<double, TIME_ACCUMULATION>** Boundary<double, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  170 |  Boundary<double,Protector>** external_pointer;
+      |                               ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:171:2: warning:   when initialized here [-Wreorder]
+  171 |  Boundary(double bound, float time_limit, float frequency, Boundary<double, Protector>*& external_pointer): bound(bound),time_limit(time_limit),frequency(frequency), moving_order(frequency*time_limit/100),
+      |  ^~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<double, TIME_ACCUMULATION>::Boundary(double*, Boundary<double, TIME_ACCUMULATION>)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:183:11: warning: 'Boundary<double, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  183 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:170:31: warning:   'Boundary<double, TIME_ACCUMULATION>** Boundary<double, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  170 |  Boundary<double,Protector>** external_pointer;
+      |                               ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:175:2: warning:   when initialized here [-Wreorder]
+  175 |  Boundary(double* src, Boundary<double, Protector> boundary): src(src),bound(boundary.bound),time_limit(boundary.time_limit),frequency(boundary.frequency),moving_order(frequency*time_limit/100), external_pointer(boundary.external_pointer){
+      |  ^~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<double, TIME_ACCUMULATION>::Boundary(double*, double, float, float)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:183:11: warning: 'Boundary<double, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  183 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:170:31: warning:   'Boundary<double, TIME_ACCUMULATION>** Boundary<double, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  170 |  Boundary<double,Protector>** external_pointer;
+      |                               ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:178:2: warning:   when initialized here [-Wreorder]
+  178 |  Boundary(double* src, double bound ,float time_limit, float frequency): src(src),bound(bound) ,time_limit(time_limit), frequency(frequency),moving_order(frequency*time_limit/100), external_pointer(nullptr){}
+      |  ^~~~~~~~
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual int Boundary<double, TIME_ACCUMULATION>::get_string_size()':
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:216:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
-  216 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:220:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  220 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
       |                             ^~~~~~
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual char* Boundary<double, TIME_ACCUMULATION>::serialize(char*)':
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:219:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
-  219 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:223:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  223 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
       |                ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<float, TIME_ACCUMULATION>::Boundary(float, float, float, Boundary<float, TIME_ACCUMULATION>*&)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:250:11: warning: 'Boundary<float, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  250 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:237:30: warning:   'Boundary<float, TIME_ACCUMULATION>** Boundary<float, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  237 |  Boundary<float,Protector>** external_pointer;
+      |                              ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:238:2: warning:   when initialized here [-Wreorder]
+  238 |  Boundary(float bound, float time_limit, float frequency, Boundary<float, Protector>*& external_pointer): bound(bound),time_limit(time_limit) ,frequency(frequency), moving_order(frequency*time_limit/100),
+      |  ^~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<float, TIME_ACCUMULATION>::Boundary(float*, Boundary<float, TIME_ACCUMULATION>)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:250:11: warning: 'Boundary<float, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  250 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:237:30: warning:   'Boundary<float, TIME_ACCUMULATION>** Boundary<float, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  237 |  Boundary<float,Protector>** external_pointer;
+      |                              ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:242:2: warning:   when initialized here [-Wreorder]
+  242 |  Boundary(float* src, Boundary<float, Protector> boundary): src(src),bound(boundary.bound),time_limit(boundary.time_limit),frequency(boundary.frequency),moving_order(frequency*time_limit/100), external_pointer(boundary.external_pointer){
+      |  ^~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<float, TIME_ACCUMULATION>::Boundary(float*, float, float, float)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:250:11: warning: 'Boundary<float, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  250 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:237:30: warning:   'Boundary<float, TIME_ACCUMULATION>** Boundary<float, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  237 |  Boundary<float,Protector>** external_pointer;
+      |                              ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:245:2: warning:   when initialized here [-Wreorder]
+  245 |  Boundary(float* src, float bound ,float time_limit, float frequency): src(src),bound(bound) ,time_limit(time_limit), frequency(frequency),moving_order(frequency*time_limit/100), external_pointer(nullptr){}
+      |  ^~~~~~~~
 In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:7,
                  from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:11,
                  from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
                  from ../Core/Src/main.cpp:4:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
-   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:77:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   77 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
       |                   ~~~~^~~~~~~~~~~
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:72:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
-   72 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:77:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   77 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
       |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
-/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:94:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
-   94 |      return *(uint16_t*)(buffer + sizeof(id));
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:99:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   99 |      return *(uint16_t*)(buffer + sizeof(id));
       |                          ~~~~~~~^~~~~~~~~~~~
-In file included from ../Core/Inc/LCU_SLAVE.hpp:7,
-                 from ../Core/Src/main.cpp:6:
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp: In lambda function:
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:109:49: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
-  109 |      if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |                                                 ^~
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:109:9: note: add parentheses around left hand side expression to silence this warning
-  109 |      if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |         (                                      )
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:109:49: warning: comparison of constant 'ServerSocket::ACCEPTED' with boolean expression is always false [-Wbool-compare]
-  109 |      if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp: In lambda function:
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:116:48: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
-  116 |     if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |                                                ^~
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:116:8: note: add parentheses around left hand side expression to silence this warning
-  116 |     if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |        (                                      )
-../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:116:48: warning: comparison of constant 'ServerSocket::ACCEPTED' with boolean expression is always false [-Wbool-compare]
-  116 |     if(not tcp_handler.MASTER_CONNECTION.state == ServerSocket::ServerState::ACCEPTED){
-      |        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:4,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp: In instantiation of 'void MeanCalculator<N>::execute() [with unsigned int N = 100]':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:259:27:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:17:18: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+   17 |         if(index > N) ErrorHandler("MeanCalculator is receiving just 0");
+      |            ~~~~~~^~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp: In instantiation of 'void MeanCalculator<N>::execute() [with unsigned int N = 10000]':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp:18:27:   required from 'void Zeroing<Type, Order>::execute() [with Type = float; unsigned int Order = 10000]'
+../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:83:37:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:17:18: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:4,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:21,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 4; Types = {float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 5; Types = {LCU::COIL_ID, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 16; Types = {float, float, float, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
 arm-none-eabi-g++ -o "LCU_SLAVE.elf" @"objects.list"  -lST-LIB -mcpu=cortex-m7 -T"/home/stefancostea/Documents/LCU-H8/LCU_SLAVE/STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCU_SLAVE.map" -Wl,--gc-sections -static -L"/home/stefancostea/Documents/ST-LIB/Debug" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: LCU_SLAVE.elf
  
 arm-none-eabi-size   LCU_SLAVE.elf 
 arm-none-eabi-objdump -h -S  LCU_SLAVE.elf  > "LCU_SLAVE.list"
    text	   data	    bss	    dec	    hex	filename
- 565076	   1360	  62960	 629396	  99a94	LCU_SLAVE.elf
+ 588900	   1360	  59248	 649508	  9e924	LCU_SLAVE.elf
 Finished building: default.size.stdout
  
 Finished building: LCU_SLAVE.list
  
 
-13:16:56 Build Finished. 0 errors, 48 warnings. (took 7s.842ms)
+06:21:28 Build Finished. 0 errors, 70 warnings. (took 9s.364ms)
 

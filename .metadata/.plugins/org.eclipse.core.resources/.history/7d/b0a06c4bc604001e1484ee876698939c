@@ -1,0 +1,9 @@
+#pragma once
+#include "../ControlBlock.hpp"
+#include "MeanCalculator.hpp"
+#include "Sensors/LinearSensor/LinearSensor.hpp"
+template<class Type, size_t Order>
+class Zeroing : public Controlblock<Type,Type>{
+public:
+	Zeroing<>
+};

@@ -39,7 +39,7 @@ namespace LCU{
 
 	//LPU_VALIDATION ORDERS
 
-	void test_toggle_led_vehicle_lpu_validation();
+	void test_toggle_led_lpu_validation();
 
 	void test_lpu_lpu_validation();
 
@@ -94,25 +94,36 @@ namespace LCU{
 	public:
 		Data<LPU_VALIDATION>& data;
 
+		enum LPU_NR{
+			LPU_1,
+			LPU_2
+		};
+
+		enum COIL_TYPE{
+			HEMS,
+			EMS
+		};
+
 		StackOrder<0> test_toggle_led_order;
 		StackOrder<0> hardware_reset_order;
-		StackOrder<5, COIL_ID, float> test_lpu_order;
-		StackOrder<5, COIL_ID, float> test_current_loop_order;
+		StackOrder<6, LPU_NR, COIL_TYPE, float> test_lpu_order;
+		StackOrder<6, LPU_NR, COIL_TYPE, float> test_current_loop_order;
 		StackOrder<0> stop_lpu_order;
 		StackOrder<0> test_all_pwm_order;
 		StackOrder<0> trigger_conversion_adcs_order;
 		StackOrder<0> disable_protections_order;
 
 		float reference_current;
-		COIL_ID coil_target;
+		LPU_NR lpu_number;
+		COIL_TYPE coil_type;
 		float duty_cycle;
 
 
 		IncomingOrders(Data<LPU_VALIDATION>& data) : data(data),
-				test_toggle_led_order((uint16_t)MasterOrdersID::TOGGLE_LED,test_toggle_led_vehicle_5dof),
+				test_toggle_led_order((uint16_t)MasterOrdersID::TOGGLE_LED,test_toggle_led_lpu_validation),
 				hardware_reset_order((uint16_t)MasterOrdersID::LCU_MASTER_RESET, hardware_reset),
-				test_lpu_order((uint16_t)MasterOrdersID::TEST_LPU_LPU_VALIDATION, test_lpu_lpu_validation, &coil_target, &duty_cycle),
-				test_current_loop_order((uint16_t)MasterOrdersID::TEST_CURRENT_LOOP_LPU_VALIDATION, test_current_loop_lpu_validation, &coil_target, &reference_current),
+				test_lpu_order((uint16_t)MasterOrdersID::TEST_LPU_LPU_VALIDATION, test_lpu_lpu_validation, &lpu_number,&coil_type, &duty_cycle),
+				test_current_loop_order((uint16_t)MasterOrdersID::TEST_CURRENT_LOOP_LPU_VALIDATION, test_current_loop_lpu_validation, &lpu_number,&coil_type, &reference_current),
 				stop_lpu_order((uint16_t)MasterOrdersID::STOP_LPU_LPU_VALIDATION, stop_lpu_lpu_validation),
 				test_all_pwm_order((uint16_t)MasterOrdersID::TEST_ALL_PWM_LPU_VALIDATION, test_all_pwm_lpu_validation),
 				trigger_conversion_adcs_order((uint16_t)MasterOrdersID::TRIGGER_ADC_CONVERSION_LPU_VALIDATION, trigger_conversion_adcs_lpu_validation),

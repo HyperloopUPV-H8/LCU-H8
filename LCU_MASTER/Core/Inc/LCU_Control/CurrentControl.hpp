@@ -25,6 +25,8 @@ public:
 	void operator=(CurrentControl&& other){
 		half_bridge = other.half_bridge;
 		reference_current = other.reference_current;
+		half_bridge.set_frequency(100);
+		half_bridge.set_duty_cycle(0);
 	}
 
 	void set_reference_current(float new_reference){

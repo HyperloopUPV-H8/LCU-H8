@@ -5,6 +5,7 @@
 #include "Control/Blocks/MovingAverage.hpp"
 #include "Sensors/LinearSensor/FilteredLinearSensor.hpp"
 #include "Protections/Boundary.hpp"
+#include "Control/Blocks/Zeroing.hpp"
 namespace LCU{
     template<LCU::MASTER_MODE> class Sensors;
 
@@ -26,8 +27,8 @@ namespace LCU{
             FilteredLinearSensor<float,aigarp_filter_order> airgap_7_sensor {Pinout::AIRGAP_7_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[7-1], airgap_7_filter};
 
             // Curents
-            static constexpr float current_slope = 44.746;
-            static constexpr float current_offset = -85.72;
+            static constexpr float current_slope = 56.222;
+            static constexpr float current_offset = -91.505;
 
             static constexpr size_t current_filter_order = 20;
             MovingAverage<current_filter_order> current_hems_1_filter;
@@ -100,8 +101,8 @@ namespace LCU{
         FilteredLinearSensor<float,aigarp_filter_order> airgap_sensor {airgap_pin, airgap_slope, airgap_offset - offset_mecanico, data.airgap, airgap_filter};
 
         //Current
-        static constexpr float current_slope = 44.746;
-        static constexpr float current_offset = -85.72;
+        static constexpr float current_slope = 56.222;
+        static constexpr float current_offset = -91.505;
 
         static constexpr size_t current_filter_order = 20;
         static constexpr Pin& current_pin = Pinout::HEMS1_CURRENT_PIN;
@@ -136,6 +137,7 @@ namespace LCU{
     template<> class Sensors<MASTER_MODE::VEHICLE_5DOF>{
         public:
             Data<VEHICLE_5DOF>& data;
+
             // Airgaps
             static constexpr float airgap_slope = 17.23477;
             static constexpr float airgap_offset = 50.45231;
@@ -151,18 +153,25 @@ namespace LCU{
             FilteredLinearSensor<float,aigarp_filter_order> airgap_7_sensor {Pinout::AIRGAP_7_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[7-1], airgap_7_filter};
 
             // Curents
-            static constexpr float current_slope = 44.746;
-            static constexpr float current_offset = -85.72;
+            static constexpr float current_slope = 56.222;
+            static constexpr float current_offset = -91.505;
 
             static constexpr size_t current_filter_order = 20;
             MovingAverage<current_filter_order> current_hems_1_filter;
             MovingAverage<current_filter_order> current_hems_3_filter;
             MovingAverage<current_filter_order> current_ems_1_filter;
             MovingAverage<current_filter_order> current_ems_3_filter;
-            FilteredLinearSensor<float,current_filter_order> current_hems_1_sensor {Pinout::HEMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_1 ,current_hems_1_filter};
+            FilteredLinearSensor<float,current_filter_order> current_hems_1_sensor {Pinout::EMS1_CURRENT_PIN, -current_slope, -current_offset, data.coil_current_hems_1 ,current_hems_1_filter};
             FilteredLinearSensor<float,current_filter_order> current_hems_3_sensor {Pinout::HEMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_3, current_hems_3_filter};
-            FilteredLinearSensor<float,current_filter_order> current_ems_1_sensor {Pinout::EMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_1, current_ems_1_filter};
+            FilteredLinearSensor<float,current_filter_order> current_ems_1_sensor {Pinout::HEMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_1, current_ems_1_filter};
             FilteredLinearSensor<float,current_filter_order> current_ems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_3, current_ems_3_filter};
+
+            static constexpr size_t zeroing_order = 10000;
+            static constexpr float max_zeroing_current = 5.0;
+            Zeroing<float,zeroing_order> hems_1_zeroing{current_hems_1_sensor,max_zeroing_current};
+            Zeroing<float,zeroing_order> hems_3_zeroing{current_hems_3_sensor,max_zeroing_current};
+            Zeroing<float,zeroing_order> ems_1_zeroing{current_ems_1_sensor,max_zeroing_current};
+            Zeroing<float,zeroing_order> ems_3_zeroing{current_ems_3_sensor,max_zeroing_current};
 
             //Temparatures
 //            static constexpr float temperature_slope;
@@ -196,6 +205,13 @@ namespace LCU{
             	airgap_7_sensor.read();
             }
 
+            void current_zeroing(){
+            	hems_1_zeroing.execute();
+            	hems_3_zeroing.execute();
+            	ems_1_zeroing.execute();
+            	ems_3_zeroing.execute();
+            }
+
 //            void read_temps(){
 //            	hems_1_temperature_sensor.read();
 //            	hems_3_temperature_sensor.read();
@@ -222,8 +238,8 @@ namespace LCU{
                 FilteredLinearSensor<float,aigarp_filter_order> airgap_7_sensor {Pinout::AIRGAP_7_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[7-1], airgap_7_filter};
 
                 // Curents
-                static constexpr float current_slope = 44.746;
-                static constexpr float current_offset = -85.72;
+                static constexpr float current_slope = 56.222;
+                static constexpr float current_offset = -91.505;
 
                 static constexpr size_t current_filter_order = 20;
                 MovingAverage<current_filter_order> current_hems_1_filter;
@@ -235,6 +251,12 @@ namespace LCU{
                 FilteredLinearSensor<float,current_filter_order> current_ems_1_sensor {Pinout::EMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_1, current_ems_1_filter};
                 FilteredLinearSensor<float,current_filter_order> current_ems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_3, current_ems_3_filter};
 
+                static constexpr size_t zeroing_order = 10000;
+                static constexpr float max_zeroing_current = 10.0;
+                Zeroing<float,zeroing_order> hems_1_zeroing{current_hems_1_sensor,max_zeroing_current};
+                Zeroing<float,zeroing_order> hems_3_zeroing{current_hems_3_sensor,max_zeroing_current};
+                Zeroing<float,zeroing_order> ems_1_zeroing{current_ems_1_sensor,max_zeroing_current};
+                Zeroing<float,zeroing_order> ems_3_zeroing{current_ems_3_sensor,max_zeroing_current};
                 //Temparatures
     //            static constexpr float temperature_slope;
     //            static constexpr float temperature_offset;
@@ -266,6 +288,14 @@ namespace LCU{
                 	airgap_5_sensor.read();
                 	airgap_7_sensor.read();
                 }
+
+                void current_zeroing(){
+                	hems_1_zeroing.execute();
+                	hems_3_zeroing.execute();
+                	ems_1_zeroing.execute();
+                	ems_3_zeroing.execute();
+                }
+
 
     //            void read_temps(){
     //            	hems_1_temperature_sensor.read();

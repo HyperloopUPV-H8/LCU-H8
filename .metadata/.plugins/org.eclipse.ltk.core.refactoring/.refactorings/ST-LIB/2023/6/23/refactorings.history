@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ST-LIB/Inc/ST-LIB_LOW/Sensors/SpecificModels&apos; to &apos;Common&apos;" description="Rename resource &apos;SpecificModels&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Inc/ST-LIB_LOW/Sensors/SpecificModels" name="Common" stamp="1686098010293" updateReferences="true"/>
+</session>

@@ -1,0 +1,429 @@
+#pragma once
+#include "C++Utilities/CppUtils.hpp"
+#include "LCU_Actuators/LCU_Actuators.hpp"
+#include "LCU_Communications/LCU_TCP/LCU_TCP.hpp"
+#include "LCU_Communications/LCU_UDP/LCU_UDP.hpp"
+#include "LCU_Control/LCU_Control.hpp"
+#include "LCU_Data/LCU_Data.hpp"
+#include "LCU_StateMachine/LCU_StateMachine.hpp"
+#include "LCU_Sensors/LCU_Sensors.hpp"
+#include "LCU_Communications/LCU_TCP/IncomingOrders.hpp"
+#include "LCU_Communications/LCU_TCP/OutgoingOrders.hpp"
+#include "LCU_Communications/LCU_UDP/Packets.hpp"
+
+namespace LCU{
+	template<LCU::MASTER_MODE> class LCU_MASTER;
+
+	template<>
+	class LCU_MASTER<LPU_VALIDATION>{
+	public:
+		Actuators<LPU_VALIDATION> actuators;
+		Data<LPU_VALIDATION> data;
+		Sensors<LPU_VALIDATION> sensors;
+		Control<LPU_VALIDATION> control;
+		TCP<LPU_VALIDATION> tcp_handler;
+		UDP<LPU_VALIDATION> udp_handler;
+		GeneralStateMachine<LPU_VALIDATION> state_machine_handler;
+		IncomingOrders<LPU_VALIDATION> incoming_orders_handler;
+		Packets<LPU_VALIDATION> packets;
+		vector<TimedAction*> control_current_actions;
+
+		static LCU_MASTER<LPU_VALIDATION>* lcu_master;
+		LCU_MASTER(): actuators(), data(), sensors(data), control(actuators,data,HEMS_1), tcp_handler(), udp_handler(),
+						state_machine_handler(data, actuators, control, tcp_handler), incoming_orders_handler(data), packets(data){
+				}
+
+				static void read_currents(){
+					lcu_master->sensors.read_currents();
+				}
+
+				static void read_airgaps(){
+					lcu_master->sensors.read_airgaps();
+				}
+
+				static void toggle_led(){
+					lcu_master->actuators.led_can.toggle();
+					lcu_master->actuators.led_flash.toggle();
+				}
+
+				static void send_vcu_data(){
+					lcu_master->udp_handler.send_to_backend(lcu_master->packets.airgaps_data);
+					lcu_master->udp_handler.send_to_backend(lcu_master->packets.coil_currents);
+					lcu_master->udp_handler.send_to_backend(lcu_master->packets.battery_data);
+				}
+
+				static void update_state_machine(){
+					lcu_master->state_machine_handler.general_state_machine.check_transitions();
+				}
+
+				static void read_battery_voltages(){
+					lcu_master->sensors.read_battery_voltages();
+				}
+
+		//		static void read_temperatures(){
+		//			lcu_master->sensors.read_temperatures();
+		//		}
+
+				void init(){
+					STLIB::start();
+					udp_handler.init();
+					tcp_handler.init();
+					actuators.init();
+					state_machine_handler.init();
+				    data.add_protections();
+				}
+
+	};
+
+	LCU_MASTER<LPU_VALIDATION>* LCU_MASTER<LPU_VALIDATION>::lcu_master = nullptr;
+
+	void test_toggle_led_lpu_validation(){
+		LCU_MASTER<LPU_VALIDATION>::toggle_led();
+		Time::set_timeout(500, LCU_MASTER<LPU_VALIDATION>::toggle_led);
+	}
+
+	void test_all_pwms_lpu_validation(){
+		LCU_MASTER<LPU_VALIDATION>::toggle_led();
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->actuators.test_all_pwm();
+		Time::set_timeout(500, LCU_MASTER<LPU_VALIDATION>::toggle_led);
+	}
+
+	void test_lpu_lpu_validation(){
+		LCU_MASTER<LPU_VALIDATION>::toggle_led();
+		IncomingOrders<LPU_VALIDATION>::LPU_NR target_lpu = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.lpu_number;
+		IncomingOrders<LPU_VALIDATION>::COIL_TYPE target_coil = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.lpu_number;
+		float target_cuty_cycle = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.duty_cycle;
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->actuators.set_duty_cycle(target_coil, target_cuty_cycle);
+		Time::set_timeout(500, LCU_MASTER<LPU_VALIDATION>::toggle_led);
+	}
+
+	void test_current_loop_lpu_validation(){
+		LCU_MASTER<LPU_VALIDATION>::toggle_led();
+		COIL_ID target_coil = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.coil_target;
+		float reference_current = LCU_MASTER<LPU_VALIDATION>::lcu_master->incoming_orders_handler.reference_current;
+
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->control.set_reference(reference_current);
+		TimedAction* control_action = LCU_MASTER<LPU_VALIDATION>::lcu_master->state_machine_handler.general_state_machine.add_mid_precision_cyclic_action([&,target_coil](){
+			LCU_MASTER<LPU_VALIDATION>::lcu_master->control.execute(*LCU_MASTER<LPU_VALIDATION>::lcu_master->control.current_value);
+		}, 500us);
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->control_current_actions.push_back(control_action);
+
+		Time::set_timeout(500, LCU_MASTER<LPU_VALIDATION>::toggle_led);
+	}
+
+	void stop_lpu_lpu_validation(){
+		LCU_MASTER<LPU_VALIDATION>::toggle_led();
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->actuators.turn_off();
+		for(TimedAction*& control_action : LCU_MASTER<LPU_VALIDATION>::lcu_master->control_current_actions){
+			LCU_MASTER<LPU_VALIDATION>::lcu_master->state_machine_handler.general_state_machine.remove_cyclic_action(control_action);
+		}
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->control.stop();
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->control_current_actions.clear();
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->control.reset();
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->actuators.turn_on();
+		Time::set_timeout(500, LCU_MASTER<LPU_VALIDATION>::toggle_led);
+	}
+
+	void test_all_pwm_lpu_validation(){
+		LCU_MASTER<LPU_VALIDATION>::toggle_led();
+		LCU_MASTER<LPU_VALIDATION>::lcu_master->actuators.test_all_pwm();
+		Time::set_timeout(500, LCU_MASTER<LPU_VALIDATION>::toggle_led);
+	}
+
+
+	template<>
+	class LCU_MASTER<VEHICLE_5DOF>{
+	public:
+		Actuators<VEHICLE_5DOF> actuators;
+		Data<VEHICLE_5DOF> data;
+		Sensors<VEHICLE_5DOF> sensors;
+		Control<VEHICLE_5DOF> control;
+		TCP<VEHICLE_5DOF> tcp_handler;
+		UDP<VEHICLE_5DOF> udp_handler;
+		GeneralStateMachine<VEHICLE_5DOF> state_machine_handler;
+		IncomingOrders<VEHICLE_5DOF> incoming_orders_handler;
+		OutgoingOrders<VEHICLE_5DOF> outgoing_orders_handler;
+		Packets<VEHICLE_5DOF> packets;
+
+		static LCU_MASTER<VEHICLE_5DOF>* lcu_master;
+
+		LCU_MASTER(): actuators(), data(), sensors(data), control(actuators,data), tcp_handler(), udp_handler(),
+				state_machine_handler(data, actuators, control, tcp_handler, outgoing_orders_handler), incoming_orders_handler(data), packets(data){
+		}
+
+		static void read_currents(){
+			lcu_master->sensors.read_currents();
+		}
+
+		static void read_airgaps(){
+			lcu_master->sensors.read_airgaps();
+		}
+
+		static void toggle_led(){
+			lcu_master->actuators.led_can.toggle();
+		}
+
+		static void send_vcu_data(){
+			lcu_master->udp_handler.send_to_backend(lcu_master->packets.airgaps_data);
+			lcu_master->udp_handler.send_to_backend(lcu_master->packets.coil_currents);
+		}
+
+		static void send_slave_data(){
+			lcu_master->udp_handler.send_to_slave(lcu_master->packets.slave_airgaps);
+			lcu_master->udp_handler.send_to_slave(lcu_master->packets.slave_reference_currents);
+		}
+
+		static void update_state_machine(){
+			lcu_master->state_machine_handler.general_state_machine.check_transitions();
+		}
+
+//		static void read_temperatures(){
+//			lcu_master->sensors.read_temperatures();
+//		}
+
+		void init(){
+			STLIB::start();
+			udp_handler.init();
+			tcp_handler.init();
+			actuators.init();
+			state_machine_handler.init();
+		    data.add_protections();
+		}
+
+	};
+
+	LCU_MASTER<VEHICLE_5DOF>* LCU_MASTER<VEHICLE_5DOF>::lcu_master = nullptr;
+
+	void test_toggle_led_vehicle_5dof(){
+		LCU_MASTER<VEHICLE_5DOF>::toggle_led();
+		LCU_MASTER<VEHICLE_5DOF>::lcu_master->tcp_handler.SLAVE_CONNECTION.send_order(LCU_MASTER<VEHICLE_5DOF>::lcu_master->outgoing_orders_handler.test_toggle_led_order);
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_5DOF>::toggle_led);
+	}
+
+	void start_levitating_vehicle_5dof(){
+		LCU_MASTER<VEHICLE_5DOF>::toggle_led();
+		if(LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.general_state_machine.current_state == GeneralStateMachine<VEHICLE_5DOF>::OPERATIONAL &&
+				LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.current_state == SpecificStateMachine<VEHICLE_5DOF>::IDLE){
+			LCU_MASTER<VEHICLE_5DOF>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_5DOF>::lcu_master->outgoing_orders_handler.start_slave_levitation_order);
+			LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.force_change_state(SpecificStateMachine<VEHICLE_5DOF>::TAKING_OFF);
+		}
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_5DOF>::toggle_led);
+	}
+
+	void stop_levitation_vehicle_5dof(){
+		LCU_MASTER<VEHICLE_5DOF>::toggle_led();
+		LCU_MASTER<VEHICLE_5DOF>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_5DOF>::lcu_master->outgoing_orders_handler.stop_slave_levitation_order);
+		LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.force_change_state(SpecificStateMachine<VEHICLE_5DOF>::IDLE);
+		LCU_MASTER<VEHICLE_5DOF>::lcu_master->control.stop();
+		LCU_MASTER<VEHICLE_5DOF>::lcu_master->actuators.turn_off();
+		LCU_MASTER<VEHICLE_5DOF>::lcu_master->actuators.turn_on();
+		LCU_MASTER<VEHICLE_5DOF>::lcu_master->control.reset();
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_5DOF>::toggle_led);
+	}
+
+
+	void start_landing_vehicle_5dof(){
+		LCU_MASTER<VEHICLE_5DOF>::toggle_led();
+		if(LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.general_state_machine.current_state == GeneralStateMachine<VEHICLE_5DOF>::OPERATIONAL &&
+				LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.current_state == SpecificStateMachine<VEHICLE_5DOF>::STABLE){
+			LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.force_change_state(SpecificStateMachine<VEHICLE_5DOF>::LANDING);
+		}
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_5DOF>::toggle_led);
+	}
+
+	void start_stick_up_vehicle_5dof(){
+		LCU_MASTER<VEHICLE_5DOF>::toggle_led();
+		if(LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.general_state_machine.current_state == GeneralStateMachine<VEHICLE_5DOF>::OPERATIONAL &&
+				LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.current_state == SpecificStateMachine<VEHICLE_5DOF>::IDLE){
+			LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.force_change_state(SpecificStateMachine<VEHICLE_5DOF>::STICK_UP);
+		}
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_5DOF>::toggle_led);
+	}
+
+	void start_stick_down_vehicle_5dof(){
+		LCU_MASTER<VEHICLE_5DOF>::toggle_led();
+		if(LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.general_state_machine.current_state == GeneralStateMachine<VEHICLE_5DOF>::OPERATIONAL &&
+				LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.current_state == SpecificStateMachine<VEHICLE_5DOF>::IDLE){
+			LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.force_change_state(SpecificStateMachine<VEHICLE_5DOF>::STICK_DOWN);
+		}
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_5DOF>::toggle_led);
+	}
+
+	void reset_both_lcus_vehicle_5dof(){
+		LCU_MASTER<VEHICLE_5DOF>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_5DOF>::lcu_master->outgoing_orders_handler.slave_hardware_reset_order);
+		HAL_NVIC_SystemReset();
+	}
+
+	template<>
+	class LCU_MASTER<VEHICLE_TESTING>{
+	public:
+		Actuators<VEHICLE_TESTING> actuators;
+		Data<VEHICLE_TESTING> data;
+		Sensors<VEHICLE_TESTING> sensors;
+		Control<VEHICLE_TESTING> control;
+		TCP<VEHICLE_TESTING> tcp_handler;
+		UDP<VEHICLE_TESTING> udp_handler;
+		GeneralStateMachine<VEHICLE_TESTING> state_machine_handler;
+		IncomingOrders<VEHICLE_TESTING> incoming_orders_handler;
+		OutgoingOrders<VEHICLE_TESTING> outgoing_orders_handler;
+		Packets<VEHICLE_TESTING> packets;
+		vector<TimedAction*> control_current_actions;
+
+		static LCU_MASTER<VEHICLE_TESTING>* lcu_master;
+
+		LCU_MASTER(): actuators(), data(), sensors(data), control(actuators,data), tcp_handler(), udp_handler(),
+				state_machine_handler(data, actuators, control, tcp_handler, outgoing_orders_handler), incoming_orders_handler(data), packets(data){
+		}
+
+		static void read_currents(){
+			lcu_master->sensors.read_currents();
+		}
+
+		static void read_airgaps(){
+			lcu_master->sensors.read_airgaps();
+		}
+
+		static void toggle_led(){
+			lcu_master->actuators.led_can.toggle();
+		}
+
+		static void send_vcu_data(){
+			lcu_master->udp_handler.send_to_backend(lcu_master->packets.airgaps_data);
+			lcu_master->udp_handler.send_to_backend(lcu_master->packets.coil_currents);
+		}
+
+		static void update_state_machine(){
+			lcu_master->state_machine_handler.general_state_machine.check_transitions();
+		}
+
+//		static void read_temperatures(){
+//			lcu_master->sensors.read_temperatures();
+//		}
+
+		void init(){
+			STLIB::start();
+			udp_handler.init();
+			tcp_handler.init();
+			actuators.init();
+			state_machine_handler.init();
+			//data.add_protections();
+		}
+
+	};
+
+	LCU_MASTER<VEHICLE_TESTING>* LCU_MASTER<VEHICLE_TESTING>::lcu_master = nullptr;
+
+	void test_toggle_led_vehicle_testing(){
+		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.SLAVE_CONNECTION.send_order(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.test_toggle_led_order);
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
+	}
+
+	void test_all_pwms_vehicle_testing(){
+		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->actuators.test_all_pwm();
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.SLAVE_CONNECTION.send_order(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.test_all_slave_pwm_order);
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
+	}
+
+	void test_lpu_vehicle_testing(){
+		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
+		COIL_ID target_coil = LCU_MASTER<VEHICLE_TESTING>::lcu_master->incoming_orders_handler.coil_target;
+		float target_cuty_cycle = LCU_MASTER<VEHICLE_TESTING>::lcu_master->incoming_orders_handler.duty_cycle;
+		if(Actuators<VEHICLE_TESTING>::is_coil_from_master(target_coil)){
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->actuators.set_duty_cycle(target_coil, target_cuty_cycle);
+		}else{
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.coil_id = target_coil;
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.duty_cycle = target_cuty_cycle;
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.test_slave_lpu_order);
+		}
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
+	}
+
+	void test_current_control_vehicle_testing(){
+		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
+		COIL_ID target_coil = LCU_MASTER<VEHICLE_TESTING>::lcu_master->incoming_orders_handler.coil_target;
+		float reference_current = LCU_MASTER<VEHICLE_TESTING>::lcu_master->incoming_orders_handler.reference_current;
+
+		if(LCU_MASTER<VEHICLE_TESTING>::lcu_master->data.reference_currents[target_coil] != 0){
+			ErrorHandler("Current control is already running");
+			return;
+		}
+		if(Actuators<VEHICLE_TESTING>::is_coil_from_master(target_coil)){
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->control.change_current_reference(target_coil, reference_current);
+			TimedAction* control_action = LCU_MASTER<VEHICLE_TESTING>::lcu_master->state_machine_handler.general_state_machine.add_mid_precision_cyclic_action([&,target_coil](){
+				LCU_MASTER<VEHICLE_TESTING>::lcu_master->control.execute_current_control(target_coil);
+			}, 500us);
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->control_current_actions.push_back(control_action);
+		}else{
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.coil_id = target_coil;
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.reference_current = reference_current;
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.test_slave_current_control_order);
+		}
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
+	}
+
+	void change_current_control_reference_vehicle_testing(){
+		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
+		float reference_current = LCU_MASTER<VEHICLE_TESTING>::lcu_master->incoming_orders_handler.reference_current;
+		for(COIL_ID id = HEMS_1; id <= EMS_4; id++){
+			if(LCU_MASTER<VEHICLE_TESTING>::lcu_master->data.reference_currents[id] != 0 && Actuators<VEHICLE_TESTING>::is_coil_from_master(id)){
+				LCU_MASTER<VEHICLE_TESTING>::lcu_master->control.change_current_reference(id, reference_current);
+			}
+		}
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.reference_current = reference_current;
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.change_slave_current_control_reference_order);
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
+	}
+
+	void test_all_current_control_vehicle_testing(){
+		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
+		float reference_current = LCU_MASTER<VEHICLE_TESTING>::lcu_master->incoming_orders_handler.reference_current;
+		for(COIL_ID id = HEMS_1; id <= EMS_4; id++){
+			if(Actuators<VEHICLE_TESTING>::is_coil_from_master(id)){
+				LCU_MASTER<VEHICLE_TESTING>::lcu_master->control.change_current_reference(id, reference_current);
+			}
+		}
+		TimedAction* control_action = LCU_MASTER<VEHICLE_TESTING>::lcu_master->state_machine_handler.general_state_machine.add_mid_precision_cyclic_action([&](){
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->control.execute_current_control();
+		}, 500us);
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->control_current_actions.push_back(control_action);
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.reference_current = reference_current;
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.test_all_current_control_order);
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
+	}
+
+	void stop_current_control_vehicle_testing(){
+		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->actuators.turn_off();
+		for(TimedAction*& control_action : LCU_MASTER<VEHICLE_TESTING>::lcu_master->control_current_actions){
+			LCU_MASTER<VEHICLE_TESTING>::lcu_master->state_machine_handler.general_state_machine.remove_cyclic_action(control_action);
+		}
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->control.stop();
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.stop_slave_control_order);
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->control_current_actions.clear();
+		for(float& reference_current : LCU_MASTER<VEHICLE_TESTING>::lcu_master->data.reference_currents) reference_current = 0.0;
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->control.reset();
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->actuators.turn_on();
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
+	}
+
+	void reset_both_lcus_vehicle_testing(){
+		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.slave_hardware_reset_order);
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
+		HAL_NVIC_SystemReset();
+	}
+
+	void stop_lpu_vehicle_testing(){
+		LCU_MASTER<VEHICLE_TESTING>::toggle_led();
+		for(COIL_ID id = HEMS_1; id<=EMS_4; id++){
+			if(Actuators<VEHICLE_TESTING>::is_coil_from_master(id)){
+				LCU_MASTER<VEHICLE_TESTING>::lcu_master->actuators.set_duty_cycle(id, 0);
+			}
+		}
+		LCU_MASTER<VEHICLE_TESTING>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_TESTING>::lcu_master->outgoing_orders_handler.stop_slave_control_order);
+		Time::set_timeout(500, LCU_MASTER<VEHICLE_TESTING>::toggle_led);
+	}
+
+}

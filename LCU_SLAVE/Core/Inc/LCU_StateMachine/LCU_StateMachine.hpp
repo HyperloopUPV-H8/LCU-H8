@@ -59,7 +59,7 @@ namespace LCU{
 		SpecificStateMachine specific_state_machine_handler;
 		bool tcp_timeout = false;
 
-		static constexpr uint16_t max_tcp_connection_timeout = 5000; //ms
+		static constexpr uint16_t max_tcp_connection_timeout = 20000; //ms
 
 		enum States{
 			INITIAL,

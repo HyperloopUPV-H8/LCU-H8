@@ -35,9 +35,9 @@ namespace LCU{
         constexpr Pin& LPU_DCDC_GOOD_PIN = PD15;
 
         //ADCs
-        constexpr Pin& HEMS1_CURRENT_PIN = PB0;
+        constexpr Pin& HEMS1_CURRENT_PIN = PF11;
         constexpr Pin& HEMS3_CURRENT_PIN = PB1;
-        constexpr Pin& EMS1_CURRENT_PIN = PF11;
+        constexpr Pin& EMS1_CURRENT_PIN = PB0;
         constexpr Pin& EMS3_CURRENT_PIN = PF12;
 
         constexpr Pin& HEMS1_TEMP_PIN = PF5;
@@ -45,10 +45,10 @@ namespace LCU{
         constexpr Pin& EMS1_TEMP_PIN = PF7;
         constexpr Pin& EMS3_TEMP_PIN = PF8;
 
-        constexpr Pin& AIRGAP_1_PIN = PA5;
-        constexpr Pin& AIRGAP_3_PIN = PA6;
-        constexpr Pin& AIRGAP_5_PIN = PA4;
-        constexpr Pin& AIRGAP_7_PIN = PA3;
+        constexpr Pin& AIRGAP_1_PIN = PA6;
+        constexpr Pin& AIRGAP_3_PIN = PA4;
+        constexpr Pin& AIRGAP_5_PIN = PA3;
+        constexpr Pin& AIRGAP_7_PIN = PA5;
 
         constexpr Pin& BATT_VOLTAGE_LPU_1_PIN = PA0;
         constexpr Pin& BATT_VOLTAGE_LPU_2_PIN = PF14;

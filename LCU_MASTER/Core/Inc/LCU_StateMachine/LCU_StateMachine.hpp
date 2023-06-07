@@ -321,7 +321,7 @@ namespace LCU{
 		StateMachine general_state_machine;
 		bool tcp_timeout = false;
 
-		static constexpr uint16_t max_tcp_connection_timeout = 10000; //ms
+		static constexpr uint16_t max_tcp_connection_timeout = 30000; //ms
 
 		enum States{
 			INITIAL,
@@ -343,7 +343,7 @@ namespace LCU{
 			add_on_exit_actions();
 			add_transitions();
 			register_timed_actions();
-			//add_transitions();
+			add_transitions();
 		}
 
 		void add_transitions(){

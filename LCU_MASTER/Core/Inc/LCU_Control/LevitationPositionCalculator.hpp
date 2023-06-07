@@ -6,8 +6,8 @@
 
 class LevitationPositionCalculator : public ControlBlock<float(*)[8], LevitationPosition>{
 public:
-    static constexpr double x_sragy = 0.8069, y_sragy = 0.1042, z_sragy = 0.10825; 
-    static constexpr double x_sragz = 0.81231, y_sragz = 0.2114, z_sragz = -0.0396;
+    static constexpr double x_sragy = 0.7681, y_sragy = 0.0951, z_sragy = 0.07922;
+    static constexpr double x_sragz = 0.76785, y_sragz = 0.22269, z_sragz = -0.09493;
     static constexpr double z_infr = 0.6328;
     static constexpr double grosorz = 0.015, grosory = 0.005;
 

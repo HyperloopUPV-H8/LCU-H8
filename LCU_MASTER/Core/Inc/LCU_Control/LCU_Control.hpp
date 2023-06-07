@@ -13,9 +13,16 @@ namespace LCU {
     template<> class Control<LCU::MASTER_MODE::LPU_VALIDATION>{
         public:
             CurrentControl current_control;
+            Actuators<LPU_VALIDATION>& actuators;
+            Data<LPU_VALIDATION>& data;
             float* current_value;
-            Control(LCU::Actuators<LPU_VALIDATION>& actuators, LCU::Data<LPU_VALIDATION>& data, COIL_ID hems_id){
-                switch (hems_id){
+            COIL_ID coil_id;
+            Control(LCU::Actuators<LPU_VALIDATION>& actuators, LCU::Data<LPU_VALIDATION>& data, COIL_ID hems_id) : actuators(actuators), data(data){
+            	change_coil_id(hems_id);
+            }
+
+            void change_coil_id(COIL_ID id){
+                switch (id){
                     case COIL_ID::HEMS_1:
                         current_control = {actuators.HEMS_1, data.reference_current_hems_1};
                         current_value = &data.coil_current_hems_1;
@@ -33,12 +40,12 @@ namespace LCU {
                         current_value = &data.coil_current_ems_3;
                         break;
                     default:
-                        ErrorHandler("Invalid HEMS_ID, given id: %d", hems_id);
+                        ErrorHandler("Invalid HEMS_ID, given id: %d", id);
                         current_value = nullptr;
                         return;
                         break;
                 }
-                current_control.half_bridge.turn_on();
+                coil_id = id;
             }
 
             void execute(float real_current){
@@ -81,7 +88,6 @@ namespace LCU {
                     ErrorHandler("Invalid HEMS_ID, given id: %d", hems_id);
                     break;
             }
-            current_control.half_bridge.turn_on();
         }
 
         void execute_distance_control(float real_distance){
@@ -186,12 +192,16 @@ namespace LCU {
        		switch(coil_id){
        		case COIL_ID::HEMS_1:
            		hems_1_current_control.set_reference_current(new_reference);
+           		break;
        		case COIL_ID::HEMS_3:
            		hems_3_current_control.set_reference_current(new_reference);
+           		break;
        		case COIL_ID::EMS_1:
            		ems_1_current_control.set_reference_current(new_reference);
+           		break;
        		case COIL_ID::EMS_3:
            		ems_3_current_control.set_reference_current(new_reference);
+           		break;
        		default:
        			ErrorHandler("Coil current control not supported %d", coil_id);
        		}

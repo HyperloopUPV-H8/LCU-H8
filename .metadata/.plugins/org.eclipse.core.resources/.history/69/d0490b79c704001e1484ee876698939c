@@ -1,0 +1,25 @@
+#pragma once
+#include "../ControlBlock.hpp"
+#include "MeanCalculator.hpp"
+#include "Sensors/LinearSensor/LinearSensor.hpp"
+template<class Type, size_t Order>
+class Zeroing : public Controlblock<Type,Type>{
+public:
+	MeanCalculator<Order> mean_calculator;
+	LinearSensor<Type>& sensor;
+	Type max_value_offset;
+	Zeroing(LinearSensor<Type>& sensor) : sensor(sensor), mean_calculator(){};
+	void execute(){
+		while(mean_calculator.output_value == 0){
+			sensor.read();
+			mean_calculator.input(*sensor.get_value_pointer());
+			hems_2_zeroer.execute();
+		}
+		if(abs(hems_2_zeroer.output_value) > max_zeroing_current) ErrorHandler("Zeroing offset is calculated to be above %f A got %f A of mean", max_zeroing_current, hems_2_zeroer.output_value);
+		else {
+			if(hems_2_zeroer.output_value < 0) current_hems_2_sensor.set_offset(current_hems_2_sensor.get_offset() + abs(hems_2_zeroer.output_value));
+			else current_hems_2_sensor.set_offset(current_hems_2_sensor.get_offset() - hems_2_zeroer.output_value);
+		}
+		hems_2_zeroer.reset();
+	}
+};
