@@ -1,0 +1,6 @@
+#pragma once
+
+class PT100{
+public:
+	PT100(Pin&)
+};

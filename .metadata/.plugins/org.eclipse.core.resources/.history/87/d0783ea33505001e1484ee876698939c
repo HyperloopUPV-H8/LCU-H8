@@ -1,0 +1,16 @@
+#pragma once
+#include "Control/ControlBlock.hpp"
+#include "Control/Blocks/MovingAverage.hpp"
+class PT100{
+public:
+	static constexpr float k;
+	static constexpr float offset;
+
+	template<size_t N>
+	PT100(Pin&, float* value, MovingAverage<N>& filter);
+
+	void read();
+protected:
+	uint8_t id;
+	float* value;
+};

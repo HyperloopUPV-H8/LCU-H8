@@ -43,9 +43,10 @@ namespace LCU{
 		static void read_airgaps(){
 			lcu_slave->sensors.read_airgaps();
 		}
-//		static void read_temperatures(){
-//			lcu_master.sensors.read_temperatures();
-//		}
+
+		static void read_temperatures(){
+			lcu_slave->sensors.read_temps();
+		}
 
 		static void send_airgaps_to_master(){
 			lcu_slave->udp_handler.send_to_master(lcu_slave->packets.slave_airgaps);
@@ -53,6 +54,10 @@ namespace LCU{
 
 		static void send_coil_currents_to_master(){
 			lcu_slave->udp_handler.send_to_master(lcu_slave->packets.slave_coil_currents);
+		}
+
+		static void send_coil_temperatures_to_master(){
+			lcu_slave->udp_handler.send_to_master(lcu_slave->packets.slave_coil_temperatures);
 		}
 
 		static void update_state_machine(){

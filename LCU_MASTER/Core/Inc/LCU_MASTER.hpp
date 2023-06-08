@@ -60,9 +60,9 @@ namespace LCU{
 					lcu_master->sensors.read_battery_voltages();
 				}
 
-		//		static void read_temperatures(){
-		//			lcu_master->sensors.read_temperatures();
-		//		}
+				static void read_temperatures(){
+					lcu_master->sensors.read_temps();
+				}
 
 				void init(){
 					STLIB::start();
@@ -159,7 +159,7 @@ namespace LCU{
 		static LCU_MASTER<VEHICLE_5DOF>* lcu_master;
 
 		LCU_MASTER(): actuators(), data(), sensors(data), control(actuators,data), tcp_handler(), udp_handler(),
-				state_machine_handler(data, actuators, control, tcp_handler, outgoing_orders_handler), incoming_orders_handler(data), packets(data){
+				state_machine_handler(data, actuators, control, tcp_handler, outgoing_orders_handler), incoming_orders_handler(data), packets(data, control){
 		}
 
 		static void read_currents(){
@@ -177,6 +177,8 @@ namespace LCU{
 		static void send_vcu_data(){
 			lcu_master->udp_handler.send_to_backend(lcu_master->packets.airgaps_data);
 			lcu_master->udp_handler.send_to_backend(lcu_master->packets.coil_currents);
+			lcu_master->udp_handler.send_to_backend(lcu_master->packets.coil_temperatures);
+			lcu_master->udp_handler.send_to_backend(lcu_master->packets.levitation_data);
 		}
 
 		static void send_slave_data(){
@@ -187,9 +189,9 @@ namespace LCU{
 			lcu_master->state_machine_handler.general_state_machine.check_transitions();
 		}
 
-//		static void read_temperatures(){
-//			lcu_master->sensors.read_temperatures();
-//		}
+		static void read_temperatures(){
+			lcu_master->sensors.read_temps();
+		}
 
 		void init(){
 			STLIB::start();
@@ -283,7 +285,7 @@ namespace LCU{
 		static LCU_MASTER<VEHICLE_TESTING>* lcu_master;
 
 		LCU_MASTER(): actuators(), data(), sensors(data), control(actuators,data), tcp_handler(), udp_handler(),
-				state_machine_handler(data, actuators, control, tcp_handler, outgoing_orders_handler), incoming_orders_handler(data), packets(data){
+				state_machine_handler(data, actuators, control, tcp_handler, outgoing_orders_handler), incoming_orders_handler(data), packets(data, control){
 		}
 
 		static void read_currents(){
@@ -301,6 +303,8 @@ namespace LCU{
 		static void send_vcu_data(){
 			lcu_master->udp_handler.send_to_backend(lcu_master->packets.airgaps_data);
 			lcu_master->udp_handler.send_to_backend(lcu_master->packets.coil_currents);
+			lcu_master->udp_handler.send_to_backend(lcu_master->packets.coil_temperatures);
+			lcu_master->udp_handler.send_to_backend(lcu_master->packets.levitation_data);
 		}
 
 		static void send_slave_data(){
@@ -311,9 +315,9 @@ namespace LCU{
 			lcu_master->state_machine_handler.general_state_machine.check_transitions();
 		}
 
-//		static void read_temperatures(){
-//			lcu_master->sensors.read_temperatures();
-//		}
+		static void read_temperatures(){
+			lcu_master->sensors.read_temps();
+		}
 
 		void init(){
 			STLIB::start();

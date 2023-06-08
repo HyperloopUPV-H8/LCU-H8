@@ -8,6 +8,7 @@
 
 int main(void)
 {
+
 	LCU::LCU_SLAVE lcu_slave;
 	LCU::LCU_SLAVE::lcu_slave = &lcu_slave;
 	lcu_slave.init();

@@ -28,15 +28,15 @@ namespace LCU{
 
     namespace Pinout{
         // PWMs
-        constexpr Pin& HEMS2_H1_PIN = PE9;
-        constexpr Pin& HEMS2_H2_PIN = PE6;
-        constexpr Pin& EMS2_H1_PIN = PE13;
-        constexpr Pin& EMS2_H2_PIN = PE14;
+        constexpr Pin& HEMS4_H1_PIN = PE9;
+        constexpr Pin& HEMS4_H2_PIN = PE6;
+        constexpr Pin& EMS4_H1_PIN = PE13;
+        constexpr Pin& EMS4_H2_PIN = PE14;
 
-        constexpr Pin& HEMS4_H1_PIN = PE11;
-        constexpr Pin& HEMS4_H2_PIN = PE5;
-        constexpr Pin& EMS4_H1_PIN = PB4;
-        constexpr Pin& EMS4_H2_PIN = PB5;
+        constexpr Pin& HEMS2_H1_PIN = PE11;
+        constexpr Pin& HEMS2_H2_PIN = PE5;
+        constexpr Pin& EMS2_H1_PIN = PB4;
+        constexpr Pin& EMS2_H2_PIN = PB5;
 
         //LEDs
         constexpr Pin& SLEEP_LED_PIN = PG4;
@@ -52,10 +52,10 @@ namespace LCU{
         constexpr Pin& LPU_DCDC_GOOD_PIN = PD15;
 
         //ADCs
-        constexpr Pin& HEMS2_CURRENT_PIN = PF11;
-        constexpr Pin& HEMS4_CURRENT_PIN = PB1;
-        constexpr Pin& EMS2_CURRENT_PIN = PB0;
-        constexpr Pin& EMS4_CURRENT_PIN = PF12;
+        constexpr Pin& HEMS4_CURRENT_PIN = PF11;
+        constexpr Pin& HEMS2_CURRENT_PIN = PB1;
+        constexpr Pin& EMS4_CURRENT_PIN = PB0;
+        constexpr Pin& EMS2_CURRENT_PIN = PF12;
 
         constexpr Pin& HEMS2_TEMP_PIN = PF5;
         constexpr Pin& HEMS4_TEMP_PIN = PF6;

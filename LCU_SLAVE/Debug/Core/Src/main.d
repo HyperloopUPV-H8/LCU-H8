@@ -180,6 +180,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp \
  ../Core/Inc/LCU_Sensors/LCU_Sensors.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp \
  ../Core/Inc/LCU_Communications/LCU_UDP/Packets.hpp \
  ../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp \
  ../Core/Inc/LCU_Communications/LCU_TCP/OutgoingOrders.hpp \
@@ -368,6 +369,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:
 ../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp:
 ../Core/Inc/LCU_Communications/LCU_UDP/Packets.hpp:
 ../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:
 ../Core/Inc/LCU_Communications/LCU_TCP/OutgoingOrders.hpp:

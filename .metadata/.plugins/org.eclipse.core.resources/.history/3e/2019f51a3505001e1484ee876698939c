@@ -1,0 +1,7 @@
+#pragma once
+#include "Control/ControlBlock.hpp"
+class PT100{
+public:
+
+	PT100(Pin&, double* value, )
+};

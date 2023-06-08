@@ -120,6 +120,7 @@ namespace LCU {
     	CurrentControl hems_1_current_control, hems_3_current_control, ems_1_current_control, ems_3_current_control;
     	DistanceControl<VEHICLE_5DOF> position_control;
     	float& hems_1_current, &hems_3_current, &ems_1_current, &ems_3_current;
+    	Data<VEHICLE_5DOF>& data;
 
 
     	Control(LCU::Actuators<VEHICLE_5DOF>& actuators, LCU::Data<VEHICLE_5DOF>& data): hems_1_current_control(actuators.HEMS_1,data.reference_currents[COIL_ID::HEMS_1]),
@@ -130,7 +131,8 @@ namespace LCU {
 				hems_1_current(data.coil_current_hems_1),
 				hems_3_current(data.coil_current_hems_3),
 				ems_1_current(data.coil_current_ems_1),
-				ems_3_current(data.coil_current_ems_3)
+				ems_3_current(data.coil_current_ems_3),
+				data(data)
     	{}
 
     	void set_z_reference(float new_reference){
@@ -157,6 +159,7 @@ namespace LCU {
     		hems_3_current_control.half_bridge.turn_off();
 			ems_1_current_control.half_bridge.turn_off();
 			ems_3_current_control.half_bridge.turn_off();
+   			for(float& reference_current : data.reference_currents) reference_current = 0.0;
     	}
 
     	void reset(){
@@ -165,6 +168,7 @@ namespace LCU {
     		ems_1_current_control.reset();
     		ems_3_current_control.reset();
     		position_control.reset();
+   			for(float& reference_current : data.reference_currents) reference_current = 0.0;
     		hems_1_current_control.half_bridge.turn_on();
     		hems_3_current_control.half_bridge.turn_on();
 			ems_1_current_control.half_bridge.turn_on();
@@ -176,7 +180,8 @@ namespace LCU {
        public:
        	CurrentControl hems_1_current_control, hems_3_current_control, ems_1_current_control, ems_3_current_control;
        	float& hems_1_current, &hems_3_current, &ems_1_current, &ems_3_current;
-
+    	double y = 0, z = 0, rotation_x = 0, rotation_y = 0, rotation_z = 0;
+    	Data<VEHICLE_TESTING>& data;
 
        	Control(LCU::Actuators<VEHICLE_TESTING>& actuators, LCU::Data<VEHICLE_TESTING>& data): hems_1_current_control(actuators.HEMS_1,data.reference_currents[COIL_ID::HEMS_1]),
        			hems_3_current_control(actuators.HEMS_3, data.reference_currents[COIL_ID::HEMS_3]),
@@ -185,7 +190,8 @@ namespace LCU {
    				hems_1_current(data.coil_current_hems_1),
    				hems_3_current(data.coil_current_hems_3),
    				ems_1_current(data.coil_current_ems_1),
-   				ems_3_current(data.coil_current_ems_3)
+   				ems_3_current(data.coil_current_ems_3),
+				data(data)
        	{}
 
        	void change_current_reference(COIL_ID coil_id, float new_reference){
@@ -246,6 +252,7 @@ namespace LCU {
        		hems_3_current_control.half_bridge.turn_off();
    			ems_1_current_control.half_bridge.turn_off();
    			ems_3_current_control.half_bridge.turn_off();
+   			for(float& reference_current : data.reference_currents) reference_current = 0.0;
        	}
 
        	void reset(){
@@ -253,6 +260,7 @@ namespace LCU {
        		hems_3_current_control.reset();
        		ems_1_current_control.reset();
        		ems_3_current_control.reset();
+   			for(float& reference_current : data.reference_currents) reference_current = 0.0;
        		hems_1_current_control.half_bridge.turn_on();
        		hems_3_current_control.half_bridge.turn_on();
    			ems_1_current_control.half_bridge.turn_on();

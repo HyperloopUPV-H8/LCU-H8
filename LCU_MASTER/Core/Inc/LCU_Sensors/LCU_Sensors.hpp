@@ -6,6 +6,7 @@
 #include "Sensors/LinearSensor/FilteredLinearSensor.hpp"
 #include "Protections/Boundary.hpp"
 #include "Control/Blocks/Zeroing.hpp"
+#include "Sensors/Common/PT100.hpp"
 namespace LCU{
     template<LCU::MASTER_MODE> class Sensors;
 
@@ -45,19 +46,17 @@ namespace LCU{
             LinearSensor<float> battery_sensor_lpu_1 {Pinout::BATT_VOLTAGE_LPU_1_PIN, battery_voltage_slope, battery_voltage_offset, data.batt_voltage_1};
             LinearSensor<float> battery_sensor_lpu_2 {Pinout::BATT_VOLTAGE_LPU_2_PIN, battery_voltage_slope, battery_voltage_offset, data.batt_voltage_2};
 
-//			  Temparatures
-//            static constexpr float temperature_slope;
-//            static constexpr float temperature_offset;
-//
-//            static constexpr size_t temperature_filter_order = 10;
-//            MovingAverage<temperature_filter_order> hems_1_temperature_filter;
-//            MovingAverage<temperature_filter_order> hems_3_temperature_filter;
-//            MovingAverage<temperature_filter_order> ems_1_temperature_filter;
-//            MovingAverage<temperature_filter_order> ems_3_temperature_filter;
-//            FilteredLinearSensor<temperature_filter_order> hems_1_temperature_sensor {Pinout::HEMS1_TEMP_PIN, temperature_slope, temperature_offset, data.hems_1_temperature};
-//            FilteredLinearSensor<temperature_filter_order> hems_3_temperature_sensor {Pinout::HEMS3_TEMP_PIN, temperature_slope, temperature_offset, data.hems_3_temperature};
-//            FilteredLinearSensor<temperature_filter_order> ems_1_temperature_sensor {Pinout::EMS1_TEMP_PIN, temperature_slope, temperature_offset, data.ems_1_temperature};
-//            FilteredLinearSensor<temperature_filter_order> ems_3_temperature_sensor {Pinout::EMS3_TEMP_PIN, temperature_slope, temperature_offset, data.ems_3_temperature};
+			 // Temparatures
+            static constexpr size_t temperature_filter_order = 10;
+            MovingAverage<temperature_filter_order> hems_1_temperature_filter;
+            MovingAverage<temperature_filter_order> hems_3_temperature_filter;
+            MovingAverage<temperature_filter_order> ems_1_temperature_filter;
+            MovingAverage<temperature_filter_order> ems_3_temperature_filter;
+            PT100<temperature_filter_order> hems_1_temperature_sensor{Pinout::HEMS1_TEMP_PIN, data.hems_1_temperature,hems_1_temperature_filter};
+            PT100<temperature_filter_order> hems_3_temperature_sensor{Pinout::HEMS3_TEMP_PIN, data.hems_3_temperature,hems_3_temperature_filter};
+            PT100<temperature_filter_order> ems_1_temperature_sensor{Pinout::EMS1_TEMP_PIN, data.ems_1_temperature,ems_1_temperature_filter};
+            PT100<temperature_filter_order> ems_3_temperature_sensor{Pinout::EMS3_TEMP_PIN, data.ems_3_temperature,ems_3_temperature_filter};
+
 
             Sensors(Data<LPU_VALIDATION>& data) : data(data) {};
 
@@ -80,12 +79,12 @@ namespace LCU{
             	battery_sensor_lpu_2.read();
             }
 
-//            void read_temps(){
-//            	hems_1_temperature_sensor.read();
-//            	hems_3_temperature_sensor.read();
-//            	ems_1_temperature_sensor.read();
-//            	ems_3_temperature_sensor.read();
-//            }
+            void read_temps(){
+            	hems_1_temperature_sensor.read();
+            	hems_3_temperature_sensor.read();
+            	ems_1_temperature_sensor.read();
+            	ems_3_temperature_sensor.read();
+            }
     };
 
     template<> class Sensors<MASTER_MODE::TESTBENCH_1DOF>{
@@ -109,14 +108,11 @@ namespace LCU{
         MovingAverage<current_filter_order> current_filter;
         FilteredLinearSensor<float,current_filter_order> current_sensor {current_pin, current_slope, current_offset, data.coil_current, current_filter};
 
-        //Tmperature
-//        static constexpr float temperature_slope;
-//        static constexpr float temperature_offset;
-//
-//        static constexpr size_t temperature_filter_order = 10;
-//        static constexpr Pin& temperature_pin = Pinout::HEMS1_TEMP_PIN;
-//        MovingAverage<temperature_filter_order> temperature_filter;
-//        FilteredLinearSensor<temperature_filter_order> temperature_sensor {temperature_pin, temperature_slope, temperature_offset, data.coil_temp, temperature_filter};
+		 // Temparatures
+       static constexpr size_t temperature_filter_order = 10;
+       MovingAverage<temperature_filter_order> temperature_filter;
+       PT100<temperature_filter_order> temperature_sensor{Pinout::HEMS1_TEMP_PIN, data.coil_temp,temperature_filter};
+
 
         Sensors(Data<TESTBENCH_1DOF>& data) : data(data){}
 
@@ -129,9 +125,9 @@ namespace LCU{
         	airgap_sensor.read();
         }
 
-//        void read_temps(){
-//        	temperature_sensor.read();
-//        }
+        void read_temps(){
+        	temperature_sensor.read();
+        }
     };
 
     template<> class Sensors<MASTER_MODE::VEHICLE_5DOF>{
@@ -161,10 +157,10 @@ namespace LCU{
             MovingAverage<current_filter_order> current_hems_3_filter;
             MovingAverage<current_filter_order> current_ems_1_filter;
             MovingAverage<current_filter_order> current_ems_3_filter;
-            FilteredLinearSensor<float,current_filter_order> current_hems_1_sensor {Pinout::EMS1_CURRENT_PIN, -current_slope, -current_offset, data.coil_current_hems_1 ,current_hems_1_filter};
-            FilteredLinearSensor<float,current_filter_order> current_hems_3_sensor {Pinout::HEMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_3, current_hems_3_filter};
-            FilteredLinearSensor<float,current_filter_order> current_ems_1_sensor {Pinout::HEMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_1, current_ems_1_filter};
-            FilteredLinearSensor<float,current_filter_order> current_ems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_3, current_ems_3_filter};
+            FilteredLinearSensor<float,current_filter_order> current_hems_1_sensor {Pinout::EMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_1 ,current_hems_1_filter};
+            FilteredLinearSensor<float,current_filter_order> current_hems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_3, current_hems_3_filter};
+            FilteredLinearSensor<float,current_filter_order> current_ems_1_sensor {Pinout::HEMS1_CURRENT_PIN, -current_slope, -current_offset, data.coil_current_ems_1, current_ems_1_filter};
+            FilteredLinearSensor<float,current_filter_order> current_ems_3_sensor {Pinout::HEMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_3, current_ems_3_filter};
 
             static constexpr size_t zeroing_order = 10000;
             static constexpr float max_zeroing_current = 5.0;
@@ -173,19 +169,16 @@ namespace LCU{
             Zeroing<float,zeroing_order> ems_1_zeroing{current_ems_1_sensor,max_zeroing_current};
             Zeroing<float,zeroing_order> ems_3_zeroing{current_ems_3_sensor,max_zeroing_current};
 
-            //Temparatures
-//            static constexpr float temperature_slope;
-//            static constexpr float temperature_offset;
-//
-//            static constexpr size_t temperature_filter_order = 10;
-//            MovingAverage<temperature_filter_order> hems_1_temperature_filter;
-//            MovingAverage<temperature_filter_order> hems_3_temperature_filter;
-//            MovingAverage<temperature_filter_order> ems_1_temperature_filter;
-//            MovingAverage<temperature_filter_order> ems_3_temperature_filter;
-//            FilteredLinearSensor<temperature_filter_order> hems_1_temperature_sensor {Pinout::HEMS1_TEMP_PIN, temperature_slope, temperature_offset, data.hems_1_temperature};
-//            FilteredLinearSensor<temperature_filter_order> hems_3_temperature_sensor {Pinout::HEMS3_TEMP_PIN, temperature_slope, temperature_offset, data.hems_3_temperature};
-//            FilteredLinearSensor<temperature_filter_order> ems_1_temperature_sensor {Pinout::EMS1_TEMP_PIN, temperature_slope, temperature_offset, data.ems_1_temperature};
-//            FilteredLinearSensor<temperature_filter_order> ems_3_temperature_sensor {Pinout::EMS3_TEMP_PIN, temperature_slope, temperature_offset, data.ems_3_temperature};
+			 // Temparatures
+           static constexpr size_t temperature_filter_order = 10;
+           MovingAverage<temperature_filter_order> hems_1_temperature_filter;
+           MovingAverage<temperature_filter_order> hems_3_temperature_filter;
+           MovingAverage<temperature_filter_order> ems_1_temperature_filter;
+           MovingAverage<temperature_filter_order> ems_3_temperature_filter;
+           PT100<temperature_filter_order> hems_1_temperature_sensor{Pinout::HEMS1_TEMP_PIN, data.hems_1_temperature,hems_1_temperature_filter};
+           PT100<temperature_filter_order> hems_3_temperature_sensor{Pinout::HEMS3_TEMP_PIN, data.hems_3_temperature,hems_3_temperature_filter};
+           PT100<temperature_filter_order> ems_1_temperature_sensor{Pinout::EMS1_TEMP_PIN, data.ems_1_temperature,ems_1_temperature_filter};
+           PT100<temperature_filter_order> ems_3_temperature_sensor{Pinout::EMS3_TEMP_PIN, data.ems_3_temperature,ems_3_temperature_filter};
 
             Sensors(Data<VEHICLE_5DOF>& data) : data(data) {};
 
@@ -194,8 +187,8 @@ namespace LCU{
             	current_hems_3_sensor.read();
             	current_ems_1_sensor.read();
             	current_ems_3_sensor.read();
-            	//hems_1_time_protection->check_accumulation(data.coil_current_hems_1);
-            	//hems_3_time_protection->check_accumulation(data.coil_current_hems_3);
+            	hems_1_time_protection->check_accumulation(data.coil_current_hems_1);
+            	hems_3_time_protection->check_accumulation(data.coil_current_hems_3);
             }
 
             void read_airgaps(){
@@ -212,12 +205,12 @@ namespace LCU{
             	ems_3_zeroing.execute();
             }
 
-//            void read_temps(){
-//            	hems_1_temperature_sensor.read();
-//            	hems_3_temperature_sensor.read();
-//            	ems_1_temperature_sensor.read();
-//            	ems_3_temperature_sensor.read();
-//            }
+            void read_temps(){
+            	hems_1_temperature_sensor.read();
+            	hems_3_temperature_sensor.read();
+            	ems_1_temperature_sensor.read();
+            	ems_3_temperature_sensor.read();
+            }
     };
 
     template<> class Sensors<MASTER_MODE::VEHICLE_TESTING>{
@@ -246,10 +239,10 @@ namespace LCU{
                 MovingAverage<current_filter_order> current_hems_3_filter;
                 MovingAverage<current_filter_order> current_ems_1_filter;
                 MovingAverage<current_filter_order> current_ems_3_filter;
-                FilteredLinearSensor<float,current_filter_order> current_hems_1_sensor {Pinout::HEMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_1 ,current_hems_1_filter};
-                FilteredLinearSensor<float,current_filter_order> current_hems_3_sensor {Pinout::HEMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_3, current_hems_3_filter};
-                FilteredLinearSensor<float,current_filter_order> current_ems_1_sensor {Pinout::EMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_1, current_ems_1_filter};
-                FilteredLinearSensor<float,current_filter_order> current_ems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_3, current_ems_3_filter};
+                FilteredLinearSensor<float,current_filter_order> current_hems_1_sensor {Pinout::EMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_1 ,current_hems_1_filter};
+                FilteredLinearSensor<float,current_filter_order> current_hems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_3, current_hems_3_filter};
+                FilteredLinearSensor<float,current_filter_order> current_ems_1_sensor {Pinout::HEMS1_CURRENT_PIN, -current_slope, -current_offset, data.coil_current_ems_1, current_ems_1_filter};
+                FilteredLinearSensor<float,current_filter_order> current_ems_3_sensor {Pinout::HEMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_3, current_ems_3_filter};
 
                 static constexpr size_t zeroing_order = 10000;
                 static constexpr float max_zeroing_current = 10.0;
@@ -257,19 +250,17 @@ namespace LCU{
                 Zeroing<float,zeroing_order> hems_3_zeroing{current_hems_3_sensor,max_zeroing_current};
                 Zeroing<float,zeroing_order> ems_1_zeroing{current_ems_1_sensor,max_zeroing_current};
                 Zeroing<float,zeroing_order> ems_3_zeroing{current_ems_3_sensor,max_zeroing_current};
-                //Temparatures
-    //            static constexpr float temperature_slope;
-    //            static constexpr float temperature_offset;
-    //
-    //            static constexpr size_t temperature_filter_order = 10;
-    //            MovingAverage<temperature_filter_order> hems_1_temperature_filter;
-    //            MovingAverage<temperature_filter_order> hems_3_temperature_filter;
-    //            MovingAverage<temperature_filter_order> ems_1_temperature_filter;
-    //            MovingAverage<temperature_filter_order> ems_3_temperature_filter;
-    //            FilteredLinearSensor<temperature_filter_order> hems_1_temperature_sensor {Pinout::HEMS1_TEMP_PIN, temperature_slope, temperature_offset, data.hems_1_temperature};
-    //            FilteredLinearSensor<temperature_filter_order> hems_3_temperature_sensor {Pinout::HEMS3_TEMP_PIN, temperature_slope, temperature_offset, data.hems_3_temperature};
-    //            FilteredLinearSensor<temperature_filter_order> ems_1_temperature_sensor {Pinout::EMS1_TEMP_PIN, temperature_slope, temperature_offset, data.ems_1_temperature};
-    //            FilteredLinearSensor<temperature_filter_order> ems_3_temperature_sensor {Pinout::EMS3_TEMP_PIN, temperature_slope, temperature_offset, data.ems_3_temperature};
+
+                // Temparatures
+               static constexpr size_t temperature_filter_order = 10;
+               MovingAverage<temperature_filter_order> hems_1_temperature_filter;
+               MovingAverage<temperature_filter_order> hems_3_temperature_filter;
+               MovingAverage<temperature_filter_order> ems_1_temperature_filter;
+               MovingAverage<temperature_filter_order> ems_3_temperature_filter;
+               PT100<temperature_filter_order> hems_1_temperature_sensor{Pinout::HEMS1_TEMP_PIN, data.hems_1_temperature,hems_1_temperature_filter};
+               PT100<temperature_filter_order> hems_3_temperature_sensor{Pinout::HEMS3_TEMP_PIN, data.hems_3_temperature,hems_3_temperature_filter};
+               PT100<temperature_filter_order> ems_1_temperature_sensor{Pinout::EMS1_TEMP_PIN, data.ems_1_temperature,ems_1_temperature_filter};
+               PT100<temperature_filter_order> ems_3_temperature_sensor{Pinout::EMS3_TEMP_PIN, data.ems_3_temperature,ems_3_temperature_filter};
 
                 Sensors(Data<VEHICLE_TESTING>& data) : data(data) {};
 
@@ -278,8 +269,8 @@ namespace LCU{
                 	current_hems_3_sensor.read();
                 	current_ems_1_sensor.read();
                 	current_ems_3_sensor.read();
-                	//hems_1_time_protection->check_accumulation(data.coil_current_hems_1);
-                	//hems_3_time_protection->check_accumulation(data.coil_current_hems_3);
+                	hems_1_time_protection->check_accumulation(data.coil_current_hems_1);
+                	hems_3_time_protection->check_accumulation(data.coil_current_hems_3);
                 }
 
                 void read_airgaps(){
@@ -297,11 +288,11 @@ namespace LCU{
                 }
 
 
-    //            void read_temps(){
-    //            	hems_1_temperature_sensor.read();
-    //            	hems_3_temperature_sensor.read();
-    //            	ems_1_temperature_sensor.read();
-    //            	ems_3_temperature_sensor.read();
-    //            }
+                void read_temps(){
+                	hems_1_temperature_sensor.read();
+                	hems_3_temperature_sensor.read();
+                	ems_1_temperature_sensor.read();
+                	ems_3_temperature_sensor.read();
+                }
         };
 } 

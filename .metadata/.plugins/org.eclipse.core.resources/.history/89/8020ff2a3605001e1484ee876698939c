@@ -1,0 +1,28 @@
+#pragma once
+#include "ADC/ADC.hpp"
+#include "Sensors/Sensor/Sensor.hpp"
+#include "ErrorHandler/ErrorHandler.hpp"
+#include "Control/ControlBlock.hpp"
+#include "Control/Blocks/MovingAverage.hpp"
+
+class PT100{
+public:
+	static constexpr float k = 841.836735;
+	static constexpr float offset = -492.204082;
+
+	ControlBlock<float,float>* filter = nullptr;
+
+	template<size_t N>
+	PT100(Pin&, float* value, MovingAverage<N>& filter);
+	PT100(Pin&, float* value);
+
+	void read();
+protected:
+	uint8_t id;
+	float* value;
+};
+
+template<size_t N>
+PT100::PT100(Pin&, float* value, MovingAverage<N>& filter){
+
+}
