@@ -30,8 +30,8 @@ namespace LCU{
         // PWMs
         constexpr Pin& HEMS4_H1_PIN = PE9;
         constexpr Pin& HEMS4_H2_PIN = PE6;
-        constexpr Pin& EMS4_H1_PIN = PE13;
-        constexpr Pin& EMS4_H2_PIN = PE14;
+        constexpr Pin& EMS4_H1_PIN = PE14;
+        constexpr Pin& EMS4_H2_PIN = PE13;
 
         constexpr Pin& HEMS2_H1_PIN = PE11;
         constexpr Pin& HEMS2_H2_PIN = PE5;
