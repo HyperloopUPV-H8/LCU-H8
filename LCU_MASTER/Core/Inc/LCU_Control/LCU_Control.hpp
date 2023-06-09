@@ -146,8 +146,8 @@ namespace LCU {
 			ems_3_current_control.control(ems_3_current);
 			hems_1_current_control.apply_control();
 			hems_3_current_control.apply_control();
-			ems_1_current_control.apply_control();
-			ems_3_current_control.apply_control();
+//			ems_1_current_control.apply_control();
+//			ems_3_current_control.apply_control();
     	}
 
     	void execute_distance_control(){

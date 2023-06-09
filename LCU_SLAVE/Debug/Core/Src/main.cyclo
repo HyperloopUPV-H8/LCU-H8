@@ -189,11 +189,11 @@ LCU_StateMachine.hpp:137:42:LCU::GeneralStateMachine::add_on_exit_actions()::<la
 LCU_StateMachine.hpp:133:8:void LCU::GeneralStateMachine::add_on_exit_actions()	1
 LCU_StateMachine.hpp:143:58:LCU::GeneralStateMachine::register_timed_actions()::<lambda()>	1
 LCU_StateMachine.hpp:142:8:void LCU::GeneralStateMachine::register_timed_actions()	1
-LCU_Sensors.hpp:62:13:LCU::Sensors::Sensors(LCU::Data&)	1
-LCU_Sensors.hpp:64:18:void LCU::Sensors::read_currents()	1
-LCU_Sensors.hpp:73:18:void LCU::Sensors::read_airgaps()	1
-LCU_Sensors.hpp:80:18:void LCU::Sensors::current_zeroing()	1
-LCU_Sensors.hpp:87:18:void LCU::Sensors::read_temps()	1
+LCU_Sensors.hpp:64:13:LCU::Sensors::Sensors(LCU::Data&)	1
+LCU_Sensors.hpp:66:18:void LCU::Sensors::read_currents()	1
+LCU_Sensors.hpp:75:18:void LCU::Sensors::read_airgaps()	1
+LCU_Sensors.hpp:82:18:void LCU::Sensors::current_zeroing()	1
+LCU_Sensors.hpp:89:18:void LCU::Sensors::read_temps()	1
 Packets.hpp:14:3:LCU::Packets::Packets(LCU::Data&)	1
 IncomingOrders.hpp:20:7:void LCU::hardware_reset()	1
 IncomingOrders.hpp:59:3:LCU::IncomingOrders::IncomingOrders()	1

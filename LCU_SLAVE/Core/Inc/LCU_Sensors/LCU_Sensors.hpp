@@ -13,18 +13,20 @@ namespace LCU{
             Data& data;
 
             // Airgaps
-            static constexpr float airgap_slope = 17.23477;
-            static constexpr float airgap_offset = 50.45231;
-            static constexpr float offset_mecanico = 63.303;
+            static constexpr float airgap_slope_vertical = 7.4239;
+            static constexpr float airgap_offset_vertical = 99.932;
+            static constexpr float airgap_slope_horitonzal = 47.789;
+            static constexpr float airgap_offset_horizontal = 45.783;
+
             static constexpr size_t aigarp_filter_order = 10;
             MovingAverage<aigarp_filter_order> airgap_2_filter;
             MovingAverage<aigarp_filter_order> airgap_4_filter;
             MovingAverage<aigarp_filter_order> airgap_6_filter;
             MovingAverage<aigarp_filter_order> airgap_8_filter;
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_2_sensor {Pinout::AIRGAP_2_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[2-1], airgap_2_filter};
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_4_sensor {Pinout::AIRGAP_4_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[4-1], airgap_4_filter};
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_6_sensor {Pinout::AIRGAP_6_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[6-1], airgap_6_filter};
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_8_sensor {Pinout::AIRGAP_8_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[8-1], airgap_8_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_2_sensor {Pinout::AIRGAP_2_PIN, airgap_slope_vertical, airgap_offset_vertical, data.airgaps[2-1], airgap_2_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_4_sensor {Pinout::AIRGAP_4_PIN, airgap_slope_vertical, airgap_offset_vertical, data.airgaps[4-1], airgap_4_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_6_sensor {Pinout::AIRGAP_6_PIN, airgap_slope_horitonzal, airgap_offset_horizontal, data.airgaps[6-1], airgap_6_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_8_sensor {Pinout::AIRGAP_8_PIN, airgap_slope_horitonzal, airgap_offset_horizontal, data.airgaps[8-1], airgap_8_filter};
 
             // Curents
             static constexpr float current_slope = 56.222;

@@ -13,7 +13,7 @@ public:
 	LPU_HalfBridge half_bridge;
 	float* reference_current = nullptr;
 	float target_voltage = 0.0;
-	static constexpr float battery_voltage = 100; //TODO:: update this in function to LPU voltage sensor
+	static constexpr float battery_voltage = 63; //TODO:: update this in function to LPU voltage sensor
 	static constexpr float kp = 5;
 	static constexpr float ki = 50;
 	static constexpr float max_voltage = battery_voltage, min_voltage = -battery_voltage;

@@ -6,10 +6,10 @@
 
 class LevitationPositionCalculator : public ControlBlock<float(*)[8], LevitationPosition>{
 public:
-    static constexpr double x_sragy = 0.7681, y_sragy = 0.0951, z_sragy = 0.07922;
-    static constexpr double x_sragz = 0.76785, y_sragz = 0.22269, z_sragz = -0.09493;
-    static constexpr double z_infr = 0.6328;
-    static constexpr double grosorz = 0.015, grosory = 0.005;
+    static constexpr double x_sragy = 768.1, y_sragy = 95.1, z_sragy = 79.22;
+    static constexpr double x_sragz = 767.85, y_sragz = 222.69, z_sragz = -94.93;
+    static constexpr double z_infr = 632.8;
+    static constexpr double grosorz = 15, grosory = 5;
 
     float(&distances)[8] = *this->input_value;
 
@@ -19,6 +19,7 @@ public:
     };
     void execute() override{
         reset_position();
+
         output_value.rotation_x = (asin((distances[1] - distances[0])/(2*y_sragz)) + asin((distances[3] - distances[2])/(2*y_sragz)))/2.0;
         output_value.rotation_y = (asin((distances[0] - distances[2])/(2*x_sragz)) + asin((distances[1] - distances[3])/(2*x_sragz)))/2.0;
         output_value.rotation_z = (asin((distances[4] - distances[6])/(2*x_sragy)) + asin((distances[7] - distances[5])/(2*x_sragy)))/2.0;

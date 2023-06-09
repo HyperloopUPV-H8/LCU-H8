@@ -136,7 +136,6 @@ namespace LCU{
 	template<> class IncomingOrders<VEHICLE_5DOF>{
 	public:
 		Data<VEHICLE_5DOF>& data;
-
 		StackOrder<0> test_toggle_led_order;
 		StackOrder<0> start_levitating_order;
 		StackOrder<0> landing_order;
@@ -145,6 +144,10 @@ namespace LCU{
 		StackOrder<0> stop_levitation_order;
 		StackOrder<0> hardware_reset_order;
 		StackOrder<0> reset_all_lcus_order;
+		StackOrder<5, COIL_ID, float> test_current_control_order;
+
+		float reference_current;
+		COIL_ID coil_target;
 
 		IncomingOrders(Data<VEHICLE_5DOF>& data) : data(data),
 				test_toggle_led_order((uint16_t)MasterOrdersID::TOGGLE_LED,test_toggle_led_vehicle_5dof),
@@ -154,7 +157,8 @@ namespace LCU{
 				stick_down_order((uint16_t)MasterOrdersID::STICK_DOWN, start_stick_down_vehicle_5dof),
 				stop_levitation_order((uint16_t)MasterOrdersID::STOP_CONTROL, stop_levitation_vehicle_5dof),
 				hardware_reset_order((uint16_t)MasterOrdersID::LCU_MASTER_RESET, hardware_reset),
-				reset_all_lcus_order((uint16_t)MasterOrdersID::RESET_ALL_LCUS, reset_both_lcus_vehicle_5dof)
+				reset_all_lcus_order((uint16_t)MasterOrdersID::RESET_ALL_LCUS, reset_both_lcus_vehicle_5dof),
+				test_current_control_order((uint16_t)MasterOrdersID::START_CURRENT_CONTROL_VEHICLE_TESTING, test_current_control_vehicle_testing, &coil_target, &reference_current)
 				{
 		}
 

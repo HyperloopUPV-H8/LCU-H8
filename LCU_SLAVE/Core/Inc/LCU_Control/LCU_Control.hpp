@@ -25,8 +25,8 @@ namespace LCU {
 			ems_4_current_control.control(ems_4_current);
 			hems_2_current_control.apply_control();
 			hems_4_current_control.apply_control();
-			ems_2_current_control.apply_control();
-			ems_4_current_control.apply_control();
+//			ems_2_current_control.apply_control();
+//			ems_4_current_control.apply_control();
     	}
 
     	void stop(){

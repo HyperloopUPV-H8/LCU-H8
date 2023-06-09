@@ -8,7 +8,7 @@
 
 using namespace LCU;
 
-constexpr LCU::MASTER_MODE MODE_OF_OPERATION = VEHICLE_TESTING;
+constexpr LCU::MASTER_MODE MODE_OF_OPERATION = VEHICLE_5DOF;
 
 int main(void)
 {

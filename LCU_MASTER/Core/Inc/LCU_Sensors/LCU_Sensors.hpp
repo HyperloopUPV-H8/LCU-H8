@@ -14,18 +14,18 @@ namespace LCU{
         public:
             Data<LPU_VALIDATION>& data;
             // Airgaps
-            static constexpr float airgap_slope = 17.23477;
-            static constexpr float airgap_offset = 50.45231;
-            static constexpr float offset_mecanico = 63.303;
+            static constexpr float airgap_slope = 1;
+            static constexpr float airgap_offset = 0;
+            static constexpr float offset_mecanico = 0;
             static constexpr size_t aigarp_filter_order = 10;
             MovingAverage<aigarp_filter_order> airgap_1_filter;
             MovingAverage<aigarp_filter_order> airgap_3_filter;
             MovingAverage<aigarp_filter_order> airgap_5_filter;
             MovingAverage<aigarp_filter_order> airgap_7_filter;
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_1_sensor {Pinout::AIRGAP_1_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[1-1], airgap_1_filter};
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_3_sensor {Pinout::AIRGAP_3_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[3-1], airgap_3_filter};
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_5_sensor {Pinout::AIRGAP_5_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[5-1], airgap_5_filter};
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_7_sensor {Pinout::AIRGAP_7_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[7-1], airgap_7_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_1_sensor {Pinout::AIRGAP_1_PIN, airgap_slope, airgap_offset, data.airgaps[1-1], airgap_1_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_3_sensor {Pinout::AIRGAP_3_PIN, airgap_slope, airgap_offset, data.airgaps[3-1], airgap_3_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_5_sensor {Pinout::AIRGAP_5_PIN, airgap_slope, airgap_offset, data.airgaps[5-1], airgap_5_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_7_sensor {Pinout::AIRGAP_7_PIN, airgap_slope, airgap_offset, data.airgaps[7-1], airgap_7_filter};
 
             // Curents
             static constexpr float current_slope = 56.222;
@@ -135,35 +135,38 @@ namespace LCU{
             Data<VEHICLE_5DOF>& data;
 
             // Airgaps
-            static constexpr float airgap_slope = 17.23477;
-            static constexpr float airgap_offset = 50.45231;
-            static constexpr float offset_mecanico = 63.303;
+            static constexpr float airgap_slope_vertical = 7.4239;
+            static constexpr float airgap_offset_vertical = 99.932;
+            static constexpr float airgap_slope_horitonzal = 47.789;
+            static constexpr float airgap_offset_horizontal = 45.783;
+
+            static constexpr float offset_mecanico = 0;
             static constexpr size_t aigarp_filter_order = 10;
             MovingAverage<aigarp_filter_order> airgap_1_filter;
             MovingAverage<aigarp_filter_order> airgap_3_filter;
             MovingAverage<aigarp_filter_order> airgap_5_filter;
             MovingAverage<aigarp_filter_order> airgap_7_filter;
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_1_sensor {Pinout::AIRGAP_1_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[1-1], airgap_1_filter};
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_3_sensor {Pinout::AIRGAP_3_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[3-1], airgap_3_filter};
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_5_sensor {Pinout::AIRGAP_5_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[5-1], airgap_5_filter};
-            FilteredLinearSensor<float,aigarp_filter_order> airgap_7_sensor {Pinout::AIRGAP_7_PIN, airgap_slope, airgap_offset - offset_mecanico, data.airgaps[7-1], airgap_7_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_1_sensor {Pinout::AIRGAP_1_PIN, airgap_slope_vertical, airgap_offset_vertical, data.airgaps[1-1], airgap_1_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_3_sensor {Pinout::AIRGAP_3_PIN, airgap_slope_vertical, airgap_offset_vertical, data.airgaps[3-1], airgap_3_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_5_sensor {Pinout::AIRGAP_5_PIN, airgap_slope_horitonzal, airgap_offset_horizontal, data.airgaps[5-1], airgap_5_filter};
+            FilteredLinearSensor<float,aigarp_filter_order> airgap_7_sensor {Pinout::AIRGAP_7_PIN, airgap_slope_horitonzal, airgap_offset_horizontal, data.airgaps[7-1], airgap_7_filter};
 
             // Curents
             static constexpr float current_slope = 56.222;
-            static constexpr float current_offset = -91.505;
+			 static constexpr float current_offset = -91.505;
 
-            static constexpr size_t current_filter_order = 20;
-            MovingAverage<current_filter_order> current_hems_1_filter;
-            MovingAverage<current_filter_order> current_hems_3_filter;
-            MovingAverage<current_filter_order> current_ems_1_filter;
-            MovingAverage<current_filter_order> current_ems_3_filter;
-            FilteredLinearSensor<float,current_filter_order> current_hems_1_sensor {Pinout::EMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_1 ,current_hems_1_filter};
-            FilteredLinearSensor<float,current_filter_order> current_hems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_3, current_hems_3_filter};
-            FilteredLinearSensor<float,current_filter_order> current_ems_1_sensor {Pinout::HEMS1_CURRENT_PIN, -current_slope, -current_offset, data.coil_current_ems_1, current_ems_1_filter};
-            FilteredLinearSensor<float,current_filter_order> current_ems_3_sensor {Pinout::HEMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_3, current_ems_3_filter};
+             static constexpr size_t current_filter_order = 20;
+             MovingAverage<current_filter_order> current_hems_1_filter;
+             MovingAverage<current_filter_order> current_hems_3_filter;
+             MovingAverage<current_filter_order> current_ems_1_filter;
+             MovingAverage<current_filter_order> current_ems_3_filter;
+             FilteredLinearSensor<float,current_filter_order> current_hems_1_sensor {Pinout::EMS1_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_1 ,current_hems_1_filter};
+             FilteredLinearSensor<float,current_filter_order> current_hems_3_sensor {Pinout::EMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_hems_3, current_hems_3_filter};
+             FilteredLinearSensor<float,current_filter_order> current_ems_1_sensor {Pinout::HEMS1_CURRENT_PIN, -current_slope, -current_offset, data.coil_current_ems_1, current_ems_1_filter};
+             FilteredLinearSensor<float,current_filter_order> current_ems_3_sensor {Pinout::HEMS3_CURRENT_PIN, current_slope, current_offset, data.coil_current_ems_3, current_ems_3_filter};
 
             static constexpr size_t zeroing_order = 10000;
-            static constexpr float max_zeroing_current = 5.0;
+            static constexpr float max_zeroing_current = 10;
             Zeroing<float,zeroing_order> hems_1_zeroing{current_hems_1_sensor,max_zeroing_current};
             Zeroing<float,zeroing_order> hems_3_zeroing{current_hems_3_sensor,max_zeroing_current};
             Zeroing<float,zeroing_order> ems_1_zeroing{current_ems_1_sensor,max_zeroing_current};

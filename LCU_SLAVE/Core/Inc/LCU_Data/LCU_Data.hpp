@@ -6,8 +6,8 @@ namespace LCU{
 	constexpr float max_persistent_current = 30;
 	constexpr float current_frequency = 10000;
 	constexpr float time_limit = 5;
-	constexpr float min_hems_current = -40, max_hems_current = 40;
-	constexpr float min_ems_current = -25, max_ems_current = 25;
+	constexpr float min_hems_current = -50, max_hems_current = 50;
+	constexpr float min_ems_current = -50, max_ems_current = 50;
 	constexpr float max_coil_temperature = 40;
 	constexpr float min_battery_voltage = 190, max_battery_voltage = 260;
 	constexpr float max_lpu_temperature = 65;

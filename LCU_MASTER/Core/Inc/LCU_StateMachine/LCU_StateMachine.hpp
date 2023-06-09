@@ -25,8 +25,8 @@ namespace LCU{
 	public:
 		StateMachine specific_state_machine;
 
-		static constexpr float ground = 0;        // TODO: ESTOS VALORES ME LOS HE INVENTADO SI SE VA A PROBAR A ATERRIZAR O DESPEGARSE CAMBIAR O BOOM BOOM
-		static constexpr float ceiling = 0.7;
+		static constexpr float ground = 617.33;        // TODO: ESTOS VALORES ME LOS HE INVENTADO SI SE VA A PROBAR A ATERRIZAR O DESPEGARSE CAMBIAR O BOOM BOOM
+		static constexpr float ceiling = 604.83;
 
 		static constexpr float accepted_error_percentage = 0.05; //Percentage of error that would consider levitation has achieved target reference
 
@@ -69,13 +69,13 @@ namespace LCU{
 				return abs(z_error_filter.compute(control.position_control.error.z) / control.position_control.z_reference) < accepted_error_percentage;
 			});
 			specific_state_machine.add_transition(LANDING, IDLE, [&](){
-				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) < ground*(1+accepted_error_percentage);
+				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) > ground*(1+accepted_error_percentage);
 			});
 			specific_state_machine.add_transition(STICK_DOWN, IDLE, [&](){
-				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) < ground*(1+accepted_error_percentage);
+				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) > ground*(1+accepted_error_percentage);
 			});
 			specific_state_machine.add_transition(STICK_UP, IDLE, [&](){
-				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) > ceiling*(1-accepted_error_percentage);
+				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) < ceiling*(1-accepted_error_percentage);
 			});
 		}
 
@@ -139,15 +139,15 @@ namespace LCU{
 			}, 1000ms, LANDING);
 
 			specific_state_machine.add_low_precision_cyclic_action([&](){
-				control.set_z_reference(control.position_control.z_reference*0.99);
+				control.set_z_reference(control.position_control.z_reference-1);
 			}, 10ms, LANDING);
 
 			specific_state_machine.add_low_precision_cyclic_action([&](){
-				control.set_z_reference(control.position_control.z_reference*0.99);
+				control.set_z_reference(control.position_control.z_reference-1);
 			}, 1ms, STICK_DOWN);
 
 			specific_state_machine.add_low_precision_cyclic_action([&](){
-				control.set_z_reference(control.position_control.z_reference*1.01);
+				control.set_z_reference(control.position_control.z_reference+1);
 			}, 1ms, STICK_UP);
 		}
 	};
