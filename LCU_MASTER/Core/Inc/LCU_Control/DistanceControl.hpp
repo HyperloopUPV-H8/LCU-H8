@@ -48,34 +48,38 @@ public:
 	LevitationPositionCalculator airgap2pos;
 	LevitationPosition& levitation_position = airgap2pos.output_value;
 
-	const double default_z_reference = 618;
-	double z_reference = default_z_reference;
+	const float default_z_reference = 614.48;
+	float z_reference = default_z_reference;
+	static constexpr float coil_current_saturation = 50;
 
 	static constexpr float period = 0.001;
 
+	float unsaturated_currents[8];
 	float(&current_references)[8];
 
-    float K[8][15] = {
-        {0,                    -5130.5/1000, -1950.9, 4287,  0,                 0,                 -96.1271/1000, -95.4552, 254.7569,  0,                 0,                 -796.9875/1000, -1054.5, 1044.5,  0},
-        {0,                    -5130.5/1000, 1950.9,  4287,  0,                 0,                 -96.1271/1000, 95.4552,  254.7569,  0,                 0,                 -796.9875/1000, 1054.5,  1044.5,  0},
-        {0,                    -5130.5/1000, -1950.9, -4287, 0,                 0,                 -96.1271/1000, -95.4552, -254.7569, 0,                 0,                 -796.9875/1000, -1054.5, -1044.5, 0},
-        {0,                    -5130.5/1000, 1950.9,  -4287, 0,                 0,                 -96.1271/1000, 95.4552,  -254.7569, 0,                 0,                 -796.9875/1000, 1054.5,  -1044.5, 0},
-        {4539.8 /1000,     0,                 0,                 0,                 1939.8,  432.567/1000,  0,                 0,                 0,                 165.1161,  371.3652/1000,  0,                 0,                 0,                 1277.2},
-        {-4539.8/1000,    0,                 0,                 0,                 -1939.8, -432.567/1000, 0,                 0,                 0,                 -165.1161, -371.3652/1000, 0,                 0,                 0,                 -1277.2},
-        {4539.8/1000,     0,                 0,                 0,                 -1939.8, 432.567/1000,  0,                 0,                 0,                 -165.1161, 371.3652/1000,  0,                 0,                 0,                 -1277.2},
-        {-4539.8/1000,    0,                 0,                 0,                 1939.8,  -432.567/1000, 0,                 0,                 0,                 165.1161, -371.3652/1000,  0,                 0,                 0,                 1277.2}
+	float K[8][15] = {
+        {0,               -5130.5,       -1950.9,          4287,         0,                 0,                 -96.1271,      -95.4552,         254.7569,           0,                 0,                 -796.9875,    -1054.5,            1044.5,            0},
+        {0,               -5130.5,       1950.9,           4287,         0,                 0,                 -96.1271,      95.4552,          254.7569,           0,                 0,                 -796.9875,     1054.5,            1044.5,            0},
+        {0,               -5130.5,       -1950.9,          -4287,        0,                 0,                 -96.1271,      -95.4552,         -254.7569,          0,                 0,                 -796.9875,    -1054.5,            -1044.5,           0},
+        {0,               -5130.5,       1950.9,           -4287,        0,                 0,                 -96.1271,      95.4552,          -254.7569,          0,                 0,                 -796.9875,     1054.5,            -1044.5,           0},
+        {4539.8 ,    0,                 0,                 0,           1939.8,            432.567,      0,                 0,                 0,                 165.1161,          371.3652,     0,                 0,                 0,                 1277.2},
+        {-4539.8,    0,                 0,                 0,           -1939.8,           -432.567,     0,                 0,                 0,                 -165.1161,         -371.3652,    0,                 0,                 0,                 -1277.2},
+        {4539.8,     0,                 0,                 0,           -1939.8,           432.567,      0,                 0,                 0,                 -165.1161,         371.3652,     0,                 0,                 0,                 -1277.2},
+        {-4539.8,    0,                 0,                 0,           1939.8,            -432.567,     0,                 0,                 0,                 165.1161,          -371.3652,    0,                 0,                 0,                 1277.2}
     };
 
 
 	float U[15];
 
 	MatrixMultiplier<8,15,1> matrix_multiplier;
+	Saturator<float> reference_current_saturator;
 
 	DistanceControl(float(&distaces)[8], float(&current_references)[8]) :
 		y_derivator(period), z_derivator(period), rot_x_derivator(period), rot_y_derivator(period), rot_z_derivator(period),
 		y_integrator(period,1), z_integrator(period,1),
 		rot_x_integrator(period,1), rot_y_integrator(period,1), rot_z_integrator(period,1),
-		 airgap2pos(distaces), current_references(current_references), matrix_multiplier(K,U,current_references)
+		 airgap2pos(distaces), current_references(current_references), matrix_multiplier(K,U,unsaturated_currents),
+		 reference_current_saturator(0, -coil_current_saturation, coil_current_saturation)
 	{}
 private:
 
@@ -99,7 +103,7 @@ private:
 
 	void calculate_error(){
 		error = levitation_position;
-		error.z = z_reference - levitation_position.z;
+		error.z = levitation_position.z - z_reference;
 	}
 
 	void store_u(){
@@ -161,10 +165,19 @@ public:
 
 		store_u();
 		matrix_multiplier.execute();
+		saturate_reference_currents();
 	}
 
 	void set_z_reference(float new_reference){
 		z_reference = new_reference;
+	}
+
+	void saturate_reference_currents(){
+		for(int i = 0; i < 8; i++) {
+			reference_current_saturator.input(unsaturated_currents[i]);
+			reference_current_saturator.execute();
+			current_references[i] = reference_current_saturator.output_value;
+		}
 	}
 
 	void reset(){

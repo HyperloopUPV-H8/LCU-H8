@@ -36,7 +36,7 @@ namespace LCU{
 //
 		StackPacket<32,float,float,float,float,float,float,float,float> coil_temperatures;
 
-		StackPacket<72, float, float, float, float, float, float, float, float, double, double, double, double, double> levitation_data;
+		StackPacket<72, float, float, float, float, float, float, float, float, float, float, float, float, float> levitation_data;
 //
 //		StackPacket<32,float,float,float,float,float,float,float,float> lpu_temperatures;
 
@@ -82,7 +82,7 @@ namespace LCU{
 //
 		StackPacket<32,float,float,float,float,float,float,float,float> coil_temperatures;
 
-		StackPacket<72, float, float, float, float, float, float, float, float, double, double, double, double, double> levitation_data;
+		StackPacket<72, float, float, float, float, float, float, float, float, float, float, float, float, float> levitation_data;
 //
 //		StackPacket<32,float,float,float,float,float,float,float,float> lpu_temperatures;
 

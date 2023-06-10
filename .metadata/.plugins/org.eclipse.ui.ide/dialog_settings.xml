@@ -9,6 +9,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/home/stefancostea/Documents/UDP_TEST_BOARD"/>
 			<item value="/home/stefancostea/Documents/LCU-H8/LCU_SLAVE"/>
 			<item value="/home/stefancostea/Documents/ELCUBENOVA/template-project"/>
 			<item value="/home/stefancostea/Documents/ST-LIB"/>

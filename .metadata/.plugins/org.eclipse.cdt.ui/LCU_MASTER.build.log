@@ -1,4 +1,4 @@
-04:08:45 **** Incremental Build of configuration Debug for project LCU_MASTER ****
+20:27:17 **** Incremental Build of configuration Debug for project LCU_MASTER ****
 make -j8 all 
 arm-none-eabi-g++ -o "LCU_MASTER.elf" @"objects.list"  -lST-LIB -mcpu=cortex-m7 -T"/home/stefancostea/Documents/LCU-H8/LCU_MASTER/STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCU_MASTER.map" -Wl,--gc-sections -static -L"/home/stefancostea/Documents/ST-LIB/Debug" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: LCU_MASTER.elf
@@ -6,11 +6,11 @@ Finished building target: LCU_MASTER.elf
 arm-none-eabi-size   LCU_MASTER.elf 
 arm-none-eabi-objdump -h -S  LCU_MASTER.elf  > "LCU_MASTER.list"
    text	   data	    bss	    dec	    hex	filename
- 611652	   1368	  59280	 672300	  a422c	LCU_MASTER.elf
+ 629300	   1368	  59280	 689948	  a871c	LCU_MASTER.elf
 Finished building: default.size.stdout
  
 Finished building: LCU_MASTER.list
  
 
-04:08:52 Build Finished. 0 errors, 0 warnings. (took 7s.330ms)
+20:27:24 Build Finished. 0 errors, 0 warnings. (took 6s.591ms)
 

@@ -1,6 +1,6 @@
 #pragma once
 
 struct LevitationPosition{
-    double y, z;
-    double rotation_x, rotation_y, rotation_z;
+    float y, z;
+    float rotation_x, rotation_y, rotation_z;
 };

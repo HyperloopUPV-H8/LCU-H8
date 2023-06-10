@@ -180,7 +180,7 @@ namespace LCU {
        public:
        	CurrentControl hems_1_current_control, hems_3_current_control, ems_1_current_control, ems_3_current_control;
        	float& hems_1_current, &hems_3_current, &ems_1_current, &ems_3_current;
-    	double y = 0, z = 0, rotation_x = 0, rotation_y = 0, rotation_z = 0;
+    	float y = 0, z = 0, rotation_x = 0, rotation_y = 0, rotation_z = 0;
     	Data<VEHICLE_TESTING>& data;
 
        	Control(LCU::Actuators<VEHICLE_TESTING>& actuators, LCU::Data<VEHICLE_TESTING>& data): hems_1_current_control(actuators.HEMS_1,data.reference_currents[COIL_ID::HEMS_1]),

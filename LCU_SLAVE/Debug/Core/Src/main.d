@@ -76,36 +76,36 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/dhcp.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/timeouts.h \
  ../LWIP/Target/ethernetif.h \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/HALAL.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/HALconfig/HALconfig.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/ErrorHandler/ErrorHandler.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/C++Utilities/CppUtils.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Time/Time.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/UART/UART.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/PinModel/Pin.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/RawPacket.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/DMA/DMA.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/DigitalOutputService/DigitalOutputService.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/DigitalInputService/DigitalInputService.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Flash/Flash.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Flash/FlashTests/Flash_Test.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/ADC/ADC.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/LowPowerTimer/LowPowerTimer.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/PWM/PWM/PWM.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/TimerPeripheral/TimerPeripheral.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/PWM/DualPWM/DualPWM.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/PWM/PhasedPWM/PhasedPWM.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/PWM/DualPhasedPWM/DualPhasedPWM.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/InputCapture/InputCapture.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Encoder/Encoder.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/EXTI/EXTI.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/SPI/SPI.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/I2C/I2C.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/I2CPacket.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/EthernetNode.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/IPV4/IPV4.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/HALconfig/HALconfig.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/ErrorHandler/ErrorHandler.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/C++Utilities/CppUtils.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Time/Time.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/UART/UART.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/PinModel/Pin.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/RawPacket.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/DMA/DMA.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/DigitalOutputService/DigitalOutputService.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/DigitalInputService/DigitalInputService.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Flash/Flash.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Flash/FlashTests/Flash_Test.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/ADC/ADC.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/LowPowerTimer/LowPowerTimer.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/PWM/PWM/PWM.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/TimerPeripheral/TimerPeripheral.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/PWM/DualPWM/DualPWM.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/PWM/PhasedPWM/PhasedPWM.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/PWM/DualPhasedPWM/DualPhasedPWM.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/InputCapture/InputCapture.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Encoder/Encoder.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/EXTI/EXTI.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SPI/SPI.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/I2C/I2C.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/I2CPacket.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/EthernetNode.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/IPV4/IPV4.hpp \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/udp.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/ip.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/ip6.h \
@@ -118,52 +118,56 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/init.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/netif.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/timeouts.h \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/Ethernet.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/PacketValue.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Concepts/Concepts.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/DataStructures/StackTuple.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/ServerSocket.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/Order.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/OrderProtocol.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/Socket.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/FDCAN/FDCAN.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/CORDIC/CORDIC.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Clocks/Stopwatch.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/Sensor/Sensor.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/FilteredLinearSensor.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlSystem.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/DigitalOutput/DigitalOutput.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/HalfBridge/HalfBridge.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/BoardID/BoardID.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/FeedbackControlBlock.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/SplitterBlock.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Adder.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Derivator.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Integrator.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PI.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PID.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Saturator.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashStorer.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashVariable.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/Ethernet.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/PacketValue.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Concepts/Concepts.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/DataStructures/StackTuple.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/ServerSocket.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Order.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/OrderProtocol.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/Socket.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/FDCAN/FDCAN.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/iana.h \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/CORDIC/CORDIC.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Clocks/Stopwatch.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Sensor/Sensor.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/FilteredLinearSensor.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlSystem.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/DigitalOutput/DigitalOutput.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/HalfBridge/HalfBridge.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/BoardID/BoardID.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/FeedbackControlBlock.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/SplitterBlock.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Adder.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Derivator.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Integrator.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PI.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PID.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Saturator.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashStorer.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashVariable.hpp \
  ../Core/Src/Runes/Runes.hpp ../Core/Src/Runes/Pins.hpp \
  ../Core/Inc/LCU_SLAVE.hpp ../Core/Inc/LCU_Actuators/LCU_Actuators.hpp \
  ../Core/Inc/LCU_Pinout/Pinout.hpp \
@@ -175,8 +179,8 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Core/Inc/LCU_Control/CurrentControl.hpp \
  ../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp \
  ../Core/Inc/LCU_Sensors/LCU_Sensors.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp \
- /home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp \
  ../Core/Inc/LCU_Communications/LCU_UDP/Packets.hpp \
  ../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp \
  ../Core/Inc/LCU_Communications/LCU_TCP/OutgoingOrders.hpp \
@@ -259,36 +263,36 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Middlewares/Third_Party/LwIP/src/include/lwip/dhcp.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/timeouts.h:
 ../LWIP/Target/ethernetif.h:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/HALAL.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/HALconfig/HALconfig.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/ErrorHandler/ErrorHandler.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/C++Utilities/CppUtils.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Time/Time.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/UART/UART.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/PinModel/Pin.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/RawPacket.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/DMA/DMA.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/DigitalOutputService/DigitalOutputService.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/DigitalInputService/DigitalInputService.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Flash/Flash.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Flash/FlashTests/Flash_Test.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/ADC/ADC.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/LowPowerTimer/LowPowerTimer.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/PWM/PWM/PWM.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/TimerPeripheral/TimerPeripheral.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/PWM/DualPWM/DualPWM.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/PWM/PhasedPWM/PhasedPWM.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/PWM/DualPhasedPWM/DualPhasedPWM.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/InputCapture/InputCapture.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Encoder/Encoder.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/EXTI/EXTI.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/SPI/SPI.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/I2C/I2C.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/I2CPacket.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/EthernetNode.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/IPV4/IPV4.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/HALconfig/HALconfig.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/ErrorHandler/ErrorHandler.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/C++Utilities/CppUtils.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Time/Time.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/UART/UART.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/PinModel/Pin.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/RawPacket.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/DMA/DMA.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/DigitalOutputService/DigitalOutputService.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/DigitalInputService/DigitalInputService.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Flash/Flash.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Flash/FlashTests/Flash_Test.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/ADC/ADC.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/LowPowerTimer/LowPowerTimer.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/PWM/PWM/PWM.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/TimerPeripheral/TimerPeripheral.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/PWM/DualPWM/DualPWM.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/PWM/PhasedPWM/PhasedPWM.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/PWM/DualPhasedPWM/DualPhasedPWM.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/InputCapture/InputCapture.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Encoder/Encoder.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/EXTI/EXTI.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SPI/SPI.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/I2C/I2C.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/I2CPacket.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/EthernetNode.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/IPV4/IPV4.hpp:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/udp.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/ip.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/ip6.h:
@@ -301,52 +305,56 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Middlewares/Third_Party/LwIP/src/include/lwip/init.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/netif.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/timeouts.h:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/Ethernet.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/PacketValue.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Concepts/Concepts.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/DataStructures/StackTuple.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/ServerSocket.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/Order.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/Packets/OrderProtocol.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/Socket.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/Communication/FDCAN/FDCAN.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Services/CORDIC/CORDIC.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Clocks/Stopwatch.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/Sensor/Sensor.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/FilteredLinearSensor.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlSystem.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/DigitalOutput/DigitalOutput.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/HalfBridge/HalfBridge.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/HALAL/Models/BoardID/BoardID.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/FeedbackControlBlock.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/SplitterBlock.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Adder.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Derivator.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Integrator.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PI.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PID.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Saturator.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashStorer.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashVariable.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/Ethernet.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/PacketValue.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Concepts/Concepts.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/DataStructures/StackTuple.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/ServerSocket.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Order.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/OrderProtocol.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP/Socket.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/FDCAN/FDCAN.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/prot/iana.h:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/CORDIC/CORDIC.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/ST-LIB_LOW.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Clocks/Counter.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Clocks/Stopwatch.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/LinearSensor.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Sensor/Sensor.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LinearSensor/FilteredLinearSensor.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MovingAverage.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlSystem.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/StateMachine/StateMachine.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/DigitalOutput/DigitalOutput.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/HalfBridge/HalfBridge.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Math/Math.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/DigitalSensor/DigitalSensor.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/BoardID/BoardID.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/FeedbackControlBlock.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/SplitterBlock.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Adder.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Derivator.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Integrator.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PI.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/PID.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Saturator.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MatrixMultiplier.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashStorer.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/FlashStorer/FlashVariable.hpp:
 ../Core/Src/Runes/Runes.hpp:
 ../Core/Src/Runes/Pins.hpp:
 ../Core/Inc/LCU_SLAVE.hpp:
@@ -360,8 +368,8 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Core/Inc/LCU_Control/CurrentControl.hpp:
 ../Core/Inc/LCU_StateMachine/LCU_StateMachine.hpp:
 ../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp:
-/home/dgoncas/Desktop/5DOF/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp:
 ../Core/Inc/LCU_Communications/LCU_UDP/Packets.hpp:
 ../Core/Inc/LCU_Communications/LCU_TCP/IncomingOrders.hpp:
 ../Core/Inc/LCU_Communications/LCU_TCP/OutgoingOrders.hpp:

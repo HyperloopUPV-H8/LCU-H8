@@ -143,7 +143,7 @@ namespace LCU{
 			general_state_machine.add_low_precision_cyclic_action([&](){
 				actuators.led_operational.toggle();
 			}, 150ms);
-			//general_state_machine.add_low_precision_cyclic_action(ProtectionManager::check_protections, 1ms, OPERATIONAL);
+			general_state_machine.add_low_precision_cyclic_action(ProtectionManager::check_protections, 1ms, OPERATIONAL);
 		}
 	};
 }
