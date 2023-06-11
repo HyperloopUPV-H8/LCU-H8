@@ -36,7 +36,7 @@ namespace LCU{
 //
 		StackPacket<32,float,float,float,float,float,float,float,float> coil_temperatures;
 
-		StackPacket<72, float, float, float, float, float, float, float, float, float, float, float, float, float> levitation_data;
+		StackPacket<112, float, float, float, float, float, float, float, float, float, float, float, float, float, double, double, double, double, double> levitation_data;
 //
 //		StackPacket<32,float,float,float,float,float,float,float,float> lpu_temperatures;
 
@@ -62,7 +62,8 @@ namespace LCU{
 						&data.ems_1_temperature, &data.slave_ems_2_temperature, &data.ems_3_temperature, &data.slave_ems_4_temperature),
 				levitation_data(311, &data.reference_currents[0],&data.reference_currents[1],&data.reference_currents[2],&data.reference_currents[3],
 						&data.reference_currents[4],&data.reference_currents[5],&data.reference_currents[6],&data.reference_currents[7],
-						&control.position_control.levitation_position.y, &control.position_control.levitation_position.z, &control.position_control.levitation_position.rotation_x, &control.position_control.levitation_position.rotation_y, &control.position_control.levitation_position.rotation_z),
+						&control.position_control.levitation_position.y, &control.position_control.levitation_position.z, &control.position_control.levitation_position.rotation_x, &control.position_control.levitation_position.rotation_y, &control.position_control.levitation_position.rotation_z,
+						&control.position_control.y_filter_derivative.output_value, &control.position_control.z_filter_derivative.output_value,&control.position_control.rot_x_filter_derivative.output_value, &control.position_control.rot_y_filter_derivative.output_value,&control.position_control.rot_z_filter_derivative.output_value),
 				slave_reference_currents(309, &data.reference_currents[COIL_ID::HEMS_2],&data.reference_currents[COIL_ID::HEMS_4],&data.reference_currents[COIL_ID::EMS_2],&data.reference_currents[COIL_ID::EMS_4]),
 				slave_airgaps(408, &data.airgaps[2-1],  &data.airgaps[4-1],  &data.airgaps[6-1], &data.airgaps[8-1]),
 				slave_currents(410, &data.slave_coil_current_hems_2, &data.slave_coil_current_hems_4, &data.slave_coil_current_ems_2, &data.slave_coil_current_ems_4),

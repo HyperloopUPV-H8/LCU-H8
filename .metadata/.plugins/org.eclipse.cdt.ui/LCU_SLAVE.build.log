@@ -1,4 +1,4 @@
-01:46:37 **** Incremental Build of configuration Debug for project LCU_SLAVE ****
+04:49:40 **** Incremental Build of configuration Debug for project LCU_SLAVE ****
 make -j8 all 
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DDATA_IN_D2_SRAM -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB" -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Drivers/BSP/Components/lan8742 -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 In file included from ../Drivers/CMSIS/Include/core_cm7.h:2178,
@@ -378,7 +378,7 @@ In file included from ../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:8,
                  from ../Core/Inc/LCU_SLAVE.hpp:8,
                  from ../Core/Src/main.cpp:6:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp: In instantiation of 'PT100<N>::PT100(Pin&, float&, MovingAverage<N>&) [with unsigned int N = 10]':
-../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:57:143:   required from here
+../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:59:143:   required from here
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp:25:9: warning: 'PT100<10>::value' will be initialized after [-Wreorder]
    25 |  float* value;
       |         ^~~~~
@@ -395,7 +395,7 @@ In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protec
                  from ../Core/Src/main.cpp:4:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp: In instantiation of 'void MeanCalculator<N>::execute() [with unsigned int N = 10000]':
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp:18:27:   required from 'void Zeroing<Type, Order>::execute() [with Type = float; unsigned int Order = 10000]'
-../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:81:37:   required from here
+../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:83:37:   required from here
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:17:18: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
    17 |         if(index > N) ErrorHandler("MeanCalculator is receiving just 0");
       |            ~~~~~~^~~
@@ -419,6 +419,14 @@ In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Com
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
    44 |             data += value->get_size();
       |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 32; Types = {float, float, float, float, float, float, float, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 16; Types = {float, float, float, float}]':
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
 /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
@@ -433,11 +441,11 @@ Finished building target: LCU_SLAVE.elf
 arm-none-eabi-size   LCU_SLAVE.elf 
 arm-none-eabi-objdump -h -S  LCU_SLAVE.elf  > "LCU_SLAVE.list"
    text	   data	    bss	    dec	    hex	filename
- 590164	   1360	  59248	 650772	  9ee14	LCU_SLAVE.elf
+ 594948	   1360	  59248	 655556	  a00c4	LCU_SLAVE.elf
 Finished building: default.size.stdout
  
 Finished building: LCU_SLAVE.list
  
 
-01:46:46 Build Finished. 0 errors, 73 warnings. (took 9s.571ms)
+04:49:49 Build Finished. 0 errors, 75 warnings. (took 9s.853ms)
 

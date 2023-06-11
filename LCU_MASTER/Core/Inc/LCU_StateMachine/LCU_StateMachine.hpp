@@ -67,19 +67,20 @@ namespace LCU{
 		void add_transitions(){
 			specific_state_machine.add_transition(TAKING_OFF, STABLE, [&](){
 				if(z_error_filter.compute(control.position_control.error.z) == 0) return false;
-				return abs(z_error_filter.compute(control.position_control.error.z) / control.position_control.z_reference) < accepted_error_percentage;
+				//return abs(z_error_filter.compute(control.position_control.error.z) / (control.position_control.z_reference - ceiling)) < accepted_error_percentage;
+				return false;
 			});
 			specific_state_machine.add_transition(LANDING, IDLE, [&](){
 				if(z_position_filter.compute(control.position_control.levitation_position.z) == 0) return false;
-				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) > ground*(1+accepted_error_percentage);
+				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) > ground*(1-accepted_error_percentage);
 			});
 			specific_state_machine.add_transition(STICK_DOWN, IDLE, [&](){
 				if(z_position_filter.compute(control.position_control.levitation_position.z) == 0) return false;
-				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) > ground*(1+accepted_error_percentage);
+				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) > ground*(1-accepted_error_percentage);
 			});
 			specific_state_machine.add_transition(STICK_UP, IDLE, [&](){
 				if(z_position_filter.compute(control.position_control.levitation_position.z) == 0) return false;
-				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) < ceiling*(1-accepted_error_percentage);
+				return abs(z_position_filter.compute(control.position_control.levitation_position.z)) < ceiling*(1+accepted_error_percentage);
 			});
 		}
 
@@ -313,8 +314,10 @@ namespace LCU{
 		}
 
 		void register_timed_actions(){
-			general_state_machine.add_low_precision_cyclic_action(ProtectionManager::check_protections, 1ms, OPERATIONAL);
-		}
+			general_state_machine.add_low_precision_cyclic_action([&](){
+				actuators.led_operational.toggle();
+			}, 150ms, INITIAL);
+			general_state_machine.add_low_precision_cyclic_action(ProtectionManager::check_protections, 1ms, OPERATIONAL);}
 	};
 
 	template<> class GeneralStateMachine<VEHICLE_TESTING>{
@@ -407,7 +410,9 @@ namespace LCU{
 		}
 
 		void register_timed_actions(){
-			general_state_machine.add_low_precision_cyclic_action([&](){actuators.led_operational.toggle();}, 150ms);
+			general_state_machine.add_low_precision_cyclic_action([&](){
+				actuators.led_operational.toggle();
+			}, 150ms, INITIAL);
 			general_state_machine.add_low_precision_cyclic_action(ProtectionManager::check_protections, 1ms, OPERATIONAL);
 		}
 	};

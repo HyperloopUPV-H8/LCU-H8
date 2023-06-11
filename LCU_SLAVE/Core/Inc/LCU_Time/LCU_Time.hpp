@@ -15,6 +15,7 @@ namespace LCU{
 			Time::register_low_precision_alarm(1, LCU::LCU_SLAVE::update_state_machine);
 			Time::register_low_precision_alarm(10, LCU::LCU_SLAVE::send_coil_currents_to_master);
 			Time::register_low_precision_alarm(100, LCU::LCU_SLAVE::send_coil_temperatures_to_master);
+//			Time::register_mid_precision_alarm(500, LCU::LCU_SLAVE::send_currents_to_backend);
 		}
 	};
 }

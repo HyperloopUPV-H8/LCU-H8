@@ -64,6 +64,10 @@ namespace LCU{
 			lcu_slave->state_machine_handler.general_state_machine.check_transitions();
 		}
 
+//		static void send_currents_to_backend(){
+//			lcu_slave->udp_handler.send_to_backend(lcu_slave->packets.slave_real_vs_reference);
+//		}
+
 		void init(){
 			STLIB::start();
 			udp_handler.init();

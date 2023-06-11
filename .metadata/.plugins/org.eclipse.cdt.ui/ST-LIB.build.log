@@ -1,20 +1,6 @@
-20:27:15 **** Incremental Build of configuration Debug for project ST-LIB ****
+05:27:32 **** Incremental Build of configuration Debug for project ST-LIB ****
 make -j8 all 
-arm-none-eabi-g++ "../Src/HALAL/Services/Time/Time.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy" -I"/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Device/ST/STM32H7xx/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Drivers/CMSIS/Include" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/netif/ppp" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/netif" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/net" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/posix/sys" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/src/include/compat/stdc" -I"/home/stefancostea/Documents/ST-LIB/Middlewares/Third_Party/LwIP/system/arch" -I"/home/stefancostea/Documents/ST-LIB/Drivers/BSP/Components" -I"/home/stefancostea/Documents/ST-LIB/LWIP/App" -I"/home/stefancostea/Documents/ST-LIB/LWIP/Target" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -Wvolatile -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/HALAL/Services/Time/Time.d" -MT"Src/HALAL/Services/Time/Time.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Src/HALAL/Services/Time/Time.o"
-In file included from /home/stefancostea/Documents/ST-LIB/Inc/stm32h7xx_hal_conf.h:453,
-                 from /home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:29,
-                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Time/Time.hpp:10,
-                 from ../Src/HALAL/Services/Time/Time.cpp:8:
-../Src/HALAL/Services/Time/Time.cpp: In static member function 'static void Time::ConfigTimer(TIM_HandleTypeDef*, uint32_t)':
-/home/stefancostea/Documents/ST-LIB/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:1311:89: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
- 1311 | #define __HAL_TIM_DISABLE_IT(__HANDLE__, __INTERRUPT__)   ((__HANDLE__)->Instance->DIER &= ~(__INTERRUPT__))
-      |                                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
-../Src/HALAL/Services/Time/Time.cpp:349:2: note: in expansion of macro '__HAL_TIM_DISABLE_IT'
-  349 |  __HAL_TIM_DISABLE_IT(tim,TIM_IT_UPDATE);
-      |  ^~~~~~~~~~~~~~~~~~~~
-arm-none-eabi-ar -r  "libST-LIB.a" @"objects.list"  
-Finished building target: libST-LIB.a
- 
+make: Nothing to be done for 'all'.
 
-20:27:17 Build Finished. 0 errors, 1 warnings. (took 2s.144ms)
+05:27:32 Build Finished. 0 errors, 0 warnings. (took 243ms)
 

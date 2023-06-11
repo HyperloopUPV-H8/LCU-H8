@@ -1,16 +1,528 @@
-20:27:17 **** Incremental Build of configuration Debug for project LCU_MASTER ****
+05:27:32 **** Incremental Build of configuration Debug for project LCU_MASTER ****
 make -j8 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m7 -std=gnu++20 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H723xx -DDATA_IN_D2_SRAM -DBOARD -c -I"/home/stefancostea/Documents/ST-LIB" -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -I"/home/stefancostea/Documents/ST-LIB/Inc" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW" -I"/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH" -I../LWIP/App -I../LWIP/Target -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/system -I../Drivers/BSP/Components/lan8742 -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Middlewares/Third_Party/LwIP/system/arch -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP" -I"/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/TCP" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Drivers/CMSIS/Include/core_cm7.h:2178,
+                 from ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h723xx.h:221,
+                 from ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:167,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:29,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32h7xx_hal_conf.h:246,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.cpp:1:
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Enable(uint32_t)':
+../Drivers/CMSIS/Include/mpu_armv7.h:195:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  195 |   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h: In function 'void ARM_MPU_Disable()':
+../Drivers/CMSIS/Include/mpu_armv7.h:207:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  207 |   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+../Drivers/CMSIS/Include/mpu_armv7.h:209:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  209 |   MPU->CTRL  &= ~MPU_CTRL_ENABLE_Msk;
+In file included from ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h723xx.h:221,
+                 from ../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:167,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:29,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32h7xx_hal_conf.h:246,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.cpp:1:
+../Drivers/CMSIS/Include/core_cm7.h: In function 'void SCB_EnableICache()':
+../Drivers/CMSIS/Include/core_cm7.h:2251:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+ 2251 |     SCB->CCR |=  (uint32_t)SCB_CCR_IC_Msk;  /* enable I-Cache */
+      |              ^
+../Drivers/CMSIS/Include/core_cm7.h: In function 'void SCB_DisableICache()':
+../Drivers/CMSIS/Include/core_cm7.h:2267:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+ 2267 |     SCB->CCR &= ~(uint32_t)SCB_CCR_IC_Msk;  /* disable I-Cache */
+      |              ^
+../Drivers/CMSIS/Include/core_cm7.h: In function 'void SCB_EnableDCache()':
+../Drivers/CMSIS/Include/core_cm7.h:2353:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+ 2353 |     SCB->CCR |=  (uint32_t)SCB_CCR_DC_Msk;  /* enable D-Cache */
+      |              ^
+../Drivers/CMSIS/Include/core_cm7.h: In function 'void SCB_DisableDCache()':
+../Drivers/CMSIS/Include/core_cm7.h:2375:14: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+ 2375 |     SCB->CCR &= ~(uint32_t)SCB_CCR_DC_Msk;  /* disable D-Cache */
+      |              ^
+In file included from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:29,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32h7xx_hal_conf.h:246,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.cpp:1:
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_SetCommonPathInternalChAdd(ADC_Common_TypeDef*, uint32_t)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:2774:3: note: in expansion of macro 'SET_BIT'
+ 2774 |   SET_BIT(ADCxy_COMMON->CCR, PathInternal);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_SetCommonPathInternalChRem(ADC_Common_TypeDef*, uint32_t)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:2798:3: note: in expansion of macro 'CLEAR_BIT'
+ 2798 |   CLEAR_BIT(ADCxy_COMMON->CCR, PathInternal);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'uint32_t LL_ADC_GetCalibrationLinearFactor(ADC_TypeDef*, uint32_t)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:2952:3: note: in expansion of macro 'CLEAR_BIT'
+ 2952 |   CLEAR_BIT(ADCx->CR, LinearityWord);
+      |   ^~~~~~~~~
+In file included from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:31,
+                 from ../Core/Inc/stm32h7xx_hal_conf.h:298,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.cpp:1:
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_SetChannelPreSelection(ADC_TypeDef*, uint32_t)':
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:3231:24: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+ 3231 |       ADCx->PCSEL_RES0 |= (1UL << (__LL_ADC_CHANNEL_TO_DECIMAL_NB(Channel) & 0x1FUL));
+      |       ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:29,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32h7xx_hal_conf.h:246,
+                 from ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.cpp:1:
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableDMAReq(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:4366:3: note: in expansion of macro 'SET_BIT'
+ 4366 |   SET_BIT(ADCx->CFGR, ADC3_CFGR_DMAEN);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableDMAReq(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:4371:3: note: in expansion of macro 'CLEAR_BIT'
+ 4371 |   CLEAR_BIT (ADCx->CFGR, ADC3_CFGR_DMAEN);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableDeepPowerDown(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:6698:3: note: in expansion of macro 'CLEAR_BIT'
+ 6698 |   CLEAR_BIT(ADCx->CR, (ADC_CR_DEEPPWD | ADC_CR_BITS_PROPERTY_RS));
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableInternalRegulator(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:6747:3: note: in expansion of macro 'CLEAR_BIT'
+ 6747 |   CLEAR_BIT(ADCx->CR, (ADC_CR_ADVREGEN | ADC_CR_BITS_PROPERTY_RS));
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_ADRDY(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7856:3: note: in expansion of macro 'SET_BIT'
+ 7856 |   SET_BIT(ADCx->IER, LL_ADC_IT_ADRDY);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_EOC(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7867:3: note: in expansion of macro 'SET_BIT'
+ 7867 |   SET_BIT(ADCx->IER, LL_ADC_IT_EOC);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_EOS(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7878:3: note: in expansion of macro 'SET_BIT'
+ 7878 |   SET_BIT(ADCx->IER, LL_ADC_IT_EOS);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_OVR(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7889:3: note: in expansion of macro 'SET_BIT'
+ 7889 |   SET_BIT(ADCx->IER, LL_ADC_IT_OVR);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_EOSMP(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7900:3: note: in expansion of macro 'SET_BIT'
+ 7900 |   SET_BIT(ADCx->IER, LL_ADC_IT_EOSMP);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_JEOC(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7911:3: note: in expansion of macro 'SET_BIT'
+ 7911 |   SET_BIT(ADCx->IER, LL_ADC_IT_JEOC);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_JEOS(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7922:3: note: in expansion of macro 'SET_BIT'
+ 7922 |   SET_BIT(ADCx->IER, LL_ADC_IT_JEOS);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_JQOVF(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7933:3: note: in expansion of macro 'SET_BIT'
+ 7933 |   SET_BIT(ADCx->IER, LL_ADC_IT_JQOVF);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_AWD1(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7944:3: note: in expansion of macro 'SET_BIT'
+ 7944 |   SET_BIT(ADCx->IER, LL_ADC_IT_AWD1);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_AWD2(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7955:3: note: in expansion of macro 'SET_BIT'
+ 7955 |   SET_BIT(ADCx->IER, LL_ADC_IT_AWD2);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_EnableIT_AWD3(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:206:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  206 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      |                                ~~~~~~^~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7966:3: note: in expansion of macro 'SET_BIT'
+ 7966 |   SET_BIT(ADCx->IER, LL_ADC_IT_AWD3);
+      |   ^~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_ADRDY(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7977:3: note: in expansion of macro 'CLEAR_BIT'
+ 7977 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_ADRDY);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_EOC(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7988:3: note: in expansion of macro 'CLEAR_BIT'
+ 7988 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_EOC);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_EOS(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:7999:3: note: in expansion of macro 'CLEAR_BIT'
+ 7999 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_EOS);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_OVR(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:8010:3: note: in expansion of macro 'CLEAR_BIT'
+ 8010 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_OVR);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_EOSMP(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:8021:3: note: in expansion of macro 'CLEAR_BIT'
+ 8021 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_EOSMP);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_JEOC(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:8032:3: note: in expansion of macro 'CLEAR_BIT'
+ 8032 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_JEOC);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_JEOS(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:8043:3: note: in expansion of macro 'CLEAR_BIT'
+ 8043 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_JEOS);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_JQOVF(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:8054:3: note: in expansion of macro 'CLEAR_BIT'
+ 8054 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_JQOVF);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_AWD1(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:8065:3: note: in expansion of macro 'CLEAR_BIT'
+ 8065 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_AWD1);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_AWD2(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:8076:3: note: in expansion of macro 'CLEAR_BIT'
+ 8076 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_AWD2);
+      |   ^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h: In function 'void LL_ADC_DisableIT_AWD3(ADC_TypeDef*)':
+../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:208:38: warning: compound assignment with 'volatile'-qualified left operand is deprecated [-Wvolatile]
+  208 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      |                                ~~~~~~^~~~~~~~~
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:8087:3: note: in expansion of macro 'CLEAR_BIT'
+ 8087 |   CLEAR_BIT(ADCx->IER, LL_ADC_IT_AWD3);
+      |   ^~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:4,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:21,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In member function 'virtual void HeapPacket::parse(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:174:14: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  174 |         data += sizeof(id);
+      |         ~~~~~^~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:177:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+  177 |             data += value.get()->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<double, TIME_ACCUMULATION>::Boundary(double, float, float, Boundary<double, TIME_ACCUMULATION>*&)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:183:11: warning: 'Boundary<double, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  183 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:170:31: warning:   'Boundary<double, TIME_ACCUMULATION>** Boundary<double, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  170 |  Boundary<double,Protector>** external_pointer;
+      |                               ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:171:2: warning:   when initialized here [-Wreorder]
+  171 |  Boundary(double bound, float time_limit, float frequency, Boundary<double, Protector>*& external_pointer): bound(bound),time_limit(time_limit),frequency(frequency), moving_order(frequency*time_limit/100),
+      |  ^~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<double, TIME_ACCUMULATION>::Boundary(double*, Boundary<double, TIME_ACCUMULATION>)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:183:11: warning: 'Boundary<double, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  183 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:170:31: warning:   'Boundary<double, TIME_ACCUMULATION>** Boundary<double, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  170 |  Boundary<double,Protector>** external_pointer;
+      |                               ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:175:2: warning:   when initialized here [-Wreorder]
+  175 |  Boundary(double* src, Boundary<double, Protector> boundary): src(src),bound(boundary.bound),time_limit(boundary.time_limit),frequency(boundary.frequency),moving_order(frequency*time_limit/100), external_pointer(boundary.external_pointer){
+      |  ^~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<double, TIME_ACCUMULATION>::Boundary(double*, double, float, float)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:183:11: warning: 'Boundary<double, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  183 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:170:31: warning:   'Boundary<double, TIME_ACCUMULATION>** Boundary<double, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  170 |  Boundary<double,Protector>** external_pointer;
+      |                               ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:178:2: warning:   when initialized here [-Wreorder]
+  178 |  Boundary(double* src, double bound ,float time_limit, float frequency): src(src),bound(bound) ,time_limit(time_limit), frequency(frequency),moving_order(frequency*time_limit/100), external_pointer(nullptr){}
+      |  ^~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual int Boundary<double, TIME_ACCUMULATION>::get_string_size()':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:220:29: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  220 |   return snprintf(nullptr,0,format,to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                             ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In member function 'virtual char* Boundary<double, TIME_ACCUMULATION>::serialize(char*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:223:16: warning: format '%s' expects a matching 'char*' argument [-Wformat=]
+  223 |   sprintf(dst, format, to_string(*src).c_str(), to_string(time_limit).c_str());
+      |                ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<float, TIME_ACCUMULATION>::Boundary(float, float, float, Boundary<float, TIME_ACCUMULATION>*&)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:250:11: warning: 'Boundary<float, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  250 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:237:30: warning:   'Boundary<float, TIME_ACCUMULATION>** Boundary<float, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  237 |  Boundary<float,Protector>** external_pointer;
+      |                              ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:238:2: warning:   when initialized here [-Wreorder]
+  238 |  Boundary(float bound, float time_limit, float frequency, Boundary<float, Protector>*& external_pointer): bound(bound),time_limit(time_limit) ,frequency(frequency), moving_order(frequency*time_limit/100),
+      |  ^~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<float, TIME_ACCUMULATION>::Boundary(float*, Boundary<float, TIME_ACCUMULATION>)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:250:11: warning: 'Boundary<float, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  250 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:237:30: warning:   'Boundary<float, TIME_ACCUMULATION>** Boundary<float, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  237 |  Boundary<float,Protector>** external_pointer;
+      |                              ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:242:2: warning:   when initialized here [-Wreorder]
+  242 |  Boundary(float* src, Boundary<float, Protector> boundary): src(src),bound(boundary.bound),time_limit(boundary.time_limit),frequency(boundary.frequency),moving_order(frequency*time_limit/100), external_pointer(boundary.external_pointer){
+      |  ^~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp: In constructor 'Boundary<float, TIME_ACCUMULATION>::Boundary(float*, float, float, float)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:250:11: warning: 'Boundary<float, TIME_ACCUMULATION>::moving_order' will be initialized after [-Wreorder]
+  250 |  uint16_t moving_order = 0;
+      |           ^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:237:30: warning:   'Boundary<float, TIME_ACCUMULATION>** Boundary<float, TIME_ACCUMULATION>::external_pointer' [-Wreorder]
+  237 |  Boundary<float,Protector>** external_pointer;
+      |                              ^~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:245:2: warning:   when initialized here [-Wreorder]
+  245 |  Boundary(float* src, float bound ,float time_limit, float frequency): src(src),bound(bound) ,time_limit(time_limit), frequency(frequency),moving_order(frequency*time_limit/100), external_pointer(nullptr){}
+      |  ^~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/ProtectionManager.hpp:7,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:11,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'virtual void Notification::parse(OrderProtocol*, void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:77:23: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   77 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~^~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:77:34: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   77 |      memcpy(temp, data+sizeof(id)+sizeof(message_size_t), get_string_size(data));
+      |                   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp: In member function 'uint16_t Notification::get_string_size(void*)':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Notification.hpp:99:33: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   99 |      return *(uint16_t*)(buffer + sizeof(id));
+      |                          ~~~~~~~^~~~~~~~~~~~
+In file included from ../Core/Inc/LCU_MASTER.hpp:3,
+                 from ../Core/Src/main.cpp:6:
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp: In constructor 'LCU::Actuators<LCU::TESTBENCH_1DOF>::Actuators(LCU::COIL_ID)':
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:140:15: warning: enumeration value 'HEMS_2' not handled in switch [-Wswitch]
+  140 |         switch(id){
+      |               ^
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:140:15: warning: enumeration value 'HEMS_4' not handled in switch [-Wswitch]
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:140:15: warning: enumeration value 'EMS_2' not handled in switch [-Wswitch]
+../Core/Inc/LCU_Actuators/LCU_Actuators.hpp:140:15: warning: enumeration value 'EMS_4' not handled in switch [-Wswitch]
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:4,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp: In instantiation of 'void MeanCalculator<N>::execute() [with unsigned int N = 100]':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:259:27:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:17:18: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+   17 |         if(index > N) ErrorHandler("MeanCalculator is receiving just 0");
+      |            ~~~~~~^~~
+In file included from ../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:9,
+                 from ../Core/Inc/LCU_MASTER.hpp:9,
+                 from ../Core/Src/main.cpp:6:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp: In instantiation of 'PT100<N>::PT100(Pin&, float&, MovingAverage<N>&) [with unsigned int N = 10]':
+../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:55:144:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp:25:9: warning: 'PT100<10>::value' will be initialized after [-Wreorder]
+   25 |  float* value;
+      |         ^~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp:14:20: warning:   'MovingAverage<10>* PT100<10>::filter' [-Wreorder]
+   14 |  MovingAverage<N>* filter = nullptr;
+      |                    ^~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/Common/PT100.hpp:35:1: warning:   when initialized here [-Wreorder]
+   35 | PT100<N>::PT100(Pin& pin, float& value, MovingAverage<N>& filter) : value(&value), filter(&filter){
+      | ^~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:4,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:5,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:5,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp: In instantiation of 'void MeanCalculator<N>::execute() [with unsigned int N = 10000]':
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/Zeroing.hpp:18:27:   required from 'void Zeroing<Type, Order>::execute() [with Type = float; unsigned int Order = 10000]'
+../Core/Inc/LCU_Sensors/LCU_Sensors.hpp:205:37:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/MeanCalculator.hpp:17:18: warning: comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]
+   17 |         if(index > N) ErrorHandler("MeanCalculator is receiving just 0");
+      |            ~~~~~~^~~
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:40,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:26,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h: At global scope:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:44:13: warning: 'void set_rtc(uint16_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t)' declared 'static' but never defined [-Wunused-function]
+   44 | static void set_rtc(uint16_t counter, uint8_t second, uint8_t minute, uint8_t hour, uint8_t day, uint8_t month, uint16_t year);
+      |             ^~~~~~~
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:40,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:26,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:45:14: warning: 'u32_t get_rtc_s()' declared 'static' but never defined [-Wunused-function]
+   45 | static u32_t get_rtc_s();
+      |              ^~~~~~~~~
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:46:14: warning: 'u32_t get_rtc_us()' declared 'static' but never defined [-Wunused-function]
+   46 | static u32_t get_rtc_us();
+      |              ^~~~~~~~~~
+In file included from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/Ethernet/UDP/DatagramSocket.hpp:4,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:21,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 72; Types = {float, float, float, float, float, float, float, float, float, float, float, float, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 112; Types = {float, float, float, float, float, float, float, float, float, float, float, float, float, double, double, double, double, double}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 32; Types = {float, float, float, float, float, float, float, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 8; Types = {float, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 16; Types = {float, float, float, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 4; Types = {float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 5; Types = {LCU::COIL_ID, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp: In instantiation of 'void StackPacket<BufferLength, Types>::parse(void*) [with unsigned int BufferLength = 6; Types = {LCU::IncomingOrders<LCU::LPU_VALIDATION>::LPU_NR, LCU::IncomingOrders<LCU::LPU_VALIDATION>::COIL_TYPE, float}]':
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:40:10:   required from here
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:41:13: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   41 |         data+=sizeof(id);
+      |         ~~~~^~~~~~~~~~~~
+/home/stefancostea/Documents/ST-LIB/Inc/HALAL/Models/Packets/Packet.hpp:44:18: warning: pointer of type 'void *' used in arithmetic [-Wpointer-arith]
+   44 |             data += value->get_size();
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:40,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:26,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:44:13: warning: 'void set_rtc(uint16_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint16_t)' used but never defined
+   44 | static void set_rtc(uint16_t counter, uint8_t second, uint8_t minute, uint8_t hour, uint8_t day, uint8_t month, uint16_t year);
+      |             ^~~~~~~
+In file included from ../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h:40,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/Services/Communication/SNTP/SNTP.hpp:10,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/HALAL/HALAL.hpp:26,
+                 from /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB.hpp:3,
+                 from ../Core/Src/main.cpp:4:
+../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h:55:6: warning: 'void set_time(uint32_t, uint32_t)' defined but not used [-Wunused-function]
+   55 | void set_time(uint32_t sec, uint32_t us){
+      |      ^~~~~~~~
 arm-none-eabi-g++ -o "LCU_MASTER.elf" @"objects.list"  -lST-LIB -mcpu=cortex-m7 -T"/home/stefancostea/Documents/LCU-H8/LCU_MASTER/STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCU_MASTER.map" -Wl,--gc-sections -static -L"/home/stefancostea/Documents/ST-LIB/Debug" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: LCU_MASTER.elf
  
 arm-none-eabi-size   LCU_MASTER.elf 
 arm-none-eabi-objdump -h -S  LCU_MASTER.elf  > "LCU_MASTER.list"
    text	   data	    bss	    dec	    hex	filename
- 629300	   1368	  59280	 689948	  a871c	LCU_MASTER.elf
+ 630268	   1368	  59280	 690916	  a8ae4	LCU_MASTER.elf
 Finished building: default.size.stdout
  
 Finished building: LCU_MASTER.list
  
 
-20:27:24 Build Finished. 0 errors, 0 warnings. (took 6s.591ms)
+05:27:43 Build Finished. 0 errors, 92 warnings. (took 11s.13ms)
 

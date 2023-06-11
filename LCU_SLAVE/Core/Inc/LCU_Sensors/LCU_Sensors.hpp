@@ -13,8 +13,8 @@ namespace LCU{
             Data& data;
 
             // Airgaps
-            static constexpr float airgap_slope_vertical = 7.4239;
-            static constexpr float airgap_offset_vertical = 99.932;
+            static constexpr float airgap_slope_vertical = 8.7103;
+            static constexpr float airgap_offset_vertical = 96.983;
             static constexpr float airgap_slope_horitonzal = 47.789;
             static constexpr float airgap_offset_horizontal = 45.783;
 
