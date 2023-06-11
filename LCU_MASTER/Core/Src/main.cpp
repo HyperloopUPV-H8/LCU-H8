@@ -18,6 +18,7 @@ int main(void)
 	CyclicActions<MODE_OF_OPERATION>::register_cyclic_actions();
 	while(1) {
 		STLIB::update();
+		LCU_MASTER<MODE_OF_OPERATION>::control_update();
 	}
 }
 

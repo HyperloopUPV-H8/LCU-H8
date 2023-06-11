@@ -40,6 +40,9 @@ namespace LCU{
 		TCP<VEHICLE_5DOF>& tcp_handler;
 		OutgoingOrders<VEHICLE_5DOF>& outgoing_orders;
 
+		bool current_control_flag = false;
+		bool distance_control_flag = false;
+
 		enum SpecificStates{
 			IDLE,
 			TAKING_OFF,
@@ -67,8 +70,7 @@ namespace LCU{
 		void add_transitions(){
 			specific_state_machine.add_transition(TAKING_OFF, STABLE, [&](){
 				if(z_error_filter.compute(control.position_control.error.z) == 0) return false;
-				//return abs(z_error_filter.compute(control.position_control.error.z) / (control.position_control.z_reference - ceiling)) < accepted_error_percentage;
-				return false;
+				return abs(z_error_filter.compute(control.position_control.error.z) / (control.position_control.z_reference - ceiling)) < accepted_error_percentage;
 			});
 			specific_state_machine.add_transition(LANDING, IDLE, [&](){
 				if(z_position_filter.compute(control.position_control.levitation_position.z) == 0) return false;
@@ -109,38 +111,42 @@ namespace LCU{
 			specific_state_machine.add_enter_action([&](){
 				tcp_handler.send_to_slave(outgoing_orders.start_slave_levitation_order);
 			}, TAKING_OFF);
+			specific_state_machine.add_enter_action([&](){
+				current_control_flag = false;
+				distance_control_flag = false;
+			});
 		}
 
 		void add_cyclic_actions(){
 			specific_state_machine.add_mid_precision_cyclic_action([&](){
-				control.execute_current_control();
+				current_control_flag = true;
 			}, 500us, TAKING_OFF);
 			specific_state_machine.add_mid_precision_cyclic_action([&](){
-				control.execute_distance_control();
+				distance_control_flag = true;
 			}, 1ms, TAKING_OFF);
 			specific_state_machine.add_mid_precision_cyclic_action([&](){
-				control.execute_current_control();
+				current_control_flag = true;
 			}, 500us, STABLE);
 			specific_state_machine.add_mid_precision_cyclic_action([&](){
-				control.execute_distance_control();
+				distance_control_flag = true;
 			}, 1ms, STABLE);
 			specific_state_machine.add_mid_precision_cyclic_action([&](){
-				control.execute_current_control();
+				current_control_flag = true;
 			}, 500us, STICK_UP);
 			specific_state_machine.add_mid_precision_cyclic_action([&](){
-				control.execute_distance_control();
+				distance_control_flag = true;
 			}, 1ms, STICK_UP);
 			specific_state_machine.add_mid_precision_cyclic_action([&](){
-				control.execute_current_control();
+				current_control_flag = true;
 			}, 500us, STICK_DOWN);
 			specific_state_machine.add_mid_precision_cyclic_action([&](){
-				control.execute_distance_control();
+				distance_control_flag = true;
 			}, 1ms, STICK_DOWN);
 			specific_state_machine.add_mid_precision_cyclic_action([&](){
-				control.execute_current_control();
+				current_control_flag = true;
 			}, 500us, LANDING);
 			specific_state_machine.add_mid_precision_cyclic_action([&](){
-				control.execute_distance_control();
+				distance_control_flag = true;
 			}, 1000ms, LANDING);
 
 			specific_state_machine.add_low_precision_cyclic_action([&](){

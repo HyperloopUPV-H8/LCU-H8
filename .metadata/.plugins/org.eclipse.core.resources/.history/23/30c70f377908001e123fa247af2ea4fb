@@ -1,0 +1,11 @@
+#pragma once
+#include "Packets/Order.hpp"
+#include "StateMachine/StateMachine.hpp"
+
+class StateOrder : Order{
+	static OrderProtocol& informer_socket;
+
+	static void set_socket(OrderProtocol& socket){
+		informer_socket = socket;
+	}
+};

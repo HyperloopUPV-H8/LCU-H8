@@ -159,7 +159,7 @@ namespace LCU{
 		static LCU_MASTER<VEHICLE_5DOF>* lcu_master;
 
 		LCU_MASTER(): actuators(), data(), sensors(data), control(actuators,data), tcp_handler(), udp_handler(),
-				state_machine_handler(data, actuators, control, tcp_handler, outgoing_orders_handler), incoming_orders_handler(data), packets(data, control){
+				state_machine_handler(data, actuators, control, tcp_handler, outgoing_orders_handler), incoming_orders_handler(data), outgoing_orders_handler(control),packets(data, control){
 		}
 
 		static void read_currents(){
@@ -193,6 +193,25 @@ namespace LCU{
 			lcu_master->sensors.read_temps();
 		}
 
+		static void execute_current_control(){
+			if(lcu_master->state_machine_handler.specific_state_machine_handler.current_control_flag){
+				lcu_master->control.execute_current_control();
+				lcu_master->state_machine_handler.specific_state_machine_handler.current_control_flag = false;
+			}
+		}
+
+		static void execute_position_control(){
+			if(lcu_master->state_machine_handler.specific_state_machine_handler.distance_control_flag){
+				lcu_master->control.execute_distance_control();
+				lcu_master->state_machine_handler.specific_state_machine_handler.distance_control_flag = false;
+			}
+		}
+
+		static void control_update(){
+			execute_current_control();
+			execute_position_control();
+		}
+
 		void init(){
 			STLIB::start();
 			udp_handler.init();
@@ -219,6 +238,7 @@ namespace LCU{
 				LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.current_state == SpecificStateMachine<VEHICLE_5DOF>::IDLE){
 			LCU_MASTER<VEHICLE_5DOF>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_5DOF>::lcu_master->outgoing_orders_handler.start_slave_levitation_order);
 			LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.force_change_state(SpecificStateMachine<VEHICLE_5DOF>::TAKING_OFF);
+			LCU_MASTER<VEHICLE_5DOF>::lcu_master->tcp_handler.send_to_backend(LCU_MASTER<VEHICLE_5DOF>::lcu_master->outgoing_orders_handler.state_space_order);
 		}
 		Time::set_timeout(500, LCU_MASTER<VEHICLE_5DOF>::toggle_led);
 	}

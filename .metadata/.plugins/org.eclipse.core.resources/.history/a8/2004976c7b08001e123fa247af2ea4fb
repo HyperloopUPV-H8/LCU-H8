@@ -1,0 +1,17 @@
+#pragma once
+#include "Packets/Order.hpp"
+#include "StateMachine/StateMachine.hpp"
+
+class StateOrder : Order{
+public:
+	enum StateOrdersID{
+		ADD_STATE_ORDERS = 5,
+		REMOVE_STATE_ORDERS = 6
+	};
+	static OrderProtocol* informer_socket;
+	static void set_socket(OrderProtocol& socket){
+		informer_socket = socket;
+	}
+};
+
+OrderProtocol* StateOrder::informer_socket = nullptr;

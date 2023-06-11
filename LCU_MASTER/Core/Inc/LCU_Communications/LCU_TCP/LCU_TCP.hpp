@@ -56,7 +56,10 @@ namespace LCU{
         }
         void send_to_slave(Order& order){
             SLAVE_CONNECTION.send_order(order);
-            Ethernet::update();
+        }
+
+        void send_to_backend(Order& order){
+        	BACKEND_CONNECTION.send_order(order);
         }
     };
     

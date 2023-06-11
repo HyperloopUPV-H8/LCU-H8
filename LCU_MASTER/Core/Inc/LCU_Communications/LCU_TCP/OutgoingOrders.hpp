@@ -12,7 +12,8 @@ enum class SlaveOrdersID : uint16_t{
 	SLAVE_CHANGE_REFERENCE_CURERNT = 411,
 	SLAVE_TEST_ALL_CURRENT_CONTROL = 412,
 	SLAVE_TOGGLE_LED = 414,
-	SLAVE_STOP_LPU = 415
+	SLAVE_STOP_LPU = 415,
+	STATE_SPACE = 7
 };
 
 namespace LCU{
@@ -24,11 +25,20 @@ namespace LCU{
 		HeapOrder stop_slave_levitation_order;
 		HeapOrder slave_hardware_reset_order;
 		HeapOrder test_toggle_led_order;
+		HeapOrder state_space_order;
 
-		OutgoingOrders() : start_slave_levitation_order((uint16_t)SlaveOrdersID::START_SLAVE_LEVITATION),
+		OutgoingOrders(Control<VEHICLE_5DOF>& control) : start_slave_levitation_order((uint16_t)SlaveOrdersID::START_SLAVE_LEVITATION),
 				stop_slave_levitation_order((uint16_t)SlaveOrdersID::STOP_SLAVE_LEVITATION),
 				slave_hardware_reset_order((uint16_t)SlaveOrdersID::SLAVE_HARDWARE_RESET),
-				test_toggle_led_order((uint16_t)SlaveOrdersID::SLAVE_TOGGLE_LED)
+				test_toggle_led_order((uint16_t)SlaveOrdersID::SLAVE_TOGGLE_LED),
+				state_space_order((uint16_t)SlaveOrdersID::STATE_SPACE, &control.position_control.K[0],
+						&control.position_control.K[1],
+						&control.position_control.K[2],
+						&control.position_control.K[3],
+						&control.position_control.K[4],
+						&control.position_control.K[5],
+						&control.position_control.K[6],
+						&control.position_control.K[7])
 		{}
 	};
 

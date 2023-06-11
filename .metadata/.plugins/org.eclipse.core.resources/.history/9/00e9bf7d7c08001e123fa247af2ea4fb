@@ -1,0 +1,26 @@
+#pragma once
+#include "Packets/Order.hpp"
+
+class StateOrder : Order{
+public:
+	enum StateOrdersID{
+		ADD_STATE_ORDERS = 5,
+		REMOVE_STATE_ORDERS = 6
+	};
+	static OrderProtocol* informer_socket;
+	static void set_socket(OrderProtocol& socket){
+		informer_socket = socket;
+	}
+	static uint8_t state_orders_ids_size;
+	static vector<uint16_t>* state_orders_ids;
+	static StackOrder<0,uint8_t, vector<uint16_t>> add_state_orders;
+	static StackOrder<0,uint8_t, vector<uint16_t>> remove_state_orders;
+
+	static void update_state_orders(vector<uint16_t>& new_ids){
+		state_orders_ids = &new_ids;
+	}
+};
+
+OrderProtocol* StateOrder::informer_socket = nullptr;
+uint8_t state_orders_ids_size = 0;
+vector<uint16_t> state_orders_ids = {};

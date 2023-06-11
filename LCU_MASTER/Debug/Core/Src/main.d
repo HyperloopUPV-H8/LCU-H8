@@ -150,6 +150,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.hpp \
+ /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/NTC/NTC.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp \
  /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp \
@@ -340,6 +341,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/SensorInterrupt/SensorInterrupt.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/LookupSensor/LookupSensor.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/EncoderSensor/EncoderSensor.hpp:
+/home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_LOW/Sensors/NTC/NTC.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/ST-LIB_HIGH.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Protection.hpp:
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:
