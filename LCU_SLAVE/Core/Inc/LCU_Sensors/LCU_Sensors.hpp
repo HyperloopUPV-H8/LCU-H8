@@ -15,10 +15,10 @@ namespace LCU{
             // Airgaps
             static constexpr float airgap_slope_vertical = 8.7103;
             static constexpr float airgap_offset_vertical = 96.983;
-            static constexpr float airgap_slope_horitonzal = 47.789;
-            static constexpr float airgap_offset_horizontal = 45.783;
+            static constexpr float airgap_slope_horitonzal = 8.1314;
+            static constexpr float airgap_offset_horizontal = 73.399;
 
-            static constexpr size_t aigarp_filter_order = 10;
+            static constexpr size_t aigarp_filter_order = 20;
             MovingAverage<aigarp_filter_order> airgap_2_filter;
             MovingAverage<aigarp_filter_order> airgap_4_filter;
             MovingAverage<aigarp_filter_order> airgap_6_filter;

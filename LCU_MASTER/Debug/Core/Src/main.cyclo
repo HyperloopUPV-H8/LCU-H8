@@ -189,13 +189,13 @@ ControlBlock.hpp:12:9:constexpr ControlBlock<InputType, OutputType>::ControlBloc
 LevitationPositionCalculator.hpp:16:5:LevitationPositionCalculator::LevitationPositionCalculator(float (&)[8])	1
 LevitationPositionCalculator.hpp:20:10:virtual void LevitationPositionCalculator::execute()	1
 LevitationPositionCalculator.hpp:38:10:void LevitationPositionCalculator::reset_position()	1
-DistanceControl.hpp:77:2:DistanceControl<LCU::VEHICLE_5DOF>::DistanceControl(float (&)[8], float (&)[8])	1
-DistanceControl.hpp:104:7:void DistanceControl<LCU::VEHICLE_5DOF>::calculate_error()	1
-DistanceControl.hpp:109:7:void DistanceControl<LCU::VEHICLE_5DOF>::store_u()	1
-DistanceControl.hpp:128:7:void DistanceControl<LCU::VEHICLE_5DOF>::control()	1
-DistanceControl.hpp:171:7:void DistanceControl<LCU::VEHICLE_5DOF>::set_z_reference(float)	1
-DistanceControl.hpp:175:7:void DistanceControl<LCU::VEHICLE_5DOF>::saturate_reference_currents()	2
-DistanceControl.hpp:183:7:void DistanceControl<LCU::VEHICLE_5DOF>::reset()	3
+DistanceControl.hpp:78:2:DistanceControl<LCU::VEHICLE_5DOF>::DistanceControl(float (&)[8], float (&)[8])	1
+DistanceControl.hpp:106:7:void DistanceControl<LCU::VEHICLE_5DOF>::calculate_error()	1
+DistanceControl.hpp:111:7:void DistanceControl<LCU::VEHICLE_5DOF>::store_u()	1
+DistanceControl.hpp:130:7:void DistanceControl<LCU::VEHICLE_5DOF>::control()	1
+DistanceControl.hpp:173:7:void DistanceControl<LCU::VEHICLE_5DOF>::set_z_reference(float)	1
+DistanceControl.hpp:177:7:void DistanceControl<LCU::VEHICLE_5DOF>::saturate_reference_currents()	1
+DistanceControl.hpp:216:7:void DistanceControl<LCU::VEHICLE_5DOF>::reset()	3
 Boundary.hpp:229:8:Boundary<float, TIME_ACCUMULATION>::~Boundary()	1
 Boundary.hpp:149:2:constexpr Boundary<void, ERROR_HANDLER>::Boundary()	1
 LCU_Data.hpp:127:7:void LCU::Data<LCU::VEHICLE_5DOF>::add_protections()	1
@@ -254,15 +254,14 @@ StateMachine.hpp:109:7:StateMachine& StateMachine::operator=(StateMachine&&)	1
 LCU_StateMachine.hpp:58:8:void LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::init()	1
 LCU_StateMachine.hpp:71:62:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	2
 std_function.h:303:11:std::function<bool()>::~function()	1
-LCU_StateMachine.hpp:76:57:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	2
-LCU_StateMachine.hpp:80:60:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	2
-LCU_StateMachine.hpp:84:58:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	2
+LCU_StateMachine.hpp:75:57:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	2
+LCU_StateMachine.hpp:79:60:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	2
+LCU_StateMachine.hpp:83:58:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	2
 LCU_StateMachine.hpp:70:8:void LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_transitions()	1
-LCU_StateMachine.hpp:91:43:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()::<lambda()>	1
-LCU_StateMachine.hpp:97:43:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()::<lambda()>	1
-LCU_StateMachine.hpp:104:43:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()::<lambda()>	1
-LCU_StateMachine.hpp:90:8:void LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()	1
-LCU_StateMachine.hpp:118:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
+LCU_StateMachine.hpp:90:43:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()::<lambda()>	1
+LCU_StateMachine.hpp:96:43:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()::<lambda()>	1
+LCU_StateMachine.hpp:103:43:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()::<lambda()>	1
+LCU_StateMachine.hpp:89:8:void LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()	1
 LCU_StateMachine.hpp:121:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
 LCU_StateMachine.hpp:124:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
 LCU_StateMachine.hpp:127:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
@@ -272,32 +271,33 @@ LCU_StateMachine.hpp:136:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cy
 LCU_StateMachine.hpp:139:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
 LCU_StateMachine.hpp:142:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
 LCU_StateMachine.hpp:145:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
-LCU_StateMachine.hpp:149:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
-LCU_StateMachine.hpp:153:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
-LCU_StateMachine.hpp:157:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
-LCU_StateMachine.hpp:117:8:void LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()	1
-LCU_StateMachine.hpp:244:3:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::GeneralStateMachine(LCU::Data<LCU::VEHICLE_5DOF>&, LCU::Actuators<LCU::VEHICLE_5DOF>&, LCU::Control<LCU::VEHICLE_5DOF>&, LCU::TCP<LCU::VEHICLE_5DOF>&, LCU::OutgoingOrders<LCU::VEHICLE_5DOF>&)	1
-LCU_StateMachine.hpp:248:8:void LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::init()	1
-LCU_StateMachine.hpp:264:63:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	3
-LCU_StateMachine.hpp:268:57:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	2
-LCU_StateMachine.hpp:272:61:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	3
-LCU_StateMachine.hpp:263:8:void LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_transitions()	1
-LCU_StateMachine.hpp:283:43:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()::<lambda()>	1
-LCU_StateMachine.hpp:284:51:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()::<lambda()>::<lambda()>	3
-LCU_StateMachine.hpp:292:50:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()::<lambda()>	3
-LCU_StateMachine.hpp:299:43:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()::<lambda()>	1
-LCU_StateMachine.hpp:305:43:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()::<lambda()>	1
-LCU_StateMachine.hpp:282:8:void LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()	1
-LCU_StateMachine.hpp:311:42:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()::<lambda()>	1
+LCU_StateMachine.hpp:148:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
+LCU_StateMachine.hpp:152:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
+LCU_StateMachine.hpp:156:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
+LCU_StateMachine.hpp:160:59:LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()::<lambda()>	1
+LCU_StateMachine.hpp:120:8:void LCU::SpecificStateMachine<LCU::VEHICLE_5DOF>::add_cyclic_actions()	1
+LCU_StateMachine.hpp:247:3:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::GeneralStateMachine(LCU::Data<LCU::VEHICLE_5DOF>&, LCU::Actuators<LCU::VEHICLE_5DOF>&, LCU::Control<LCU::VEHICLE_5DOF>&, LCU::TCP<LCU::VEHICLE_5DOF>&, LCU::OutgoingOrders<LCU::VEHICLE_5DOF>&)	1
+LCU_StateMachine.hpp:251:8:void LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::init()	1
+LCU_StateMachine.hpp:267:63:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	3
+LCU_StateMachine.hpp:271:57:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	2
+LCU_StateMachine.hpp:275:61:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_transitions()::<lambda()>	3
+LCU_StateMachine.hpp:266:8:void LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_transitions()	1
+LCU_StateMachine.hpp:286:43:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()::<lambda()>	1
+LCU_StateMachine.hpp:287:51:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()::<lambda()>::<lambda()>	3
+LCU_StateMachine.hpp:295:50:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()::<lambda()>	3
+LCU_StateMachine.hpp:302:43:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()::<lambda()>	1
+LCU_StateMachine.hpp:308:43:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()::<lambda()>	1
+LCU_StateMachine.hpp:285:8:void LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_enter_actions()	1
 LCU_StateMachine.hpp:314:42:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()::<lambda()>	1
-LCU_StateMachine.hpp:310:8:void LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()	1
-LCU_StateMachine.hpp:320:58:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::register_timed_actions()::<lambda()>	1
-LCU_StateMachine.hpp:319:8:void LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::register_timed_actions()	1
-LCU_Sensors.hpp:186:13:LCU::Sensors<LCU::VEHICLE_5DOF>::Sensors(LCU::Data<LCU::VEHICLE_5DOF>&)	1
-LCU_Sensors.hpp:188:18:void LCU::Sensors<LCU::VEHICLE_5DOF>::read_currents()	1
-LCU_Sensors.hpp:197:18:void LCU::Sensors<LCU::VEHICLE_5DOF>::read_airgaps()	1
-LCU_Sensors.hpp:204:18:void LCU::Sensors<LCU::VEHICLE_5DOF>::current_zeroing()	1
-LCU_Sensors.hpp:211:18:void LCU::Sensors<LCU::VEHICLE_5DOF>::read_temps()	1
+LCU_StateMachine.hpp:317:42:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()::<lambda()>	1
+LCU_StateMachine.hpp:313:8:void LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()	1
+LCU_StateMachine.hpp:323:58:LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::register_timed_actions()::<lambda()>	1
+LCU_StateMachine.hpp:322:8:void LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::register_timed_actions()	1
+LCU_Sensors.hpp:185:13:LCU::Sensors<LCU::VEHICLE_5DOF>::Sensors(LCU::Data<LCU::VEHICLE_5DOF>&)	1
+LCU_Sensors.hpp:187:18:void LCU::Sensors<LCU::VEHICLE_5DOF>::read_currents()	1
+LCU_Sensors.hpp:196:18:void LCU::Sensors<LCU::VEHICLE_5DOF>::read_airgaps()	1
+LCU_Sensors.hpp:203:18:void LCU::Sensors<LCU::VEHICLE_5DOF>::current_zeroing()	1
+LCU_Sensors.hpp:210:18:void LCU::Sensors<LCU::VEHICLE_5DOF>::read_temps()	1
 IncomingOrders.hpp:36:7:void LCU::hardware_reset()	1
 IncomingOrders.hpp:52:7:void LCU::trigger_conversion_adcs_lpu_validation()	1
 IncomingOrders.hpp:54:7:void LCU::disable_protections()	1
@@ -579,13 +579,11 @@ std_function.h:601:7:)>::function(_Functor) [with _Functor = LCU::GeneralStateMa
 std_function.h:601:7:)>::function(_Functor) [with _Functor = LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::add_on_exit_actions()::<lambda()>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {}]	2
 chrono:1219:7:_Digits = {'1', '5', '0'}]	1
 std_function.h:601:7:)>::function(_Functor) [with _Functor = LCU::GeneralStateMachine<LCU::VEHICLE_5DOF>::register_timed_actions()::<lambda()>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {}]	2
-FilteredLinearSensor.hpp:11:2:FilteredLinearSensor<Type, N>::FilteredLinearSensor(Pin&, Type, Type, Type&, MovingAverage<N>&) [with Type = float; unsigned int N = 10]	1
 FilteredLinearSensor.hpp:11:2:FilteredLinearSensor<Type, N>::FilteredLinearSensor(Pin&, Type, Type, Type&, MovingAverage<N>&) [with Type = float; unsigned int N = 20]	1
 LinearSensor.hpp:41:1:LinearSensor<Type>::LinearSensor(Pin&, Type, Type, Type&) [with Type = float]	1
 PT100.hpp:35:1:PT100<N>::PT100(Pin&, float&, MovingAverage<N>&) [with unsigned int N = 10]	1
 MovingAverage.hpp:15:9:MovingAverage<N>::MovingAverage() [with unsigned int N = 10]	1
 FilteredLinearSensor.hpp:12:7:void FilteredLinearSensor<Type, N>::read() [with Type = float; unsigned int N = 20]	1
-FilteredLinearSensor.hpp:12:7:void FilteredLinearSensor<Type, N>::read() [with Type = float; unsigned int N = 10]	1
 LinearSensor.hpp:44:6:void LinearSensor<Type>::read() [with Type = float]	1
 PT100.hpp:53:6:void PT100<N>::read() [with unsigned int N = 10]	2
 ControlBlock.hpp:12:9:constexpr ControlBlock<InputType, OutputType>::ControlBlock() [with InputType = float; OutputType = float]	1
@@ -995,7 +993,6 @@ std_function.h:268:7:), _Functor>::_M_manager(std::_Any_data&, const std::_Any_d
 LinearSensor.hpp:33:1:LinearSensor<Type>::LinearSensor(Pin&, Type, Type, Type*) [with Type = float]	1
 stl_vector.h:1187:7:void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = unsigned char; _Alloc = std::allocator<unsigned char>]	2
 MovingAverage.hpp:34:16:double MovingAverage<N>::compute(double) [with unsigned int N = 20]	1
-MovingAverage.hpp:34:16:double MovingAverage<N>::compute(double) [with unsigned int N = 10]	1
 MovingAverage.hpp:17:14:void MovingAverage<N>::execute() [with unsigned int N = 10]	2
 MeanCalculator.hpp:11:5:MeanCalculator<N>::MeanCalculator() [with unsigned int N = 10000]	1
 LinearSensor.hpp:66:7:Type* LinearSensor<Type>::get_value_pointer() [with Type = float]	1

@@ -58,28 +58,30 @@ public:
 	float(&current_references)[8];
 
 	float K[8][15] = {
-        {0,               -5130.5/1000,       195.09*5,          -4287/5,         0,                 0,                 -96.1271/1000,      9.54552*4,         -254.7569/5,           0,                 0,                 -796.9875/1000,    105.45/2.5,            -1044.5/5,            0},
-        {0,               -5130.5/1000,       -195.09*5,           -4287/5,         0,                 0,                 -96.1271/1000,      -9.54552*4,          -254.7569/5,           0,                 0,                 -796.9875/1000,     -105.45/2.5,            -1044.5/5,            0},
-        {0,               -5130.5/1000,       195.09*5,          4287/5,        0,                 0,                 -96.1271/1000,      9.54552*4,         254.7569/5,          0,                 0,                 -796.9875/1000,    105.45/2.5,            1044.5/5,           0},
-        {0,               -5130.5/1000,       -195.09*5,           4287/5,        0,                 0,                 -96.1271/1000,      -9.54552*4,          254.7569/5,          0,                 0,                 -796.9875/1000,     -105.45/2.5,            1044.5/5,           0},
-        { 0/*4539.8/1000*/ ,    0,                 0,                 0,         0 /* 1939.8*/,           0 /*432.567/1000*/,      0,                 0,                 0,                0 /*165.1161*/,          0/*371.3652/1000*/,     0,                 0,                 0,                 0/*1277.2*/},
-        {0/*-4539.8/1000*/,    0,                 0,                 0,           0/*-1939.8*/,           0/*-432.567/1000*/,     0,                 0,                 0,                 0/*-165.1161*/,         0/*-371.3652/1000*/,    0,                 0,                 0,                 0/*-1277.2*/},
-        {0/*4539.8/1000*/,     0,                 0,                 0,           0/*-1939.8*/,           0/*432.567/1000*/,      0,                 0,                 0,                 0/*-165.1161*/,         0/*371.3652/1000*/,     0,                 0,                 0,                 0/*-1277.2*/},
-        {0/*-4539.8/1000*/,    0,                 0,                 0,           0/*1939.8*/,            0/*-432.567/1000*/,     0,                 0,                 0,                 0/*165.1161*/,          0/*-371.3652/1000*/,    0,                 0,                 0,                 0/*1277.2*/}
+        {0,               -5130.5/1000,       195.09*5.5,          -4287/3,         0,                 0,                 -96.1271/1000,      9.54552*3.5,         -254.7569/3.5,           0,                 0,                 -796.9875/1000,    105.45,            -1044.5/5,            0},
+        {0,               -5130.5/1000,       -195.09*5.5,           -4287/3,         0,                 0,                 -96.1271/1000,      -9.54552*3.5,          -254.7569/3.5,           0,                 0,                 -796.9875/1000,     -105.45,            -1044.5/5,            0},
+        {0,               -5130.5/1000,       195.09*5.5,          4287/3,        0,                 0,                 -96.1271/1000,      9.54552*3.5,         254.7569/3.5,          0,                 0,                 -796.9875/1000,    105.45,            1044.5/5,           0},
+        {0,               -5130.5/1000,       -195.09*5.5,           4287/3,        0,                 0,                 -96.1271/1000,      -9.54552*3.5,          254.7569/3.5,          0,                 0,                 -796.9875/1000,     -105.45,            1044.5/5,           0},
+        {0/*-4539.8/10000*/ ,    0,                 0,                 0,          0/*1939.8/10*/,          0/* -432.567/10000*/,      0,                 0,                 0,                0/*-165.1161/10*/,          0/*371.3652/10000*/,     0,                 0,                 0,                 0/*1277.2/10*/},
+        {0/*4539.8/10000*/,    0,                 0,                 0,           0/*-1939.8/10*/,          0/* 432.567/10000*/,     0,                 0,                 0,                 0/*165.1161/10*/,         0/*-371.3652/10000*/,    0,                 0,                 0,                 0/*-1277.2/10*/},
+        {0/*-4539.8/10000*/,     0,                 0,                 0,           0/*-1939.8/10*/,        0/*  -432.567/10000*/,      0,                 0,                 0,                 0/*165.1161/10*/,         0/*371.3652/10000*/,     0,                 0,                 0,                 0/*-1277.2/10*/},
+        {0/*4539.8/10000*/,    0,                 0,                 0,           0/*1939.8/10*/,           0/* 432.567/10000*/,     0,                 0,                 0,                 0/*-165.1161/10*/,          0/*-371.3652/10000*/,    0,                 0,                 0,                0/* 1277.2/10*/}
     };
 
 
 	float U[15];
 
 	MatrixMultiplier<8,15,1> matrix_multiplier;
-	Saturator<float> reference_current_saturator;
+	Saturator<float> hems_reference_current_saturator;
+	Saturator<float> ems_reference_current_saturator;
 
 	DistanceControl(float(&distaces)[8], float(&current_references)[8]) :
 		y_derivator(period), z_derivator(period), rot_x_derivator(period), rot_y_derivator(period), rot_z_derivator(period),
 		y_integrator(period,1), z_integrator(period,1),
 		rot_x_integrator(period,1), rot_y_integrator(period,1), rot_z_integrator(period,1),
 		 airgap2pos(distaces), current_references(current_references), matrix_multiplier(K,U,unsaturated_currents),
-		 reference_current_saturator(0, -coil_current_saturation, coil_current_saturation)
+		 hems_reference_current_saturator(0, -coil_current_saturation, coil_current_saturation),
+		 ems_reference_current_saturator(0, 0, coil_current_saturation)
 	{}
 private:
 
@@ -173,11 +175,42 @@ public:
 	}
 
 	void saturate_reference_currents(){
-		for(int i = 0; i < 8; i++) {
-			reference_current_saturator.input(unsaturated_currents[i]);
-			reference_current_saturator.execute();
-			current_references[i] = reference_current_saturator.output_value;
-		}
+//		for(int i = 0; i < 8; i++) {
+//			reference_current_saturator.input(unsaturated_currents[i]);
+//			reference_current_saturator.execute();
+//			current_references[i] = reference_current_saturator.output_value;
+//		}
+		hems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::HEMS_1]);
+		hems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::HEMS_1] = hems_reference_current_saturator.output_value;
+
+		hems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::HEMS_2]);
+		hems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::HEMS_2] = hems_reference_current_saturator.output_value;
+
+		hems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::HEMS_3]);
+		hems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::HEMS_3] = hems_reference_current_saturator.output_value;
+
+		hems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::HEMS_4]);
+		hems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::HEMS_4] = hems_reference_current_saturator.output_value;
+
+		ems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::EMS_1]);
+		ems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::EMS_1] = ems_reference_current_saturator.output_value;
+
+		ems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::EMS_2]);
+		ems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::EMS_2] = ems_reference_current_saturator.output_value;
+
+		ems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::EMS_3]);
+		ems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::EMS_3] = ems_reference_current_saturator.output_value;
+
+		ems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::EMS_4]);
+		ems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::EMS_4] = ems_reference_current_saturator.output_value;
 	}
 
 	void reset(){
