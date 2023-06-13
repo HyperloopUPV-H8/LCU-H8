@@ -237,6 +237,7 @@ namespace LCU{
 		if(LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.general_state_machine.current_state == GeneralStateMachine<VEHICLE_5DOF>::OPERATIONAL &&
 				LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.current_state == SpecificStateMachine<VEHICLE_5DOF>::IDLE){
 			LCU_MASTER<VEHICLE_5DOF>::lcu_master->tcp_handler.send_to_slave(LCU_MASTER<VEHICLE_5DOF>::lcu_master->outgoing_orders_handler.start_slave_levitation_order);
+			LCU_MASTER<VEHICLE_5DOF>::lcu_master->actuators.turn_on();
 			LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.force_change_state(SpecificStateMachine<VEHICLE_5DOF>::TAKING_OFF);
 			LCU_MASTER<VEHICLE_5DOF>::lcu_master->tcp_handler.send_to_backend(LCU_MASTER<VEHICLE_5DOF>::lcu_master->outgoing_orders_handler.state_space_order);
 		}
@@ -249,7 +250,6 @@ namespace LCU{
 		LCU_MASTER<VEHICLE_5DOF>::lcu_master->state_machine_handler.specific_state_machine_handler.specific_state_machine.force_change_state(SpecificStateMachine<VEHICLE_5DOF>::IDLE);
 		LCU_MASTER<VEHICLE_5DOF>::lcu_master->control.stop();
 		LCU_MASTER<VEHICLE_5DOF>::lcu_master->actuators.turn_off();
-		LCU_MASTER<VEHICLE_5DOF>::lcu_master->actuators.turn_on();
 		LCU_MASTER<VEHICLE_5DOF>::lcu_master->control.reset();
 		Time::set_timeout(500, LCU_MASTER<VEHICLE_5DOF>::toggle_led);
 	}

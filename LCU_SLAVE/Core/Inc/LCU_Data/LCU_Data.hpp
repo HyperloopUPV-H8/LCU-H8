@@ -51,7 +51,7 @@ namespace LCU{
 		add_protection(&coil_current_ems_4, Boundary<float,OUT_OF_RANGE>(min_ems_current,max_ems_current));
 
 		//add_protection(&hems_2_temperature, Boundary<float, ABOVE>(max_coil_temperature));
-		add_protection(&hems_4_temperature, Boundary<float, ABOVE>(max_coil_temperature));
+		//add_protection(&hems_4_temperature, Boundary<float, ABOVE>(max_coil_temperature));
 		add_protection(&ems_2_temperature, Boundary<float, ABOVE>(max_coil_temperature));
 		add_protection(&ems_4_temperature, Boundary<float, ABOVE>(max_coil_temperature));
 //
