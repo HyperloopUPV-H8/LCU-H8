@@ -1,0 +1,259 @@
+#pragma once
+#include "LCU_Mode/LCU_Mode.hpp"
+#include "Control/Blocks/PID.hpp"
+#include "Control/Blocks/Saturator.hpp"
+#include "LevitationPositionCalculator.hpp"
+#include "Control/Blocks/MovingAverage.hpp"
+#include "Control/Blocks/MatrixMultiplier.hpp"
+
+template<LCU::MASTER_MODE> class DistanceControl;
+
+template<>
+class DistanceControl<LCU::MASTER_MODE::LPU_VALIDATION>{
+};
+
+template<>
+class DistanceControl<LCU::MASTER_MODE::TESTBENCH_1DOF>{
+public:
+	PID<IntegratorType::Trapezoidal,FilterDerivatorType::Moving_Average,22> pid = {ki,kp,kp,period};
+	Saturator<float> target_current_saturator = Saturator((float)0.0,(float)-50.0,(float)50.0);
+	float reference_distance = 0.0199;
+	float target_current = 0.0;
+	static constexpr float ki = -7000, kp = -1400, kd = -475, period = 0.001;
+	DistanceControl() = default;
+	void set_reference_distance(float new_distance){
+		reference_distance = new_distance;
+	}
+	void control(float real_distance){
+		pid.input(reference_distance - real_distance/1000.0);
+		pid.execute();
+		target_current_saturator.input(pid.output_value);
+		target_current_saturator.execute();
+		target_current = target_current_saturator.output_value;
+	}
+
+	void reset(){
+		pid.reset();
+		target_current = 0.0;
+	}
+};
+
+template<>
+class DistanceControl<LCU::MASTER_MODE::VEHICLE_5DOF>{
+public:
+	SimpleDerivator y_derivator, z_derivator,rot_x_derivator,  rot_y_derivator, rot_z_derivator;
+	Integrator<IntegratorType::Trapezoidal> y_integrator, z_integrator, rot_x_integrator, rot_y_integrator, rot_z_integrator;
+	MovingAverage<20> y_filter_derivative, z_filter_derivative, rot_x_filter_derivative, rot_y_filter_derivative, rot_z_filter_derivative;
+	LevitationPosition error;
+	LevitationPositionCalculator airgap2pos;
+	LevitationPosition& levitation_position = airgap2pos.output_value;
+
+	const float default_z_reference = 614.5;  //617.9
+	float z_reference = default_z_reference;
+	static constexpr float coil_current_saturation = 45;
+
+	static constexpr float period = 0.001;
+
+	float unsaturated_currents[8];
+	float(&current_references)[8];
+
+	float K[8][15] = {
+        {0,               -5130.5/1000,       195.09*5.5,          -4287/3,         0,                 0,                 -96.1271/1000,      9.54552*3,         -254.7569,           0,                 0,                 -796.9875/1000,    105.45*2,            -1044.5/2,            0},
+        {0,               -5130.5/1000,       -195.09*5.5,           -4287/3,         0,                 0,                 -96.1271/1000,      -9.54552*3,          -254.7569,           0,                 0,                 -796.9875/1000,     -105.45*2,            -1044.5/2,            0},
+        {0,               -5130.5/1000,       195.09*5.5,          4287/3,        0,                 0,                 -96.1271/1000,      9.54552*3,         254.7569,          0,                 0,                 -796.9875/1000,    105.45*2,            1044.5/2,           0},
+        {0,               -5130.5/1000,       -195.09*5.5,           4287/3,        0,                 0,                 -96.1271/1000,      -9.54552*3,          254.7569,          0,                 0,                 -796.9875/1000,     -105.45*2,            1044.5/2,           0},
+        {-4539.8/10000 ,    0,                 0,                 0,          0/*1939.8/10*/,          -432.567/10000,      0,                 0,                 0,                -165.1161/10,          0/*371.3652/10000*/,     0,                 0,                 0,                 0/*1277.2/10*/},
+        {4539.8/10000,    0,                 0,                 0,           0/*-1939.8/10*/,          432.567/10000,     0,                 0,                 0,                 165.1161/10,         0/*-371.3652/10000*/,    0,                 0,                 0,                 0/*-1277.2/10*/},
+        {-4539.8/10000,     0,                 0,                 0,           0/*-1939.8/10*/,        -432.567/10000,      0,                 0,                 0,                 165.1161/10,         0/*371.3652/10000*/,     0,                 0,                 0,                 0/*-1277.2/10*/},
+        {4539.8/10000,    0,                 0,                 0,           0/*1939.8/10*/,           432.567/10000,     0,                 0,                 0,                 -165.1161/10,          0/*-371.3652/10000*/,    0,                 0,                 0,                0/* 1277.2/10*/}
+    };
+
+
+	float U[15];
+
+	MatrixMultiplier<8,15,1> matrix_multiplier;
+	Saturator<float> hems_reference_current_saturator;
+	Saturator<float> ems_reference_current_saturator;
+
+	DistanceControl(float(&distaces)[8], float(&current_references)[8]) :
+		y_derivator(period), z_derivator(period), rot_x_derivator(period), rot_y_derivator(period), rot_z_derivator(period),
+		y_integrator(period,1), z_integrator(period,1),
+		rot_x_integrator(period,1), rot_y_integrator(period,1), rot_z_integrator(period,1),
+		 airgap2pos(distaces), current_references(current_references), matrix_multiplier(K,U,unsaturated_currents),
+		 hems_reference_current_saturator(0, -coil_current_saturation, coil_current_saturation),
+		 ems_reference_current_saturator(0, 0, coil_current_saturation)
+	{}
+private:
+
+	enum U_MATRIX_POSITION{
+		POS_Y,
+		POS_Z,
+		ROT_X,
+		ROT_Y,
+		ROT_Z,
+		dPOS_Y,
+		dPOS_Z,
+		dROT_X,
+		dROT_Y,
+		dROT_Z,
+		iPOS_Y,
+		iPOS_Z,
+		iROT_X,
+		iROT_Y,
+		iROT_Z
+	};
+
+	void calculate_error(){
+		error = levitation_position;
+		error.z = z_reference - levitation_position.z;
+	}
+
+	void store_u(){
+		U[POS_Y] = error.y;
+		U[POS_Z] = error.z;
+		U[ROT_X] = error.rotation_x;
+		U[ROT_Y] = error.rotation_y;
+		U[ROT_Z] = error.rotation_z;
+		U[dPOS_Y] = y_filter_derivative.output_value;
+		U[dPOS_Z] = z_filter_derivative.output_value;
+		U[dROT_X] = rot_x_filter_derivative.output_value;
+		U[dROT_Y] = rot_y_filter_derivative.output_value;
+		U[dROT_Z] = rot_z_filter_derivative.output_value;
+		U[iPOS_Y] = y_integrator.output_value;
+		U[iPOS_Z] = z_integrator.output_value;
+		U[iROT_X] = rot_x_integrator.output_value;
+		U[iROT_Y] = rot_y_integrator.output_value;
+		U[iROT_Z] = rot_z_integrator.output_value;
+	}
+
+public:
+	void control(){
+		airgap2pos.execute();
+		calculate_error();
+
+		//Derivative
+		y_derivator.input(error.y);
+		z_derivator.input(error.z);
+		rot_x_derivator.input(error.rotation_x);
+		rot_y_derivator.input(error.rotation_y);
+		rot_z_derivator.input(error.rotation_z);
+		y_derivator.execute();
+		z_derivator.execute();
+		rot_y_derivator.execute();
+		rot_x_derivator.execute();
+		rot_z_derivator.execute();
+		y_filter_derivative.input(y_derivator.output_value);
+		z_filter_derivative.input(z_derivator.output_value);
+		rot_x_filter_derivative.input(rot_x_derivator.output_value);
+		rot_y_filter_derivative.input(rot_y_derivator.output_value);
+		rot_z_filter_derivative.input(rot_z_derivator.output_value);
+		y_filter_derivative.execute();
+		z_filter_derivative.execute();
+		rot_x_filter_derivative.execute();
+		rot_y_filter_derivative.execute();
+		rot_z_filter_derivative.execute();
+
+		//Integral
+		y_integrator.input(error.y);
+		z_integrator.input(error.z);
+		rot_x_integrator.input(error.rotation_x);
+		rot_y_integrator.input(error.rotation_y);
+		rot_z_integrator.input(error.rotation_z);
+		y_integrator.execute();
+		z_integrator.execute();
+		rot_x_integrator.execute();
+		rot_y_integrator.execute();
+		rot_z_integrator.execute();
+
+		store_u();
+		matrix_multiplier.execute();
+		saturate_reference_currents();
+	}
+
+	void set_z_reference(float new_reference){
+		z_reference = new_reference;
+	}
+
+	void saturate_reference_currents(){
+//		for(int i = 0; i < 8; i++) {
+//			reference_current_saturator.input(unsaturated_currents[i]);
+//			reference_current_saturator.execute();
+//			current_references[i] = reference_current_saturator.output_value;
+//		}
+		hems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::HEMS_1]);
+		hems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::HEMS_1] = hems_reference_current_saturator.output_value;
+
+		hems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::HEMS_2]);
+		hems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::HEMS_2] = hems_reference_current_saturator.output_value;
+
+		hems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::HEMS_3]);
+		hems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::HEMS_3] = hems_reference_current_saturator.output_value;
+
+		hems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::HEMS_4]);
+		hems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::HEMS_4] = hems_reference_current_saturator.output_value;
+
+		ems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::EMS_1]);
+		ems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::EMS_1] = ems_reference_current_saturator.output_value;
+
+		ems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::EMS_2]);
+		ems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::EMS_2] = ems_reference_current_saturator.output_value;
+
+		ems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::EMS_3]);
+		ems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::EMS_3] = ems_reference_current_saturator.output_value;
+
+		ems_reference_current_saturator.input(unsaturated_currents[LCU::COIL_ID::EMS_4]);
+		ems_reference_current_saturator.execute();
+		current_references[LCU::COIL_ID::EMS_4] = ems_reference_current_saturator.output_value;
+	}
+
+	void reset(){
+		y_integrator.reset();
+		z_integrator.reset();
+		rot_x_integrator.reset();
+		rot_y_integrator.reset();
+		rot_z_integrator.reset();
+
+		y_derivator.reset();
+		z_derivator.reset();
+		rot_x_derivator.reset();
+		rot_y_derivator.reset();
+		rot_z_derivator.reset();
+
+		y_filter_derivative.reset();
+		z_filter_derivative.reset();
+		rot_x_filter_derivative.reset();
+		rot_y_filter_derivative.reset();
+		rot_z_filter_derivative.reset();
+
+		matrix_multiplier.reset();
+
+		for(float& e: U){
+			e = 0.0;
+		}
+
+		levitation_position.y = 0.0;
+		levitation_position.z = 0.0;
+		levitation_position.rotation_x = 0.0;
+		levitation_position.rotation_y = 0.0;
+		levitation_position.rotation_z = 0.0;
+
+		error.y = 0.0;
+		error.z = 0.0;
+		error.rotation_x = 0.0;
+		error.rotation_y = 0.0;
+		error.rotation_z = 0.0;
+
+		for(float& e : current_references){
+			e = 0.0;
+		}
+
+		set_z_reference(default_z_reference);
+	}
+};

@@ -184,15 +184,14 @@
 ../Core/Inc/LCU_Communications/LCU_UDP/LCU_UDP.hpp:74:14:void LCU::UDP<LCU::VEHICLE_5DOF>::send_to_slave(Packet&)	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Control/Blocks/../ControlBlock.hpp:12:9:constexpr ControlBlock<InputType, OutputType>::ControlBlock() [with InputType = float (*)[8]; OutputType = LevitationPosition]	16	static
 ../Core/Inc/LCU_Control/LevitationPositionCalculator.hpp:16:5:LevitationPositionCalculator::LevitationPositionCalculator(float (&)[8])	16	static
-../Core/Inc/LCU_Control/LevitationPositionCalculator.hpp:20:10:virtual void LevitationPositionCalculator::execute()	24	static
-../Core/Inc/LCU_Control/LevitationPositionCalculator.hpp:38:10:void LevitationPositionCalculator::reset_position()	16	static
+../Core/Inc/LCU_Control/LevitationPositionCalculator.hpp:20:10:virtual void LevitationPositionCalculator::execute()	48	static
 ../Core/Inc/LCU_Control/DistanceControl.hpp:78:2:DistanceControl<LCU::VEHICLE_5DOF>::DistanceControl(float (&)[8], float (&)[8])	24	static
 ../Core/Inc/LCU_Control/DistanceControl.hpp:106:7:void DistanceControl<LCU::VEHICLE_5DOF>::calculate_error()	24	static
 ../Core/Inc/LCU_Control/DistanceControl.hpp:111:7:void DistanceControl<LCU::VEHICLE_5DOF>::store_u()	16	static
 ../Core/Inc/LCU_Control/DistanceControl.hpp:130:7:void DistanceControl<LCU::VEHICLE_5DOF>::control()	16	static
 ../Core/Inc/LCU_Control/DistanceControl.hpp:173:7:void DistanceControl<LCU::VEHICLE_5DOF>::set_z_reference(float)	16	static
-../Core/Inc/LCU_Control/DistanceControl.hpp:177:7:void DistanceControl<LCU::VEHICLE_5DOF>::saturate_reference_currents()	16	static
-../Core/Inc/LCU_Control/DistanceControl.hpp:216:7:void DistanceControl<LCU::VEHICLE_5DOF>::reset()	48	static
+../Core/Inc/LCU_Control/DistanceControl.hpp:177:7:void DistanceControl<LCU::VEHICLE_5DOF>::saturate_reference_currents()	56	static
+../Core/Inc/LCU_Control/DistanceControl.hpp:224:7:void DistanceControl<LCU::VEHICLE_5DOF>::reset()	48	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:229:8:Boundary<float, TIME_ACCUMULATION>::~Boundary()	16	static
 /home/stefancostea/Documents/ST-LIB/Inc/ST-LIB_HIGH/Protections/Boundary.hpp:149:2:constexpr Boundary<void, ERROR_HANDLER>::Boundary()	16	static
 ../Core/Inc/LCU_Data/LCU_Data.hpp:127:7:void LCU::Data<LCU::VEHICLE_5DOF>::add_protections()	352	static

@@ -1,0 +1,34 @@
+#include "main.h"
+#include "lwip.h"
+
+#include "ST-LIB.hpp"
+#include "Runes/Runes.hpp"
+#include "LCU_MASTER.hpp"
+#include "LCU_Time/LCU_Time.hpp"
+
+using namespace LCU;
+
+constexpr LCU::MASTER_MODE MODE_OF_OPERATION = VEHICLE_5DOF;
+
+int main(void)
+{
+	bool control_started = false;
+	LCU_MASTER<MODE_OF_OPERATION> lcu_master_singleton;
+	LCU_MASTER<MODE_OF_OPERATION>::lcu_master = &lcu_master_singleton;
+	LCU_MASTER<MODE_OF_OPERATION>::lcu_master->init();
+	CyclicActions<MODE_OF_OPERATION>::register_cyclic_actions();
+	while(1) {
+		STLIB::update();
+//		if(lcu_master_singleton.control.position_control.levitation_position.z > 0) control_started = true;
+//		if(control_started && lcu_master_singleton.control.position_control.levitation_position.z < 600){
+//			HAL_NVIC_SystemReset();
+//		}
+		LCU_MASTER<MODE_OF_OPERATION>::control_update();
+	}
+}
+
+void Error_Handler(void)
+{
+	ErrorHandler("HAL error handler triggered");
+	while (1){}
+}

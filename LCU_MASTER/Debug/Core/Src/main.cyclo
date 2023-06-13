@@ -185,14 +185,13 @@ LCU_UDP.hpp:74:14:void LCU::UDP<LCU::VEHICLE_5DOF>::send_to_slave(Packet&)	1
 ControlBlock.hpp:12:9:constexpr ControlBlock<InputType, OutputType>::ControlBlock() [with InputType = float (*)[8]; OutputType = LevitationPosition]	1
 LevitationPositionCalculator.hpp:16:5:LevitationPositionCalculator::LevitationPositionCalculator(float (&)[8])	1
 LevitationPositionCalculator.hpp:20:10:virtual void LevitationPositionCalculator::execute()	1
-LevitationPositionCalculator.hpp:38:10:void LevitationPositionCalculator::reset_position()	1
 DistanceControl.hpp:78:2:DistanceControl<LCU::VEHICLE_5DOF>::DistanceControl(float (&)[8], float (&)[8])	1
 DistanceControl.hpp:106:7:void DistanceControl<LCU::VEHICLE_5DOF>::calculate_error()	1
 DistanceControl.hpp:111:7:void DistanceControl<LCU::VEHICLE_5DOF>::store_u()	1
 DistanceControl.hpp:130:7:void DistanceControl<LCU::VEHICLE_5DOF>::control()	1
 DistanceControl.hpp:173:7:void DistanceControl<LCU::VEHICLE_5DOF>::set_z_reference(float)	1
-DistanceControl.hpp:177:7:void DistanceControl<LCU::VEHICLE_5DOF>::saturate_reference_currents()	1
-DistanceControl.hpp:216:7:void DistanceControl<LCU::VEHICLE_5DOF>::reset()	3
+DistanceControl.hpp:177:7:void DistanceControl<LCU::VEHICLE_5DOF>::saturate_reference_currents()	2
+DistanceControl.hpp:224:7:void DistanceControl<LCU::VEHICLE_5DOF>::reset()	3
 Boundary.hpp:229:8:Boundary<float, TIME_ACCUMULATION>::~Boundary()	1
 Boundary.hpp:149:2:constexpr Boundary<void, ERROR_HANDLER>::Boundary()	1
 LCU_Data.hpp:127:7:void LCU::Data<LCU::VEHICLE_5DOF>::add_protections()	1
