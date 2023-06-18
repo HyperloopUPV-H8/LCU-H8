@@ -219,7 +219,6 @@ namespace LCU{
 			actuators.init();
 			state_machine_handler.init();
 		    data.add_protections();
-		    if (not __HAL_RCC_GET_FLAG(RCC_FLAG_SFTRST)) HAL_NVIC_SystemReset();
 			sensors.current_zeroing();
 		}
 
